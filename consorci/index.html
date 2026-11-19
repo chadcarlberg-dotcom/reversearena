@@ -1,0 +1,1125 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><title>Reverse Arena Dossier</title>
+<meta name="robots" content="noindex">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* One presentation: slides stacked in order, the contents always on screen (a rail on desktop, a strip on phones). Single dark stage look, gold accents, as in the deck. */
+:root{
+  --ink:#0b0a0d; --panel:#15131a; --panel-2:#1c1922; --line:#f0c35a2e; --rule:#ffffff16;
+  --text:#f3ede2; --muted:#b4ab9e; --dim:#81796e; --gold:#e6b75e; --gold-2:#f3d28c; --neg:#e8836b;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif; --body:Outfit,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--ink);color:var(--text);font:400 16px/1.55 var(--body);margin:0}
+img,video{max-width:100%;display:block}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:clamp(20px,3vw,44px);max-width:1560px;margin:0 auto;padding-block:28px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* contents rail */
+.toc{position:sticky;top:calc(20px + env(safe-area-inset-top,0px));align-self:start;max-height:calc(100vh - 40px);overflow:auto;padding-right:4px}
+.brand{font:500 12px/1.3 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:4px 0 2px}
+.brand-sub{font-size:13px;color:var(--muted);margin:0 0 18px}
+.grp{font:500 11px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.toc a{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:baseline;padding:6px 8px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:14.5px;line-height:1.3}
+.toc a b{font-weight:500;color:var(--dim);font-size:12px;font-variant-numeric:tabular-nums}
+.toc a:hover{background:var(--panel);color:var(--text)}
+.toc a.on{background:var(--panel-2);color:var(--text)} .toc a.on b{color:var(--gold)}
+.toc a.pdf{display:block;margin-top:18px;border:1px solid var(--line);border-radius:999px;text-align:center;color:var(--gold);font-size:13.5px;padding:9px 12px}
+
+/* pages */
+main{min-width:0;display:grid;gap:clamp(34px,4vw,56px)}
+.pg{scroll-margin-top:16px}
+.pgh{display:flex;align-items:baseline;gap:12px;margin:0 0 10px;font:500 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.pgh b{color:var(--gold);font-weight:500}
+.sl{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--rule);background:#000;position:relative}
+.sl>img{width:100%;height:auto;cursor:zoom-in}
+.band-split{border-top:1px solid var(--line)}
+
+/* cover band */
+.cover-band{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:16px clamp(16px,2.4vw,30px);background:linear-gradient(180deg,#120f16,#0b0a0d);border-top:1px solid var(--line)}
+.cover-band .k{font:500 clamp(18px,2vw,26px)/1.2 var(--display);color:var(--text)}
+.cover-band .s{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);align-self:center}
+
+/* HTML slides: drawn at 16:9 and scaled with the page; on phones they reflow */
+.hw{container-type:inline-size}
+.hs{aspect-ratio:16/9;background:radial-gradient(120% 90% at 50% 0%,#1d1822 0%,#0d0b10 55%,#09080b 100%);padding:4.2cqw 5cqw 3.6cqw;display:flex;flex-direction:column;gap:2.2cqw;overflow:hidden}
+.eb{font:500 1.05cqw/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.ht{font:500 3.5cqw/1.08 var(--display);margin:0;text-wrap:balance}
+.ht span{color:var(--gold)}
+.hsub{font:300 1.55cqw/1.35 var(--body);color:var(--muted);margin:-.8cqw 0 0;max-width:62ch}
+.lab{font:500 .95cqw/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 .9cqw}
+.big{font:500 1.5cqw/1.35 var(--body);color:var(--text)}
+.small{font:300 1.18cqw/1.4 var(--body);color:var(--muted)}
+.foot{margin-top:auto;font:300 1.05cqw/1.4 var(--body);color:var(--dim);border-top:1px solid var(--rule);padding-top:1.2cqw}
+
+/* 03 who we are */
+.who{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:2.6cqw;flex:1;min-height:0}
+.credits{display:grid;gap:1.1cqw;align-content:start}
+.credits .row{border-left:2px solid var(--line);padding-left:1.1cqw}
+.credits .row .big{font-size:1.45cqw}
+.vidbox{display:flex;flex-direction:column;gap:1cqw;min-height:0}
+.vidbox video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:1cqw;border:1px solid var(--line);background:#000}
+.make{display:grid;gap:.85cqw;align-content:start;list-style:none;margin:0;padding:0}
+.make li{font:400 1.4cqw/1.3 var(--body);padding:.8cqw 1.1cqw;background:#ffffff08;border:1px solid var(--rule);border-radius:.8cqw}
+.make li.app{border-color:var(--line);color:var(--gold-2)}
+
+/* 05 film */
+.film{display:flex;flex-direction:column;gap:1.4cqw;flex:1;min-height:0}
+.film video{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:1cqw;border:1px solid var(--line);background:#000}
+
+/* 06 uses */
+.uses{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;flex:1;min-height:0}
+.use{display:flex;flex-direction:column;gap:.9cqw;min-height:0}
+.use img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:.9cqw;border:1px solid var(--rule)}
+.use .k{font:500 1.75cqw/1.15 var(--display)}
+.use .v{font:300 1.18cqw/1.35 var(--body);color:var(--muted);min-height:5.4em}
+.stats{display:flex;gap:3cqw;flex-wrap:wrap}
+.stat .n{font:500 2.6cqw/1 var(--display);color:var(--gold)} .stat .t{font:300 1.1cqw/1.3 var(--body);color:var(--muted);margin-top:.4cqw}
+
+/* 09 structure */
+.dia{display:grid;grid-template-columns:1fr 1.25fr 1fr;grid-template-rows:auto auto auto;gap:1.2cqw 2.2cqw;flex:1;align-content:center}
+.bx{border:1px solid var(--rule);background:#ffffff07;border-radius:1cqw;padding:1.05cqw 1.5cqw;position:relative}
+.bx .t{font:500 1.75cqw/1.15 var(--display)} .bx .v{font:300 1.2cqw/1.35 var(--body);color:var(--muted);margin-top:.5cqw}
+.bx .m{font:500 2.3cqw/1 var(--display);color:var(--gold);margin-top:.6cqw}
+.bx.key{border-color:var(--gold);background:linear-gradient(180deg,#2a2214,#16120c)}
+.bx.land{grid-column:2;border-color:var(--line)}
+.bx.co{grid-column:2;grid-row:2}
+.bx.eq{grid-column:1;grid-row:2} .bx.debt{grid-column:3;grid-row:2}
+.bx.sch{grid-column:2;grid-row:3}
+.bx.eq::after,.bx.debt::after{content:"";position:absolute;top:50%;width:2.2cqw;border-top:2px solid var(--gold)}
+.bx.eq::after{right:-2.2cqw} .bx.debt::after{left:-2.2cqw}
+.bx.land::after,.bx.sch::before{content:"";position:absolute;left:50%;height:1.2cqw;border-left:2px solid var(--gold)}
+.bx.land::after{bottom:-1.2cqw} .bx.sch::before{top:-1.2cqw}
+.uses-bar{display:flex;gap:.3cqw;height:2.1cqw;border-radius:.5cqw;overflow:hidden}
+.uses-bar i{display:block;background:var(--gold);opacity:.9} .uses-bar i:nth-child(2){opacity:.72} .uses-bar i:nth-child(3){opacity:.56} .uses-bar i:nth-child(4){opacity:.4} .uses-bar i:nth-child(5){opacity:.28}
+.uses-key{display:flex;flex-wrap:wrap;gap:.5cqw 2cqw;font:300 1.05cqw/1.3 var(--body);color:var(--muted);margin-top:.8cqw}
+.uses-key b{color:var(--text);font-weight:500}
+
+/* 10 P&L */
+.pl{width:100%;border-collapse:collapse;font:400 1.28cqw/1.2 var(--body);font-variant-numeric:tabular-nums}
+.pl th,.pl td{padding:.62cqw 1.2cqw;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap}
+.pl th:first-child,.pl td:first-child{text-align:left} #partners .pl td:nth-child(2){text-align:left}
+.pl thead th{font:500 .95cqw/1.2 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line)}
+.pl thead tr.top th{color:var(--dim);border-bottom:none;padding-bottom:0}
+.pl .em td{font-weight:600;color:var(--text);background:#e6b75e12}
+.pl .rent td{color:var(--gold-2)}
+.pl .mut td{color:var(--muted)}
+.pl .gap td{border-bottom:1px solid var(--line)}
+.dn{color:var(--muted)}
+
+/* 17 timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;position:relative;margin-top:3cqw}
+.tl::before{content:"";position:absolute;left:0;right:0;top:1.1cqw;border-top:2px solid var(--line)}
+.st{position:relative;padding-top:2.8cqw}
+.st::before{content:"";position:absolute;top:.45cqw;left:0;width:1.4cqw;height:1.4cqw;border-radius:50%;background:var(--gold);box-shadow:0 0 0 .5cqw #e6b75e22}
+.st .y{font:500 .95cqw/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.st .d{font:400 1.6cqw/1.3 var(--body);margin-top:.7cqw}
+.jobs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;margin-top:5cqw}
+.job{border:1px solid var(--rule);border-radius:1cqw;padding:1.4cqw;background:#ffffff06}
+.job .n{font:500 3.8cqw/1 var(--display);color:var(--gold)} .job .t{font:300 1.15cqw/1.35 var(--body);color:var(--muted);margin-top:.6cqw}
+
+/* 18 letter, 20 documents */
+.letter{display:grid;grid-template-columns:1fr 1.1fr;gap:3cqw;flex:1;min-height:0;align-items:center}
+.letter img{max-height:41cqw;width:auto;max-width:100%;margin:auto;border-radius:.6cqw;box-shadow:0 1cqw 4cqw #000a;cursor:zoom-in}
+.docs{display:grid;grid-template-columns:1.25fr 1fr;gap:3cqw;flex:1;min-height:0;align-items:center}
+.docs img{max-height:41cqw;width:auto;max-width:100%;margin:auto;border-radius:.8cqw;border:1px solid var(--rule);cursor:zoom-in}
+.doclist{list-style:none;margin:0;padding:0;display:grid;gap:1cqw}
+.doclist li{border:1px solid var(--rule);border-radius:.9cqw;padding:1.2cqw 1.4cqw;background:#ffffff06}
+.doclist .t{font:500 1.55cqw/1.2 var(--display)} .doclist .v{font:300 1.12cqw/1.35 var(--body);color:var(--muted);margin-top:.35cqw}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:#000e;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));cursor:zoom-out}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:#15131acc;color:var(--text);font-size:22px;cursor:pointer}
+
+/* mid widths: the rail narrows */
+@media (max-width:1180px){ .layout{grid-template-columns:210px minmax(0,1fr)} .toc a{font-size:13.5px} }
+/* phones and small tablets: a sticky bar shows where you are and opens the full contents */
+.bar{display:none}
+
+/* summary and full P&L pages */
+.sum{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr);gap:2.4cqw;flex:1;min-height:0}
+.sum .lab{margin:0 0 .7cqw}
+.kv{display:grid;grid-template-columns:auto 1fr;column-gap:1.2cqw;row-gap:.5cqw;font:400 1.08cqw/1.25 var(--body);margin:0 0 1.6cqw}
+.kv dt{color:var(--muted);white-space:nowrap} .kv dd{margin:0;color:var(--text);min-width:0}
+.mini{width:100%;border-collapse:collapse;font:400 1.05cqw/1.2 var(--body);font-variant-numeric:tabular-nums;margin:0 0 1.6cqw}
+.mini th,.mini td{padding:.36cqw .5cqw;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+.mini th:first-child,.mini td:first-child{text-align:left;padding-left:0}
+.mini thead th{font:500 .82cqw/1.1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mini .em td{font-weight:600} .mini .rent td{color:var(--gold-2)}
+.pl.full{font-size:1.02cqw;line-height:1.15} .pl.full th,.pl.full td{padding:.19cqw 1cqw} .pl.full .sub td{color:var(--muted);font-size:.95cqw} #pl-base .hs,#pl-down .hs,#opex .hs{gap:1.3cqw;padding-top:3.2cqw}
+.pl.full .hd td{color:var(--gold);font:500 .8cqw/1 var(--body);letter-spacing:.2em;text-transform:uppercase;border-bottom:none;padding-top:.55cqw}
+.chart .sep{width:0;align-self:stretch;border-left:.25cqw solid var(--gold);opacity:.7;margin:0 1cqw;transform:skewX(-14deg)}
+.mbtn{position:absolute;top:3.1cqw;right:5cqw;font:400 1cqw/1 var(--body)} #pl-base .hs,#pl-down .hs,#opex .hs{position:relative}
+.modelbtn{font:500 1.05cqw/1 var(--body);letter-spacing:.06em;color:#140e05;background:var(--gold);border:0;border-radius:999px;padding:.8cqw 1.6cqw;cursor:pointer}
+@media print{.screen-only{display:none!important}}
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr);padding-top:0}
+  .toc{position:fixed;inset:0;z-index:40;max-height:none;background:#0b0a0df7;backdrop-filter:blur(12px);padding:calc(70px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 30px max(20px,env(safe-area-inset-left,0px));overflow:auto;display:none}
+  body.menu .toc{display:block}
+  .toc a{font-size:16px;padding:9px 10px}
+  .bar{display:flex;position:sticky;top:0;z-index:45;align-items:center;gap:12px;background:#0b0a0df2;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+  .bar button{display:flex;align-items:center;gap:10px;flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:999px;color:var(--text);font:500 14px/1.2 var(--body);padding:10px 16px;cursor:pointer;text-align:left}
+  .bar button b{color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums;flex:none}
+  .bar button span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+  .bar button i{font-style:normal;color:var(--muted);flex:none;font-size:13px}
+  .pg{scroll-margin-top:70px}
+  main{padding-top:20px}
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:19;background:#0b0a0d}
+/* the HTML slides reflow when the page is narrow */
+@container (max-width:720px){
+  .hs{aspect-ratio:auto;padding:22px 18px;gap:16px}
+  .eb{font-size:11px} .ht{font-size:26px} .hsub{font-size:15px;margin:0} .lab{font-size:11px;margin-bottom:8px}
+  .big{font-size:15px} .small{font-size:14px} .foot{font-size:12.5px;padding-top:10px}
+  .who,.uses,.dia,.letter,.docs{grid-template-columns:1fr;gap:16px}
+  .credits .row .big{font-size:15px} .credits{gap:10px} .credits .row{padding-left:10px}
+  .make{gap:8px} .make li{font-size:15px;padding:9px 12px;border-radius:8px}
+  .vidbox video,.film video{border-radius:8px} .film video{flex:none;aspect-ratio:16/9}
+  .use img{flex:none;aspect-ratio:16/10;border-radius:8px} .use .k{font-size:19px} .use .v{font-size:14px} .use{gap:6px}
+  .stats{gap:16px} .stat .n{font-size:24px} .stat .t{font-size:13px}
+  .bx,.bx.land,.bx.co,.bx.eq,.bx.debt,.bx.sch{grid-column:1;grid-row:auto;padding:12px 14px;border-radius:10px}
+  .bx .t{font-size:18px} .bx .v{font-size:14px} .bx .m{font-size:22px}
+  .bx.eq::after,.bx.debt::after,.bx.land::after,.bx.sch::before{display:none}
+  .uses-bar{height:14px} .uses-key{font-size:13px;gap:4px 14px}
+  .tl{grid-template-columns:1fr;gap:14px} .tl::before{left:7px;right:auto;top:0;bottom:0;border-top:none;border-left:2px solid var(--line)}
+  .st{padding:0 0 0 26px} .st::before{top:3px;left:0;width:16px;height:16px} .st .y{font-size:11px} .st .d{font-size:15px;margin-top:4px}
+  .jobs{grid-template-columns:1fr 1fr;gap:10px} .job{padding:12px;border-radius:10px} .job .n{font-size:26px} .job .t{font-size:13px}
+  .letter img,.docs img{max-height:none;width:100%}
+  .pl{font-size:13px} .pl th,.pl td{padding:8px 8px} .pl thead th{font-size:10px;letter-spacing:.12em} .pl td:first-child{white-space:normal;min-width:130px} .doclist .t{font-size:17px} .doclist .v{font-size:14px} .doclist li{padding:12px 14px;border-radius:10px}
+}
+
+/* 03 at a glance */
+.glance{display:grid;grid-template-columns:1fr 1.5fr;gap:3cqw;flex:1;min-height:0}
+.gl-l{display:flex;flex-direction:column;gap:1.4cqw;min-height:0}
+.gl-l video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:1cqw;border:1px solid var(--line);background:#000}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:1.3cqw;align-content:start}
+.tile{display:block;text-decoration:none;color:inherit;border:1px solid var(--rule);background:#ffffff07;border-radius:1cqw;padding:1.3cqw 1.5cqw;transition:border-color .2s}
+.tile:hover{border-color:var(--gold)}
+.tile .q{font:500 .95cqw/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.tile .n{font:500 2.5cqw/1.05 var(--display);margin-top:.8cqw} .tile .t{font:300 1.15cqw/1.35 var(--body);color:var(--muted);margin-top:.5cqw}
+/* 08 areas */
+.areas{display:grid;grid-template-columns:1.15fr 1fr;gap:3.4cqw;flex:1;min-height:0;align-items:center}
+.ab{display:grid;gap:1.5cqw}
+.ab .r{display:grid;grid-template-columns:13cqw 1fr;gap:1.2cqw;align-items:center}
+.ab .k{font:500 1.45cqw/1.15 var(--display)} .ab .k small{display:block;font:300 1cqw/1.3 var(--body);color:var(--muted);margin-top:.3cqw}
+.ab .track{position:relative;height:3.2cqw;border-radius:.6cqw;background:#ffffff08}
+.ab .lo{position:absolute;left:0;top:0;bottom:0;background:var(--gold);border-radius:.6cqw 0 0 .6cqw}
+.ab .hi{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,#e6b75e66 0 .5cqw,#e6b75e2e .5cqw 1cqw);border-radius:0 .6cqw .6cqw 0}
+.ab .v{position:absolute;right:1cqw;top:50%;transform:translateY(-50%);font:500 1.2cqw/1 var(--body);color:var(--text);text-shadow:0 1px 6px #000}
+.ab .r.tot .k{color:var(--gold)} .ab .r.tot .lo{background:var(--gold-2)}
+.needs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2cqw}
+.need{border:1px solid var(--rule);border-radius:1cqw;padding:1.2cqw;background:#ffffff06;display:flex;flex-direction:column;gap:.5cqw}
+.need svg{width:2.6cqw;height:2.6cqw;stroke:var(--gold);fill:none;stroke-width:1.6}
+.need .n{font:500 1.75cqw/1.05 var(--display)} .need .t{font:300 1.05cqw/1.3 var(--body);color:var(--muted)}
+/* 10 P&L chart */
+.plw{display:grid;grid-template-columns:1.2fr 1fr;gap:3cqw;flex:1;min-height:0;align-items:center}
+.chart{display:grid;grid-template-columns:1fr 1fr auto 1fr 1fr;gap:1.6cqw;align-items:end;height:24cqw;padding-bottom:4.2cqw;position:relative;border-bottom:1px solid var(--rule)}
+.col{display:flex;gap:.5cqw;align-items:flex-end;height:100%;position:relative}
+.col .b{flex:1;border-radius:.4cqw .4cqw 0 0;position:relative}
+.col .b.rev{background:var(--gold)} .col .b.cost{background:#8d7b63}
+.col .b em{position:absolute;top:-1.6cqw;left:0;right:0;text-align:center;font:500 1.05cqw/1 var(--body);font-style:normal;color:var(--text)}
+.col .lbl{position:absolute;left:0;right:0;bottom:-3.9cqw;text-align:center;font:500 1cqw/1.25 var(--body);color:var(--muted)} .col .lbl b{display:block;color:var(--text);font-weight:500}
+.legend{display:flex;gap:2cqw;font:300 1.05cqw/1 var(--body);color:var(--muted);margin-top:1.4cqw} .legend i{display:inline-block;width:1cqw;height:1cqw;border-radius:.2cqw;margin-right:.6cqw;vertical-align:-.1cqw}
+/* 13 school */
+.school{display:grid;grid-template-columns:1fr 1.25fr;gap:3cqw;flex:1;min-height:0}
+.school>img{width:100%;height:100%;object-fit:cover;border-radius:1cqw;border:1px solid var(--rule);min-height:0}
+.sc-r{display:flex;flex-direction:column;gap:1.5cqw;min-height:0}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw}
+.nums>div{border:1px solid var(--rule);border-radius:1cqw;padding:1.2cqw;background:#ffffff06}
+.nums .n{font:500 3cqw/1 var(--display);color:var(--gold)} .nums .t{font:300 1.1cqw/1.3 var(--body);color:var(--muted);margin-top:.5cqw}
+.uni{display:grid;grid-template-columns:8cqw 1fr;gap:1.6cqw;align-items:center;border-top:1px solid var(--rule);padding-top:1.5cqw}
+.uni img{width:100%;border-radius:.4cqw;cursor:zoom-in;box-shadow:0 .6cqw 2cqw #0009}
+.print-only{display:none}
+.lb[hidden]{display:none!important}
+.mdl{position:fixed;inset:0;z-index:60;background:rgba(8,6,3,.94);display:flex;flex-direction:column}
+.mdl[hidden]{display:none!important}
+.mdl-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid rgba(214,177,106,.25);color:#efe6d4;font:500 13px/1.3 var(--body)}
+.mdl-bar b{font-weight:600;letter-spacing:.04em;margin-right:auto}
+.mdl-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.mdl-tabs button,.mdl-x{font:500 12px/1 var(--body);color:#efe6d4;background:transparent;border:1px solid rgba(214,177,106,.45);border-radius:999px;padding:7px 12px;cursor:pointer}
+.mdl-tabs button[aria-current=true]{background:var(--gold);color:#140e05;border-color:var(--gold)}
+.mdl-x{font-size:16px;padding:5px 12px}
+.mdl-body{flex:1;overflow:auto;padding:16px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
+.mdl-body img{display:block;width:100%;max-width:none;background:#fff;border-radius:4px;cursor:zoom-in}
+.mdl-body.zoom img{width:220%;cursor:zoom-out}
+.mdl-note{color:#bfb39b;font:400 12px/1.4 var(--body);padding:0 0 10px}
+
+@container (max-width:720px){
+  .glance,.areas,.plw,.school{grid-template-columns:1fr;gap:16px}
+  .tiles{gap:10px} .tile{padding:12px;border-radius:10px} .tile .q{font-size:10px} .tile .n{font-size:20px;margin-top:6px} .tile .t{font-size:13px}
+  .ab{gap:12px} .ab .r{grid-template-columns:1fr;gap:6px} .ab .k{font-size:16px} .ab .k small{font-size:12.5px} .ab .track{height:26px;border-radius:6px} .ab .v{font-size:13px;right:8px}
+  .needs{grid-template-columns:1fr 1fr;gap:10px} .need{padding:10px;border-radius:10px} .need svg{width:24px;height:24px} .need .n{font-size:17px} .need .t{font-size:12.5px}
+  .chart{height:220px;max-height:none;padding-bottom:44px;gap:10px} .col .b em{font-size:11px;top:-15px} .col .lbl{font-size:11px;bottom:-40px} .legend{font-size:12px;gap:14px;flex-wrap:wrap} .legend i{width:10px;height:10px}
+  .school>img{aspect-ratio:16/10;height:auto} .nums{gap:8px} .nums>div{padding:10px;border-radius:10px} .nums .n{font-size:24px} .nums .t{font-size:12.5px}
+  .uni{grid-template-columns:64px 1fr;gap:12px;padding-top:12px}
+}
+
+/* summary: the four questions */
+.q4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.4cqw;flex:1;min-height:0}
+.qc{border:1px solid var(--rule);border-radius:1.1cqw;padding:1.6cqw 1.5cqw;background:linear-gradient(180deg,#ffffff0a,#ffffff03);display:flex;flex-direction:column;gap:1cqw}
+.qc.key{border-color:var(--gold);background:linear-gradient(180deg,#2a2214,#15110b)}
+.qn{font:500 1cqw/1 var(--body);letter-spacing:.24em;color:var(--gold)}
+.qh{font:500 2.1cqw/1.1 var(--display)}
+.qc ul{list-style:none;margin:0;padding:0;display:grid;gap:.9cqw}
+.qc li{font:300 1.2cqw/1.38 var(--body);color:var(--text);padding-left:1.1cqw;position:relative}
+.qc li::before{content:"";position:absolute;left:0;top:.62cqw;width:.42cqw;height:.42cqw;border-radius:50%;background:var(--gold)}
+.strip{display:flex;justify-content:space-between;gap:1.5cqw;border-top:1px solid var(--line);padding-top:1.3cqw;font:300 1.2cqw/1 var(--body);color:var(--muted)}
+.strip b{font:500 2cqw/1 var(--display);color:var(--gold);margin-right:.5cqw}
+/* proof, 3D model, city, ask */
+.proofw{display:grid;grid-template-columns:1.6fr 1fr;gap:3cqw;flex:1;min-height:0;align-items:center}
+.proofw video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:1cqw;border:1px solid var(--line);background:#000}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:1.3cqw}
+.pts li{border-left:2px solid var(--gold);padding-left:1.3cqw;font:300 1.25cqw/1.38 var(--body);color:var(--muted)}
+.pts li b{display:block;font:500 1.7cqw/1.2 var(--display);color:var(--text);margin-bottom:.25cqw}
+.m3{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1cqw;flex:1;min-height:0}
+.m3 img{width:100%;height:100%;object-fit:cover;border-radius:.9cqw;border:1px solid var(--rule);min-height:0;cursor:zoom-in}
+.m3b{display:flex;align-items:center;gap:2cqw}
+a.modelbtn{text-decoration:none;display:inline-block}
+.cityw{display:grid;grid-template-columns:1fr 1.25fr;gap:3cqw;flex:1;min-height:0}
+.cityw>img{width:100%;height:100%;object-fit:cover;border-radius:1cqw;border:1px solid var(--rule);min-height:0}
+.cl{display:flex;flex-direction:column;gap:1.8cqw;justify-content:center} .cl .pts{gap:.95cqw} .cl .pts li{font-size:1.12cqw} .cl .pts li b{font-size:1.45cqw}
+.askw{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;flex:1;min-height:0}
+.askc{border:1px solid var(--rule);border-radius:1.1cqw;padding:2cqw;background:#ffffff06}
+.askc.key{border-color:var(--gold);background:linear-gradient(180deg,#2a2214,#15110b)}
+.askc .pts{gap:1.7cqw}
+.next{border:1px solid var(--line);border-radius:999px;padding:1.2cqw 2cqw;font:300 1.35cqw/1.3 var(--body);color:var(--text)}
+.next b{color:var(--gold);font-weight:500;margin-right:1cqw;letter-spacing:.14em;text-transform:uppercase;font-size:1cqw}
+@container (max-width:720px){
+  .q4,.proofw,.cityw,.askw{grid-template-columns:1fr;gap:12px} .qc{padding:14px;border-radius:12px;gap:8px} .qn{font-size:11px} .qh{font-size:20px} .qc li{font-size:14.5px;padding-left:14px} .qc li::before{top:8px;width:6px;height:6px}
+  .strip{flex-wrap:wrap;font-size:13px;gap:10px 16px;padding-top:12px} .strip b{font-size:20px}
+  .pts li{font-size:14px;padding-left:12px} .pts li b{font-size:17px} .cl .pts li{font-size:14px} .cl .pts li b{font-size:17px}
+  .m3{grid-template-columns:1fr;grid-template-rows:none} .m3 img{aspect-ratio:16/9;height:auto} .m3b{flex-wrap:wrap;gap:10px}
+  .cityw>img{aspect-ratio:16/10;height:auto} .askc{padding:14px;border-radius:12px} .next{border-radius:14px;padding:12px 14px;font-size:14px} .next b{display:block;font-size:11px;margin-bottom:4px}
+}
+/* footnotes: one point per line */
+.foot .ln{display:block} .foot .ln+.ln{margin-top:.35cqw}
+/* timeline and jobs */
+.jobw{display:grid;grid-template-columns:15cqw minmax(0,1fr);gap:1.4cqw;margin-top:3.4cqw}
+.jobw .jobs{margin-top:0;gap:1.4cqw}
+.jtot{border:1px solid var(--gold);background:linear-gradient(180deg,#2a2214,#15110b);border-radius:1cqw;padding:1.6cqw;display:flex;flex-direction:column;justify-content:center}
+.jtot .n{font:500 5.6cqw/1 var(--display);color:var(--gold)} .jtot .t{font:400 1.3cqw/1.3 var(--body);color:var(--text);margin-top:.7cqw}
+.job .h{font:500 1.45cqw/1.15 var(--display);color:var(--text);margin-top:.7cqw}
+.plus{display:flex;gap:1.2cqw;flex-wrap:wrap;margin-top:.4cqw}
+.plus span{border:1px solid var(--rule);border-radius:999px;padding:.75cqw 1.5cqw;font:300 1.15cqw/1.2 var(--body);color:var(--muted);background:#ffffff05}
+.plus b{color:var(--gold);font:500 1.45cqw/1 var(--display);margin-right:.6cqw}
+/* partners */
+.pw{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto 1fr;gap:1.4cqw;flex:1;min-height:0}
+.pc{border:1px solid var(--rule);border-radius:1.1cqw;padding:1.5cqw 1.6cqw;background:linear-gradient(180deg,#ffffff0a,#ffffff03);display:flex;flex-direction:column;gap:1.1cqw;min-height:0}
+.p-fac{grid-column:3;grid-row:1 / span 2;border-color:var(--line)}
+.p-res{grid-column:1 / span 2;grid-row:2;flex-direction:row;align-items:center;gap:2cqw}
+.pr-l{flex:1;display:flex;flex-direction:column;gap:1.1cqw;min-width:0}
+.p-res img{height:13cqw;width:auto;border-radius:.4cqw;box-shadow:0 .8cqw 2.4cqw #000a;cursor:zoom-in;flex:none}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:1cqw}
+.ph .lab{margin:0}
+.pill{font:500 .85cqw/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#140e05;background:var(--gold);border-radius:999px;padding:.45cqw .9cqw;white-space:nowrap}
+.pill.c{background:transparent;color:var(--gold-2);border:1px solid var(--gold)} .pill.r{background:#ffffff14;color:var(--text)}
+.pe{border-left:2px solid var(--line);padding-left:1.1cqw}
+.pn{font:500 1.55cqw/1.2 var(--display);color:var(--text)}
+.pr{font:300 1.12cqw/1.35 var(--body);color:var(--muted);margin-top:.3cqw}
+@container (max-width:720px){
+  .jobw{grid-template-columns:1fr;gap:10px;margin-top:6px} .jtot{padding:14px;border-radius:10px} .jtot .n{font-size:34px} .jtot .t{font-size:14px}
+  .job .h{font-size:15px;margin-top:6px}
+  .plus{gap:8px} .plus span{font-size:13px;padding:7px 12px} .plus b{font-size:15px}
+  .foot .ln+.ln{margin-top:4px}
+  .pw{grid-template-columns:1fr;grid-template-rows:none;gap:12px} .p-fac,.p-res{grid-column:auto;grid-row:auto}
+  .pc{padding:14px;border-radius:12px;gap:10px} .p-res{flex-direction:column;align-items:stretch} .p-res img{height:auto;width:60%;max-width:240px}
+  .pill{font-size:10px;padding:5px 9px} .pe{padding-left:10px} .pn{font-size:16px} .pr{font-size:13.5px}
+}
+/* proof: at sea, then Barcelona */
+.proofw{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:1.8cqw;align-items:start;align-content:center}
+.pf{margin:0;display:flex;flex-direction:column;gap:1.3cqw;min-width:0}
+.pm{aspect-ratio:16/9;border-radius:1cqw;overflow:hidden;border:1px solid var(--line);background:#000}
+.proofw .pm video,.pm img{width:100%;height:100%;object-fit:cover;border-radius:0;border:0;aspect-ratio:auto}
+.pm img[data-lb]{cursor:zoom-in}
+.playt{position:relative;display:block;width:100%;height:100%}.playt img{width:100%;height:100%;object-fit:cover}.playb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:4.2cqw;height:4.2cqw;border-radius:50%;background:rgba(0,0,0,.55);border:2px solid rgba(255,255,255,.85);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8cqw;padding-left:.3cqw}
+.pf figcaption{display:flex;flex-direction:column;gap:.45cqw}
+.pf figcaption .lab{margin:0}
+.pf figcaption b{font:500 2.1cqw/1.15 var(--display);color:var(--text)}
+.pf figcaption span:last-child{font:300 1.25cqw/1.4 var(--body);color:var(--muted)}
+.parr{align-self:start;margin-top:10cqw} .parr svg{display:block;width:3.4cqw;stroke:var(--gold);fill:none;stroke-width:2}
+/* the ask */
+.askw{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.askc{display:flex;flex-direction:column;min-height:0}
+.ask2{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:1.8cqw;align-items:center;flex:1}
+.plot{margin:0} .plot svg{width:100%;height:auto;display:block}
+.p-plot{fill:#e6b75e0c;stroke:var(--gold);stroke-width:1.5}
+.p-hall{fill:#e6b75e14;stroke:var(--gold-2);stroke-width:1}
+.p-ring{fill:none;stroke:#e6b75e3a;stroke-width:24} .p-ring2{fill:#e6b75e1c;stroke:#f3d28caa;stroke-width:1}
+.p-adj{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:5 4;opacity:.75}
+.plot text{text-anchor:middle;font-family:var(--body)}
+.p-t1{font:500 17px var(--display);fill:var(--text)} .p-t2{font-size:12.5px;fill:var(--text)} .p-t3{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--muted)} .p-t4{font-size:11px;fill:var(--muted)}
+.plot .g{fill:var(--gold)} .plot .l{text-anchor:start}
+.askc.bring{justify-content:flex-end;background:linear-gradient(180deg,#0d0b1000 0%,#0d0b1010 16%,#0d0b10d9 36%,#0d0b10 50%),url(r-two.jpg) center 15%/100% auto no-repeat,#0d0b10;border-color:var(--rule)}
+.bring .pts{gap:1.2cqw}
+/* structure */
+.dia{grid-template-columns:1fr 1.7fr 1fr;gap:.9cqw 2.2cqw}
+.bx{padding:.95cqw 1.5cqw}
+.bx .v+.v{margin-top:.25cqw}
+.bx .t .pc2{font:600 1.05cqw/1 var(--body);color:#140e05;background:var(--gold);border-radius:999px;padding:.32cqw .7cqw;margin-left:.6cqw;vertical-align:.25cqw;letter-spacing:.04em}
+.bx .m small{font:300 1.15cqw/1 var(--body);color:var(--muted);margin-left:.5cqw}
+#structure .hs{gap:1.3cqw;padding-bottom:3.2cqw} #structure .bx .t{font-size:1.6cqw} #structure .bx .m{font-size:2.1cqw;margin-top:.4cqw}
+/* timeline spacing */
+#timeline .hs{gap:1.6cqw} #timeline .tl{margin-top:1.2cqw} #timeline .jobw{margin-top:1.6cqw} #timeline .st .d{font-size:1.45cqw}
+.p-fac{gap:1.7cqw}
+@container (max-width:720px){
+  .proofw{grid-template-columns:1fr;gap:16px} .parr{display:none} .pm{border-radius:8px} .pf{gap:8px} .pf figcaption b{font-size:18px} .pf figcaption span:last-child{font-size:14px}
+  .askw,.dia{grid-template-columns:1fr;gap:12px} .bx{padding:12px 14px}
+  .ask2{grid-template-columns:1fr;gap:14px} .askc.bring{padding-top:140px}
+  .bx .t .pc2{font-size:11px;padding:3px 7px;margin-left:6px} .bx .m small{font-size:12.5px}
+}
+#opex .pl.full{font-size:1.12cqw} #opex .pl.full th,#opex .pl.full td{padding:.24cqw 1cqw} #opex .hs>div[style]{flex:none}
+.obar .lab{margin-bottom:.8cqw}
+.uses-bar.o10 i:nth-child(n){opacity:1} .o10 i:nth-child(1){background:#f3d28c} .o10 i:nth-child(2){background:#e6b75e} .o10 i:nth-child(3){background:#cf9f4c} .o10 i:nth-child(4){background:#b98a40} .o10 i:nth-child(5){background:#a17636} .o10 i:nth-child(6){background:#8a642e} .o10 i:nth-child(7){background:#745428} .o10 i:nth-child(8){background:#604623} .o10 i:nth-child(9){background:#4e3a1e} .o10 i:nth-child(10){background:#3e2f19}
+.obar .uses-key span::before{content:"";display:inline-block;width:.8cqw;height:.8cqw;border-radius:.15cqw;margin-right:.5cqw;vertical-align:-.05cqw}
+.obar .uses-key span:nth-child(1)::before{background:#f3d28c}.obar .uses-key span:nth-child(2)::before{background:#e6b75e}.obar .uses-key span:nth-child(3)::before{background:#cf9f4c}.obar .uses-key span:nth-child(4)::before{background:#b98a40}.obar .uses-key span:nth-child(5)::before{background:#a17636}.obar .uses-key span:nth-child(6)::before{background:#8a642e}.obar .uses-key span:nth-child(7)::before{background:#745428}.obar .uses-key span:nth-child(8)::before{background:#604623}.obar .uses-key span:nth-child(9)::before{background:#4e3a1e}.obar .uses-key span:nth-child(10)::before{background:#3e2f19}
+@container (max-width:720px){.obar .uses-key span::before{width:9px;height:9px;margin-right:5px}}
+.hs.fdr{padding:0;gap:0;background:#07060a}
+.hs.fdr>img{flex:1;min-height:0;width:100%;object-fit:contain;cursor:zoom-in;background:#07060a}
+.why{display:grid;grid-template-columns:auto 1fr;gap:1cqw 2.4cqw;align-items:center;padding:1.5cqw 4cqw 1.7cqw;border-top:1px solid var(--line);background:linear-gradient(180deg,#120f16,#0b0a0d)}
+.why .lab{margin:0}
+.why ul{list-style:none;margin:0;padding:0;display:grid;gap:.45cqw}
+.why li{font:300 1.22cqw/1.35 var(--body);color:var(--text);padding-left:1.1cqw;position:relative}
+.why li::before{content:"";position:absolute;left:0;top:.6cqw;width:.4cqw;height:.4cqw;border-radius:50%;background:var(--gold)}
+@container (max-width:720px){ .hs.fdr>img{flex:none;aspect-ratio:16/9;height:auto} .why{grid-template-columns:1fr;padding:14px 16px;gap:8px} .why li{font-size:14.5px;padding-left:14px} .why li::before{top:8px;width:6px;height:6px} }
+
+/* rebuilt pages: concept, room, configs, producers, cameras, school, founders */
+.cpt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:3cqw;flex:1;min-height:0}
+.cpt-l{display:flex;flex-direction:column;justify-content:center;gap:3cqw;min-width:0}
+.cpt-lead{list-style:none;margin:0;padding:0;display:grid;gap:1.2cqw}
+.cpt-lead li{font:400 1.75cqw/1.35 var(--body);color:var(--text);border-left:2px solid var(--gold);padding-left:1.4cqw}
+.cpt-n{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw}
+.cpt-n div{border-top:1px solid var(--line);padding-top:1.1cqw}
+.cpt-n b{display:block;font:500 5.4cqw/1 var(--display);color:var(--gold)}
+.cpt-n span{display:block;font:400 1.3cqw/1.35 var(--body);color:var(--muted);margin-top:.6cqw}
+.cpt-r{margin:0;display:flex;flex-direction:column;gap:.9cqw;min-height:0}
+.cpt-r img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:1cqw;border:1px solid var(--line);cursor:zoom-in}
+.cpt-r figcaption,.cf-m figcaption{font:400 1.25cqw/1.35 var(--body);color:var(--muted)}
+.rm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3.4cqw;flex:1;min-height:0;align-items:center}
+.rm-plan{margin:0;display:flex;flex-direction:column;align-items:center;gap:1cqw;min-height:0;height:100%}
+.ring{height:100%;max-height:36cqw;width:auto;max-width:100%;display:block;flex:1;min-height:0}
+.ring text,.cf text{font-family:var(--body);text-anchor:middle}
+.sec{fill:#221c14;stroke:#e6b75e55;stroke-width:1.2} .sec.on{fill:#e6b75e;stroke:#f3d28c}
+.ent{fill:#f3d28c}
+.plat{fill:#141118;stroke:#f3d28c99;stroke-width:1.5}
+.seat rect{fill:#8d7b63} .fw{fill:none;stroke:#f3d28c;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.led{fill:none;stroke:#f6e3b4;stroke-width:6;stroke-linecap:round;filter:drop-shadow(0 0 4px #f3d28c)}
+.stl{font-size:17px;font-weight:500;fill:var(--text)} .stl.on{fill:#140e05;font-weight:600}
+.dim{stroke:#f3ede2aa;stroke-width:1.2} .pill{fill:#0b0a0de6;stroke:#f3d28c66}
+.dt{font-size:14px;fill:var(--text)} .dt.l{text-anchor:start}
+.rm-key{display:flex;gap:2cqw;flex-wrap:wrap;justify-content:center;font:400 1.2cqw/1 var(--body);color:var(--muted)}
+.rm-key i{display:inline-block;width:1.4cqw;height:.9cqw;border-radius:.2cqw;margin-right:.6cqw;vertical-align:-.05cqw}
+.k-on{background:#e6b75e} .k-led{background:#f6e3b4;height:.3cqw!important;vertical-align:.25cqw!important} .k-ent{background:#f3d28c;width:.8cqw!important;height:.8cqw!important;transform:rotate(45deg)}
+.rm-pts{gap:1.6cqw}
+.cf{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.6cqw;flex:1;min-height:0;align-items:center}
+.cf-m{margin:0;display:flex;flex-direction:column;align-items:center;gap:1cqw;text-align:center}
+.cf-m svg{width:100%;height:auto;display:block}
+.cf-m figcaption{color:var(--text);font-weight:500}
+.mn{font-size:30px;font-weight:600;fill:#e6b75e99} .mn.on{fill:#140e05}
+.cf-l{list-style:none;margin:0;padding:1.4cqw 0 0;border-top:1px solid var(--line);display:grid;gap:.7cqw}
+.cf-l li{font:400 1.4cqw/1.35 var(--body);color:var(--text);padding-left:1.3cqw;position:relative}
+.cf-l li::before,.sch2-f li::before,.fd-t li::before{content:"";position:absolute;left:0;top:.62cqw;width:.45cqw;height:.45cqw;border-radius:50%;background:var(--gold)}
+.prd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr) minmax(0,1fr);gap:1.6cqw;flex:1;min-height:0}
+.prd figure{margin:0;display:flex;flex-direction:column;gap:1.1cqw;min-height:0}
+.prd img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:1cqw;border:1px solid var(--rule);cursor:zoom-in}
+.prd figcaption{display:flex;flex-direction:column;gap:.4cqw}
+.prd figcaption b{font:500 1.9cqw/1.15 var(--display);color:var(--text)}
+.prd figcaption span:not(.pnum){font:400 1.3cqw/1.38 var(--body);color:var(--muted)}
+.pnum{display:inline-grid;place-items:center;width:2.4cqw;height:2.4cqw;border:1px solid var(--gold);border-radius:50%;font:500 1.2cqw/1 var(--body);color:var(--gold)}
+.cam{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:3cqw;flex:1;min-height:0;align-items:center}
+.cam-p{margin:0;height:100%;min-height:0}
+.cam-p img{width:100%;height:100%;object-fit:cover;border-radius:1cqw;border:1px solid var(--line);cursor:zoom-in}
+.sch2{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:2.6cqw;flex:1;min-height:0}
+.sch2-l{display:flex;flex-direction:column;gap:2cqw;min-width:0;justify-content:center}
+.sch2-c{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.3cqw}
+.sch2-c>div{border:1px solid var(--rule);border-radius:1cqw;padding:1.4cqw;background:#ffffff06;display:flex;flex-direction:column;gap:.5cqw}
+.sch2-c b{font:500 4cqw/1 var(--display);color:var(--gold)}
+.sch2-c i{font:500 1.4cqw/1.25 var(--body);font-style:normal;color:var(--text)}
+.sch2-c span{font:400 1.25cqw/1.38 var(--body);color:var(--muted);margin-top:.3cqw}
+.sch2-f{list-style:none;margin:0;padding:0;display:grid;gap:.7cqw}
+.sch2-f li{font:400 1.3cqw/1.38 var(--body);color:var(--text);padding-left:1.3cqw;position:relative}
+.sch2-p{margin:0;min-height:0}
+.sch2-p img{width:100%;height:100%;object-fit:cover;object-position:60% 30%;border-radius:1cqw;border:1px solid var(--rule);cursor:zoom-in}
+.hs.fd{gap:1.4cqw}
+.fd-g{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.85fr);gap:2.2cqw;flex:1;min-height:0;align-items:stretch}
+.fd-p{margin:0;min-height:0}
+.fd-p img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;border-radius:1cqw;border:1px solid var(--line);cursor:zoom-in}
+.fd-t{display:flex;flex-direction:column;gap:1cqw;justify-content:center;min-width:0}
+.fd-n{font:500 2.5cqw/1.1 var(--display);color:var(--gold)}
+.fd-t ul{list-style:none;margin:0;padding:0;display:grid;gap:.75cqw}
+.fd-t li{font:400 1.3cqw/1.38 var(--body);color:var(--text);padding-left:1.3cqw;position:relative}
+.fd-q{margin:0;border-top:1px solid var(--line);padding-top:1.3cqw;display:flex;align-items:baseline;gap:2cqw;justify-content:center;text-align:center;flex-wrap:wrap}
+.fd-q p{margin:0;font:500 1.7cqw/1.35 var(--display);color:var(--text);max-width:70cqw}
+.fd-q cite{font:500 1.05cqw/1 var(--body);font-style:normal;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+@container (max-width:720px){
+  .cpt,.rm,.cam,.sch2,.prd{grid-template-columns:1fr;gap:16px}
+  .cpt-lead li{font-size:16px;padding-left:12px} .cpt-n b{font-size:34px} .cpt-n span{font-size:13px} .cpt-n{gap:10px}
+  .cpt-r img,.cam-p img,.prd img{flex:none;aspect-ratio:16/10;height:auto;border-radius:8px}
+  .cpt-r figcaption,.cf-m figcaption{font-size:13px}
+  .ring{max-height:none;width:100%;height:auto} .rm-key{font-size:12.5px;gap:12px} .rm-key i{width:14px;height:9px;margin-right:6px}
+  .cf{grid-template-columns:1fr 1fr;gap:14px} .cf-l li{font-size:15px;padding-left:14px} .cf-l{padding-top:12px;gap:6px}
+  .cf-l li::before,.sch2-f li::before,.fd-t li::before{top:8px;width:6px;height:6px}
+  .prd figcaption b{font-size:19px} .prd figcaption span:not(.pnum){font-size:14px} .pnum{width:26px;height:26px;font-size:13px}
+  .sch2-c{grid-template-columns:1fr;gap:10px} .sch2-c>div{padding:12px;border-radius:10px} .sch2-c b{font-size:30px} .sch2-c i{font-size:15px} .sch2-c span{font-size:13.5px}
+  .sch2-f li{font-size:14.5px;padding-left:14px} .sch2-p img{aspect-ratio:4/5;height:auto;border-radius:8px}
+  .fd-g{grid-template-columns:1fr 1fr;gap:12px} .fd-p{grid-row:1} .fd-t{grid-column:1 / -1} .fd-n{font-size:22px} .fd-t li{font-size:14.5px;padding-left:14px}
+  .fd-p img{aspect-ratio:3/4;height:auto;border-radius:8px} .fd-q p{font-size:17px} .fd-q cite{font-size:11px}
+}
+
+/* type floor for poor eyesight, desktop and print only (phones keep their own sizes) */
+@container (min-width:721px){
+  .foot{font:400 1.15cqw/1.4 var(--body);color:var(--muted)}
+  .small{font-size:1.25cqw;font-weight:400}
+  .qc li{font-weight:400;font-size:1.25cqw}
+  .pr{font-size:1.22cqw;font-weight:400} .pill{font-size:1cqw}
+  .use .v{font-size:1.25cqw;font-weight:400} .stat .t{font-size:1.2cqw;font-weight:400}
+  .pts li{font-weight:400} .cl .pts li{font-size:1.2cqw}
+  .ab .k small{font-size:1.15cqw;font-weight:400} .need .t{font-size:1.15cqw;font-weight:400}
+  .bx .v{font-size:1.22cqw;font-weight:400} .job .t{font-size:1.22cqw;font-weight:400} .plus span{font-size:1.22cqw;font-weight:400}
+  .uses-key{font-size:1.15cqw;font-weight:400} .tile .t{font-size:1.2cqw;font-weight:400} .legend{font-size:1.15cqw;font-weight:400}
+  .col .lbl{font-size:1.1cqw} .hb{font-size:1.12cqw}
+  .pl.full{font-size:1.1cqw} .pl.full .sub td{font-size:1.02cqw} .pl.full .hd td{font-size:.95cqw}
+  .prd img{flex:none;height:27cqw}
+  #structure .hs{gap:.85cqw} #timeline .hs{gap:1.05cqw} #opex .hs{gap:.7cqw} #facts .hs{gap:1.6cqw}
+  #city .cl{gap:1cqw} #city .cl .pts{gap:.6cqw} #city .cl .pts li{font-size:1.12cqw} #city .cl .pts li b{font-size:1.38cqw} #city .stat .n{font-size:2.2cqw} #city .stats{gap:2.2cqw;flex-wrap:nowrap}
+  #areas .ab{gap:.9cqw} #areas .ab .k small{font-size:1.05cqw} #areas .ab .track{height:2.8cqw} #areas .hs{gap:1.5cqw}
+}
+@media print{
+  main{counter-reset:pgn} .pg{counter-increment:pgn;position:relative}
+  .pg::after{content:counter(pgn) " / 23";position:absolute;right:.42in;bottom:.18in;font:500 10.5pt/1 var(--body);letter-spacing:.08em;color:#b4ab9e;z-index:6}
+  #cover::after{content:none}
+}
+
+/* cover with the title in the centre; summary kept short; the concept page as in the deck */
+.cov{container-type:inline-size}
+.cov-t{position:absolute;left:0;right:0;top:63%;display:flex;flex-direction:column;align-items:center;gap:1.6cqw;text-align:center;padding:0 6cqw}
+.cov-s{font:500 2.3cqw/1.2 var(--display);color:var(--text);text-shadow:0 2px 14px #000}
+.cov-p{font:500 1.15cqw/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);text-shadow:0 2px 10px #000}
+.q4s .qc{gap:1.6cqw;padding:2.2cqw 2cqw} .q4s .qh{font-size:2.15cqw} .q4s ul{gap:1.6cqw} .q4s li{font-size:1.5cqw!important;line-height:1.38;font-weight:400;padding-left:1.4cqw} .q4s li::before{top:.85cqw;width:.5cqw;height:.5cqw}
+.cpt2{gap:3.2cqw;justify-content:center;padding-top:5cqw}
+.cp-h{display:flex;align-items:center;gap:2.4cqw} .cp-h span{font:400 2.6cqw/1 var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--text);white-space:nowrap} .cp-h i{flex:1;border-top:1px solid #c9a96a88}
+.cp-lead{margin:0;font:300 2.55cqw/1.38 var(--body);color:var(--text);max-width:80cqw}
+.cp-n{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.cp-n>div{display:flex;flex-direction:column;align-items:center;gap:1cqw;padding:0 2cqw}
+.cp-n>div+div{border-left:1px solid #c9a96a88}
+.cp-n b{font:400 8.4cqw/1 var(--display);color:#ecd6a8;font-variant-numeric:lining-nums}
+.cp-k{font:400 1.75cqw/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--text)}
+.cp-n i{display:block;width:9cqw;border-top:1px solid #c9a96a88}
+.cp-v{font:300 1.55cqw/1.35 var(--body);color:var(--text)}
+.cp-rule{border-top:1px solid #c9a96a88}
+@container (max-width:720px){
+  .cov-t{position:static;padding:14px 16px 16px;gap:8px;background:#0b0a0d} .cov-s{font-size:18px} .cov-p{font-size:10.5px}
+  .q4s li{font-size:15px!important} .q4s .qh{font-size:20px} .q4s .qc{padding:14px}
+  .cpt2{gap:18px;padding-top:22px} .cp-h span{font-size:15px} .cp-lead{font-size:17px;max-width:none}
+  .cp-n{grid-template-columns:1fr;gap:18px} .cp-n>div+div{border-left:0;border-top:1px solid #c9a96a55;padding-top:18px}
+  .cp-n b{font-size:54px} .cp-k{font-size:13px} .cp-n i{width:60px} .cp-v{font-size:14px}
+}
+@media print{ .cov-t{top:63%} }
+
+/* proposal: clear buttons, the film first, the merged room page */
+.btn{display:inline-flex;align-items:center;gap:.7em;background:var(--gold);color:#140e05!important;border:0;border-radius:999px;padding:.95cqw 1.9cqw;font:600 1.2cqw/1 var(--body);letter-spacing:.04em;text-decoration:none;cursor:pointer;box-shadow:0 .3cqw 1.4cqw #e6b75e44;white-space:nowrap}
+.btn:hover{background:var(--gold-2)}
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:2cqw;flex-wrap:nowrap}.hrow .eb{margin:0}.hrow .btn{padding:.25cqw 1.1cqw;font-size:.95cqw;line-height:1.2}.hrow{margin-bottom:var(--ebgap,0)}.hbtn{flex:none}
+.wrow{display:flex;justify-content:flex-end} .wrow.wbig{justify-content:center;margin-top:1.4cqw} .btn.big{font-size:2.9cqw;font-weight:600;padding:2.3cqw 5.4cqw;gap:.8em;box-shadow:0 .6cqw 2cqw #000a,0 0 0 .5cqw #f0c35a3d}
+
+.toc a.pdf:not(.back){background:var(--gold);border-color:var(--gold);color:#140e05;font-weight:600}
+.toc a.pdf:not(.back)::before{content:"\2193\00a0\00a0"} .toc a.pdf.back::before{content:"\2190\00a0\00a0"}
+.toc a.pdf.back{margin:0 0 18px;border-color:var(--gold);color:var(--gold);font-weight:600;font-size:14px;padding:10px 12px}
+.toc a.pdf.back:hover{background:var(--gold);color:#140e05}
+.barback{display:flex;align-items:center;flex:none;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font:600 14px/1.2 var(--body);padding:10px 14px;text-decoration:none;white-space:nowrap}
+.barback::before{content:"\2190\00a0"}
+@media (max-width:860px){ .toc a.pdf.back{display:none} }
+.pfb{display:flex;margin-top:.5cqw}
+.btn.print-only{display:none}
+@media print{ .btn.print-only{display:inline-flex!important} }
+.fwrap{position:relative}
+/* 16 Nov, his note: the play button in dark glass with a thin gold ring and slow rippling rings, in place of the flat yellow disc */
+.playbig{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:9cqw;height:9cqw;border-radius:50%;border:.14cqw solid #e6b75ed9;background:radial-gradient(circle at 50% 30%,#ffffff2e 0%,#17120a8c 55%,#0b0a0d99 100%);-webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);display:grid;place-items:center;text-decoration:none;box-shadow:0 0 0 .7cqw #e6b75e12,0 1.4cqw 4.4cqw #000d,inset 0 .08cqw 0 #ffffff55,inset 0 -1cqw 2.2cqw #0009;transition:transform .15s}
+.playbig::before,.playbig::after{content:'';position:absolute;inset:-.14cqw;border-radius:50%;border:1px solid var(--gold);opacity:0;pointer-events:none;animation:pbRing 3.4s cubic-bezier(.2,.6,.3,1) infinite}
+.playbig::after{animation-delay:1.7s}
+@keyframes pbRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.8);opacity:0}}
+.playbig:hover{transform:translate(-50%,-50%) scale(1.06)}
+.playbig span{font-size:3.1cqw;color:#f8d98a;margin-left:.5cqw;text-shadow:0 0 1.2cqw #e6b75e99}
+.fbar{display:flex;justify-content:space-between;align-items:center;gap:2cqw}
+.rm2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:3cqw;flex:1;min-height:0;align-items:center}
+.rm2-r{display:flex;flex-direction:column;gap:1.6cqw;min-width:0} @container (max-width:720px){#stages .rmb{flex-wrap:wrap;gap:10px}}
+.cf2{grid-template-columns:repeat(5,minmax(0,1fr));gap:.8cqw;flex:none} .cf2 figcaption{font-size:.95cqw!important}
+.cf2 svg .mn{font-size:34px}
+@container (min-width:721px){
+#stages .hs{gap:1cqw;padding-top:2.8cqw;padding-bottom:2.2cqw} #stages .rm2{gap:2.6cqw;grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr)} #stages .rm2-r{gap:.9cqw}
+#stages .rm-pts{gap:.6cqw} #stages .rm-pts li{font-size:1.25cqw;line-height:1.25} #stages .rm-pts li b{font-size:1.45cqw;margin-bottom:0}
+#stages .cf2{gap:.5cqw} #stages .cf2 figcaption{font-size:1.05cqw!important} #stages .cf-l{padding-top:.7cqw;gap:.2cqw} #stages .cf-l li{font-size:1.25cqw;line-height:1.25;padding-left:1.1cqw} #stages .cf-l li::before{top:.55cqw}
+#stages .rmb{justify-content:flex-start;gap:1.4cqw;margin-top:.2cqw} #stages .rmb .btn{font-size:1.25cqw;padding:.7cqw 1.5cqw}
+}
+@media print{ .playbig{display:none} }
+@container (max-width:720px){ .btn{font-size:13px;padding:10px 16px} .playbig{width:64px;height:64px} .playbig span{font-size:26px} .rm2{grid-template-columns:1fr;gap:16px} .cf2{grid-template-columns:repeat(3,1fr)} .cf2 figcaption{font-size:11px!important} .fbar{flex-wrap:wrap} }
+/* the document version: one slide per landscape page */
+@media print{
+  @page{size:13.333in 7.5in;margin:0}
+  html,body{background:#0b0a0d!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toc,.bar,.pgh,.lb,body::before{display:none!important}
+  .layout{display:block;padding:0;max-width:none} main{display:block}
+  .pg{break-after:page;break-inside:avoid;width:13.333in;height:7.5in;overflow:hidden}
+  .sl{border:0;border-radius:0;height:7.5in}
+  .sl>img{width:13.333in;height:7.5in;object-fit:cover}
+  .hs{height:7.5in;aspect-ratio:auto}
+  .cover-band{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,#0b0a0d00,#0b0a0df0 45%)}
+  video{display:none!important} .print-only{display:block}
+}
+/* phone overrides that must come last */
+@container (max-width:720px){
+  #structure .bx .t{font-size:18px} #structure .bx .m{font-size:22px;margin-top:4px} #structure .hs,#timeline .hs{gap:16px;padding-bottom:22px}
+  #timeline .st .d{font-size:15px} #timeline .tl{margin-top:4px} #timeline .jobw{margin-top:6px}
+  #opex .pl.full{font-size:13px} #opex .pl.full th,#opex .pl.full td{padding:8px 8px}
+  .mbtn{position:static} .modelbtn{font-size:13px;padding:9px 16px}
+  .sum{grid-template-columns:1fr;gap:18px} .kv{font-size:14px;column-gap:12px;row-gap:6px;margin-bottom:16px} .mini{font-size:13px;margin-bottom:16px} .mini thead th{font-size:10px;letter-spacing:.1em} .mini th,.mini td{padding:5px 5px} .mini td:first-child{white-space:normal} .sum>div{min-width:0} .kv dt{white-space:normal}
+  .pl.full{font-size:13px;line-height:1.25} .pl.full th,.pl.full td{padding:7px 8px} .pl.full .sub td{font-size:12px} .pl.full .hd td{font-size:10px;padding-top:10px}
+}
+
+.lang{display:flex;gap:6px;margin:0 0 14px}
+.lang button{font:500 12px/1 var(--body);letter-spacing:.08em;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:7px 12px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#140e05}
+.lang-note{font-size:12px;color:var(--muted);margin:-6px 0 14px}
+.pgh .todo{margin-left:auto;font:500 11px/1 var(--body);letter-spacing:.14em;color:#140e05;background:#e8836b;border-radius:999px;padding:5px 9px}
+.pgh .todo.img{background:#b4ab9e}
+@media print{.lang,.lang-note,.pgh .todo{display:none!important}}
+.hbars{display:grid;grid-template-columns:1fr 1fr;column-gap:3cqw;row-gap:.35cqw;margin-top:.6cqw}.hb{display:grid;grid-template-columns:14cqw 1fr 3cqw;align-items:center;gap:.8cqw;font-size:1.05cqw}.hb .hl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hb .ht2{height:.9cqw;background:var(--rule);border-radius:.45cqw;overflow:hidden}.hb .ht2 i{display:block;height:100%;background:var(--gold);border-radius:.45cqw}.hb b{text-align:right;font-variant-numeric:tabular-nums}
+</style>
+
+<div class="bar"><a class="barback" href="../" aria-label="Back to the theater">Back</a><button type="button" id="menuBtn" aria-expanded="false" aria-controls="toc"><b id="barN">01</b><span id="barT">Cover</span><i>Contents</i></button></div>
+<div class="layout">
+<nav class="toc" id="toc" aria-label="Contents">
+  <a class="pdf back" href="../">Back to the theater</a>
+  <div class="brand">Reverse Arena Theater</div>
+  <p class="brand-sub">Dossier for the Consorci del Besòs</p>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="es" aria-pressed="false">Español</button></div><p class="lang-note" id="langNote" hidden></p>
+  <div class="grp">Who we are</div><ol id="toc-W"></ol>
+  <div class="grp">What it is</div><ol id="toc-X"></ol>
+  <div class="grp">How it works</div><ol id="toc-H"></ol>
+  <div class="grp">Why lease to us</div><ol id="toc-Y"></ol>
+  <div class="grp">The numbers</div><ol id="toc-F"></ol>
+  <a class="pdf" href="Reverse_Arena_Dossier_Consorci.pdf" data-es-href="Reverse_Arena_Dossier_Consorci_ES.pdf" download>Open the PDF to read or save</a><p class="pdfpw" style="margin:10px 0 0;text-align:center;font-size:12.5px;line-height:1.5;opacity:.8">Password protected. For the password, message Chad on WhatsApp: <span style="white-space:nowrap;user-select:all">+1 949 257 6434</span></p>
+</nav>
+
+<main>
+<section class="pg" id="cover" data-name="Cover" data-g="W">
+  <figure class="sl cov"><img src="cover-center.jpg" alt="Reverse Arena Theater, Barcelona, seen from above: the audience on the turntable at the centre, the stages in a ring around it" data-lb>
+    <div class="cov-t"><div class="cov-s">Audiovisual research and production development</div><div class="cov-p">A proposal for the Consorci del Besòs · Nov ’26</div></div></figure>
+</section>
+
+<section class="pg" id="film" data-name="Watch first" data-g="W">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Watch first · 3D model demonstration, with sound</div>
+    <h2 class="ht">The theater <span>in action</span></h2>
+    <div class="film fwrap">
+      <video id="filmv" src="film.mp4" poster="film-poster.jpg" controls playsinline preload="metadata" aria-label="Model film of the Reverse Arena, with sound"></video>
+      <img class="print-only" src="film-poster.jpg" alt="" style="width:100%;flex:1;min-height:0;object-fit:cover;border-radius:1cqw">
+      <a class="playbig" href="#film" aria-label="Play the film" onclick="const v=document.getElementById('filmv'); if(v){ v.play(); } return false;"><span>&#9654;</span></a>
+    </div>
+    <div class="fbar"><span class="small">Ninety seconds inside the 3D model: the room turns, the walls open, four student teams compete, and the audience votes.</span><a class="btn print-only" href="https://www.reversearena.com">&#9654; Watch the film online</a></div>
+  </div></div>
+</section>
+<section class="pg" id="summary" data-name="Summary" data-g="W">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Summary · for the Consorci del Besòs</div>
+    <h2 class="ht">Who we are, what we build, <span>and why here</span></h2>
+    <div class="q4 q4s">
+      <div class="qc"><div class="qn">01</div><div class="qh">Who we are</div><ul>
+        <li>Emmy-nominated creative directors Liz Imperio and Chad Carlberg</li>
+        <li>Shows for Jennifer Lopez, Madonna, Ricky Martin and the Latin Grammys</li></ul></div>
+      <div class="qc"><div class="qn">02</div><div class="qh">What it is</div><ul>
+        <li>A 600-seat theatre: the audience turns, four stages all round</li>
+        <li>A school at its core, 110 students a year</li></ul></div>
+      <div class="qc"><div class="qn">03</div><div class="qh">How it works</div><ul>
+        <li>The audience votes in the app and decides the second half</li>
+        <li>Tuition pays for the show; equity and a bank loan pay for the building</li></ul></div>
+      <div class="qc key"><div class="qn">04</div><div class="qh">Why lease to us</div><ul>
+        <li>Star-level shows every night, made in Barcelona</li>
+        <li>Audiovisual R&amp;D at the heart of Catalunya Media City</li>
+        <li>€43M privately financed, bringing visitors to Besòs</li></ul></div>
+    </div>
+    <div class="strip"><span><b>600</b> seats</span><span><b>4</b> stages</span><span><b>€43.0M</b> development</span><span><b>5,100 m²</b> plot</span><span><b>3 years</b> to opening</span></div>
+  </div></div>
+</section>
+
+<section class="pg" id="facts" data-name="The project in brief" data-g="W">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">The project in brief</div>
+    <h2 class="ht">A theatre, a broadcast stage <span>and a school</span></h2>
+    <div class="sum">
+      <div>
+        <div class="lab">The project</div>
+        <dl class="kv"><dt>Use</dt><dd>Audiovisual research and production development: new technology for live and televised shows</dd><dt>Venue</dt><dd>600 seats on a rotating platform, four stages</dd><dt>Programme</dt><dd>8 shows a week, 50 weeks a year</dd><dt>Residents</dt><dd>A weekly show at residents’ prices; local scholarships</dd><dt>Visitors</dt><dd>121,440 tickets in the opening year, 163,200 in the fifth</dd><dt>School</dt><dd>Imperio School of Performing Arts, a non-profit foundation; 110 students a year, filmed as a documentary competition</dd><dt>Other uses</dt><dd>Filming, broadcast, dinner theatre, events</dd><dt>Building</dt><dd>Ideally one level: a column-free hall of at least 50 × 50 m, 14–17 m high, with backstage and front of house around it</dd><dt>IP</dt><dd>Patent pending; foreign filings complete</dd></dl>
+        <div class="lab">Location</div>
+        <dl class="kv"><dt>Area</dt><dd>Besòs audiovisual and technology area</dd><dt>Neighbours</dt><dd>The Fòrum and Catalunya Media City</dd><dt>Role</dt><dd>A live stage and broadcast studio anchoring the media hub</dd><dt>Later</dt><dd>Student housing on adjacent land, built by a partner</dd></dl>
+      </div>
+      <div>
+        <div class="lab">Sources and uses, €M</div>
+        <table class="mini"><tbody>
+          <tr><td>Equity</td><td>27.0</td></tr><tr><td>Senior debt</td><td>16.0</td></tr><tr class="em"><td>Development cost</td><td>43.0</td></tr>
+          <tr><td>Building shell and systems</td><td>18.5</td></tr><tr><td>Platform, machinery, seating</td><td>8.0</td></tr><tr><td>LED, lighting, production</td><td>8.0</td></tr><tr><td>Contingency</td><td>3.9</td></tr><tr><td>Pre-opening and finance</td><td>4.6</td></tr>
+        </tbody></table>
+        <div class="lab">Ownership</div>
+        <dl class="kv"><dt>Venue company</dt><dd>Spanish, to be formed</dd><dt>Equity investors</dt><dd>70%: the dance convention and competition industry, and a Spanish co&#8209;developer</dd><dt>The school</dt><dd>30%, for the show it produces; over time, the whole venue</dd></dl>
+        <div class="lab">From the Consorci</div>
+        <dl class="kv"><dt>Surface right</dt><dd>A plot of about 5,100 m², long-term and renewable, with options</dd><dt>Adjacent land</dt><dd>Welcome, not required: a first refusal, for student housing</dd><dt>Ground rent</dt><dd>To be agreed with you</dd></dl>
+      </div>
+      <div>
+        <div class="lab">Operations, before ground rent, €M</div>
+        <table class="mini"><thead><tr><th></th><th>Base y1</th><th>Base y5</th><th>Down y1</th><th>Down y5</th></tr></thead><tbody>
+          <tr><td>Revenue</td><td>11.6</td><td>17.2</td><td>8.8</td><td>13.3</td></tr><tr><td>Operating costs</td><td>6.1</td><td>8.0</td><td>5.6</td><td>7.2</td></tr><tr class="em"><td>Operating income</td><td>5.5</td><td>9.2</td><td>3.2</td><td>6.1</td></tr><tr class="rent"><td>Ground rent</td><td colspan="4" style="text-align:center">to be agreed with you</td></tr><tr><td>Debt service</td><td>2.1</td><td>2.1</td><td>2.1</td><td>2.1</td></tr>
+        </tbody></table>
+        <div class="lab">Jobs</div>
+        <dl class="kv"><dt>Venue</dt><dd>21 permanent roles and a show-night team of about 20</dd><dt>School</dt><dd>About 25: faculty, stage captains, musicians, student services</dd><dt>Contracted</dt><dd>About 25: bars and catering, cleaning, app and IT</dd><dt>Construction</dt><dd>Hundreds, across the trades, over the build</dd></dl>
+        <div class="lab">Timeline</div>
+        <dl class="kv"><dt>Years 1–3</dt><dd>Design, permits, build, technology</dd><dt>Year 4</dt><dd>Opening, after a month of technical rehearsal</dd></dl>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="pg" id="founders" data-name="The founders" data-g="W">
+  <div class="sl hw"><div class="hs fd">
+    <div class="eb">Who we are</div>
+    <h2 class="ht">The <span>founders</span></h2>
+    <div class="fd-g">
+      <figure class="fd-p"><img src="f-liz.jpg" alt="Liz Imperio" loading="lazy" data-lb></figure>
+      <div class="fd-t"><div class="fd-n">Liz Imperio</div><ul>
+        <li>Choreographer and creative director for Jennifer Lopez, Madonna, Gloria Estefan and Ricky Martin</li>
+        <li>Contributing choreographer on the Emmy-winning Goodwill Games</li>
+        <li>Artistic director of a US dance convention; on industry boards, including the Choreographers Guild</li>
+        <li>Trained under Kenny Ortega, and still works alongside him</li></ul></div>
+      <div class="fd-t"><div class="fd-n">Chad Carlberg</div><ul>
+        <li>Creative director and producer across 25 years of Latin entertainment</li>
+        <li>The Latin Grammys, the Latin Billboards and the AMAs</li>
+        <li>Univision, Telemundo, ABC, FOX and NBC</li>
+        <li>With Liz, Emmy-nominated creative director for creating CNCO on Univision’s La Banda, with Simon Cowell</li></ul></div>
+      <figure class="fd-p"><img src="f-chad.jpg" alt="Chad Carlberg" loading="lazy" data-lb></figure>
+    </div>
+    <blockquote class="fd-q"><p>“Liz is one of the most talented and inspirational choreographers working today. Her track record shows that she is a true virtuoso.”</p><cite>Kenny Ortega</cite></blockquote>
+  </div></div>
+</section>
+
+<section class="pg" id="partners" data-name="Partners" data-g="W">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Partners</div>
+    <h2 class="ht">Built by the industry, <span>for the industry</span></h2>
+    <div class="pw">
+      <div class="pc p-build"><div class="ph"><span class="lab">Design and build</span><span class="pill">Working now</span></div>
+        <div class="pe"><div class="pn">Enric Massip-Bosch, EMBA</div><div class="pr">Lead architect: Torre Diagonal ZeroZero, LEAF Award 2011; the construction budget is his</div></div>
+        <div class="pe"><div class="pn">Darmah (Bianca Moncada)</div><div class="pr">Stage and production design: Latin Grammys, Latin Billboards, La Voz</div></div></div>
+      <div class="pc p-talent"><div class="ph"><span class="lab">Talent</span><span class="pill">Working now</span></div>
+        <div class="pe"><div class="pn">US dance convention network</div><div class="pr">Dancers and dance studios across the US</div></div>
+        <div class="pe"><div class="pn">Bloc · MSA · Go 2 Talent · Clear Talent Group · The Movement</div><div class="pr">Los Angeles talent agencies: sponsors of the SUCCESS.dance app; talent for auditions</div></div></div>
+      <div class="pc p-fac"><div class="ph"><span class="lab">Faculty</span><span class="pill c">Committed</span></div>
+        <div class="pe"><div class="pn">Liz Ramos</div><div class="pr">Musical theatre: On Your Feet!, The Addams Family</div></div>
+        <div class="pe"><div class="pn">Paul Benshoof</div><div class="pr">Illusion and stagecraft</div></div>
+        <div class="pe"><div class="pn">Jonathan George</div><div class="pr">Voice and artist brand</div></div>
+        <div class="pe"><div class="pn">Jeff Gomez, Starlight Runner</div><div class="pr">Story and transmedia: Transformers, Avatar, Pirates of the Caribbean</div></div></div>
+      <div class="pc p-res"><div class="pr-l"><div class="ph"><span class="lab">Research</span><span class="pill r">Study under way</span></div>
+        <div class="pe"><div class="pn">University of Alabama, College of Human Environmental Sciences</div><div class="pr">Research on the Imperio method, led by Dr. Robert D. Laird and Dr. Cailin Kerch</div><div class="pr">Letter of support, September 2026</div></div></div>
+        <img src="letter-1.jpg" alt="University of Alabama letter of support, September 2026" loading="lazy" data-lb></div>
+    </div>
+    <div class="foot">Working now: already engaged on the project. Committed: have said yes to their role.</div>
+  </div></div>
+</section>
+
+<section class="pg" id="concept" data-name="What it is" data-g="X">
+  <div class="sl hw"><div class="hs cpt2">
+    <div class="cp-h"><span>The concept</span><i></i></div>
+    <p class="cp-lead">A 600-seat venue where the audience rotates in the middle of a ring-shaped stage, revealing four distinct stages, each run by a student team competing against the rest.</p>
+    <div class="cp-n">
+      <div><b>600</b><span class="cp-k">Seats</span><i></i><span class="cp-v">Rotating central audience</span></div>
+      <div><b>4</b><span class="cp-k">Stages</span><i></i><span class="cp-v">One surrounding performance ring</span></div>
+      <div><b>4</b><span class="cp-k">Student teams</span><i></i><span class="cp-v">Competing against one another</span></div>
+    </div>
+    <div class="cp-rule"></div>
+    <div class="wrow wbig"><a class="btn big screen-only" href="../#model">&#9654; Turn the room yourself</a><a class="btn big print-only" href="https://www.reversearena.com/#model">&#9654; Turn the room yourself, online</a></div>
+  </div></div>
+</section>
+
+<!-- "Tour the exterior" opens the site-fit film (Chad, 18 Nov) -->
+<section class="pg" id="stages" data-name="The room" data-g="X">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">The room</div>
+    <h2 class="ht">One room, <span>four stages around the audience</span></h2>
+    <div class="rm2"><figure class="rm-plan"><svg class="ring" viewBox="-252 -252 504 552" role="img" aria-label="Plan of the room"><path class="sec on" d="M-151.1 -180.0A235 235 0 0 1 151.1 -180.0L90.0 -107.2A140 140 0 0 0 -90.0 -107.2Z"/><path class="sec" d="M180.0 -151.1A235 235 0 0 1 180.0 151.1L107.2 90.0A140 140 0 0 0 107.2 -90.0Z"/><path class="sec" d="M151.1 180.0A235 235 0 0 1 -151.1 180.0L-90.0 107.2A140 140 0 0 0 90.0 107.2Z"/><path class="sec" d="M-180.0 151.1A235 235 0 0 1 -180.0 -151.1L-107.2 -90.0A140 140 0 0 0 -107.2 90.0Z"/><rect class="ent" x="123.9" y="-141.9" width="18" height="18" transform="rotate(45 132.9 -132.9)"/><rect class="ent" x="123.9" y="123.9" width="18" height="18" transform="rotate(45 132.9 132.9)"/><rect class="ent" x="-141.9" y="123.9" width="18" height="18" transform="rotate(45 -132.9 132.9)"/><rect class="ent" x="-141.9" y="-141.9" width="18" height="18" transform="rotate(45 -132.9 -132.9)"/><circle class="plat" r="134"/><g class="seat"><rect x="12" y="-119.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-119.5" width="7" height="7" rx="1.6"/><rect x="22" y="-119.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-119.5" width="7" height="7" rx="1.6"/><rect x="12" y="-108.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-108.5" width="7" height="7" rx="1.6"/><rect x="22" y="-108.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-108.5" width="7" height="7" rx="1.6"/><rect x="32" y="-108.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-108.5" width="7" height="7" rx="1.6"/><rect x="42" y="-108.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-108.5" width="7" height="7" rx="1.6"/><rect x="52" y="-108.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-108.5" width="7" height="7" rx="1.6"/><rect x="12" y="-97.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-97.5" width="7" height="7" rx="1.6"/><rect x="22" y="-97.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-97.5" width="7" height="7" rx="1.6"/><rect x="32" y="-97.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-97.5" width="7" height="7" rx="1.6"/><rect x="42" y="-97.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-97.5" width="7" height="7" rx="1.6"/><rect x="52" y="-97.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-97.5" width="7" height="7" rx="1.6"/><rect x="62" y="-97.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-97.5" width="7" height="7" rx="1.6"/><rect x="12" y="-86.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-86.5" width="7" height="7" rx="1.6"/><rect x="22" y="-86.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-86.5" width="7" height="7" rx="1.6"/><rect x="32" y="-86.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-86.5" width="7" height="7" rx="1.6"/><rect x="42" y="-86.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-86.5" width="7" height="7" rx="1.6"/><rect x="52" y="-86.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-86.5" width="7" height="7" rx="1.6"/><rect x="62" y="-86.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-86.5" width="7" height="7" rx="1.6"/><rect x="72" y="-86.5" width="7" height="7" rx="1.6"/><rect x="-79" y="-86.5" width="7" height="7" rx="1.6"/><rect x="12" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-75.5" width="7" height="7" rx="1.6"/><rect x="22" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-75.5" width="7" height="7" rx="1.6"/><rect x="32" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-75.5" width="7" height="7" rx="1.6"/><rect x="42" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-75.5" width="7" height="7" rx="1.6"/><rect x="52" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-75.5" width="7" height="7" rx="1.6"/><rect x="62" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-75.5" width="7" height="7" rx="1.6"/><rect x="72" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-79" y="-75.5" width="7" height="7" rx="1.6"/><rect x="82" y="-75.5" width="7" height="7" rx="1.6"/><rect x="-89" y="-75.5" width="7" height="7" rx="1.6"/><rect x="12" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-64.5" width="7" height="7" rx="1.6"/><rect x="22" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-64.5" width="7" height="7" rx="1.6"/><rect x="32" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-64.5" width="7" height="7" rx="1.6"/><rect x="42" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-64.5" width="7" height="7" rx="1.6"/><rect x="52" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-64.5" width="7" height="7" rx="1.6"/><rect x="62" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-64.5" width="7" height="7" rx="1.6"/><rect x="72" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-79" y="-64.5" width="7" height="7" rx="1.6"/><rect x="82" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-89" y="-64.5" width="7" height="7" rx="1.6"/><rect x="92" y="-64.5" width="7" height="7" rx="1.6"/><rect x="-99" y="-64.5" width="7" height="7" rx="1.6"/><rect x="12" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-53.5" width="7" height="7" rx="1.6"/><rect x="22" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-53.5" width="7" height="7" rx="1.6"/><rect x="32" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-53.5" width="7" height="7" rx="1.6"/><rect x="42" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-53.5" width="7" height="7" rx="1.6"/><rect x="52" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-53.5" width="7" height="7" rx="1.6"/><rect x="62" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-53.5" width="7" height="7" rx="1.6"/><rect x="72" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-79" y="-53.5" width="7" height="7" rx="1.6"/><rect x="82" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-89" y="-53.5" width="7" height="7" rx="1.6"/><rect x="92" y="-53.5" width="7" height="7" rx="1.6"/><rect x="-99" y="-53.5" width="7" height="7" rx="1.6"/><rect x="12" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-42.5" width="7" height="7" rx="1.6"/><rect x="22" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-42.5" width="7" height="7" rx="1.6"/><rect x="32" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-42.5" width="7" height="7" rx="1.6"/><rect x="42" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-42.5" width="7" height="7" rx="1.6"/><rect x="52" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-42.5" width="7" height="7" rx="1.6"/><rect x="62" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-42.5" width="7" height="7" rx="1.6"/><rect x="72" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-79" y="-42.5" width="7" height="7" rx="1.6"/><rect x="82" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-89" y="-42.5" width="7" height="7" rx="1.6"/><rect x="92" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-99" y="-42.5" width="7" height="7" rx="1.6"/><rect x="102" y="-42.5" width="7" height="7" rx="1.6"/><rect x="-109" y="-42.5" width="7" height="7" rx="1.6"/><rect x="12" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-31.5" width="7" height="7" rx="1.6"/><rect x="22" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-31.5" width="7" height="7" rx="1.6"/><rect x="32" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-31.5" width="7" height="7" rx="1.6"/><rect x="42" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-31.5" width="7" height="7" rx="1.6"/><rect x="52" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-31.5" width="7" height="7" rx="1.6"/><rect x="62" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-31.5" width="7" height="7" rx="1.6"/><rect x="72" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-79" y="-31.5" width="7" height="7" rx="1.6"/><rect x="82" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-89" y="-31.5" width="7" height="7" rx="1.6"/><rect x="92" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-99" y="-31.5" width="7" height="7" rx="1.6"/><rect x="102" y="-31.5" width="7" height="7" rx="1.6"/><rect x="-109" y="-31.5" width="7" height="7" rx="1.6"/><rect x="12" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-19" y="-20.5" width="7" height="7" rx="1.6"/><rect x="22" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-29" y="-20.5" width="7" height="7" rx="1.6"/><rect x="32" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-39" y="-20.5" width="7" height="7" rx="1.6"/><rect x="42" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-49" y="-20.5" width="7" height="7" rx="1.6"/><rect x="52" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-59" y="-20.5" width="7" height="7" rx="1.6"/><rect x="62" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-69" y="-20.5" width="7" height="7" rx="1.6"/><rect x="72" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-79" y="-20.5" width="7" height="7" rx="1.6"/><rect x="82" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-89" y="-20.5" width="7" height="7" rx="1.6"/><rect x="92" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-99" y="-20.5" width="7" height="7" rx="1.6"/><rect x="102" y="-20.5" width="7" height="7" rx="1.6"/><rect x="-109" y="-20.5" width="7" height="7" rx="1.6"/><rect x="12" y="12.5" width="7" height="7" rx="1.6"/><rect x="-19" y="12.5" width="7" height="7" rx="1.6"/><rect x="22" y="12.5" width="7" height="7" rx="1.6"/><rect x="-29" y="12.5" width="7" height="7" rx="1.6"/><rect x="32" y="12.5" width="7" height="7" rx="1.6"/><rect x="-39" y="12.5" width="7" height="7" rx="1.6"/><rect x="42" y="12.5" width="7" height="7" rx="1.6"/><rect x="-49" y="12.5" width="7" height="7" rx="1.6"/><rect x="52" y="12.5" width="7" height="7" rx="1.6"/><rect x="-59" y="12.5" width="7" height="7" rx="1.6"/><rect x="62" y="12.5" width="7" height="7" rx="1.6"/><rect x="-69" y="12.5" width="7" height="7" rx="1.6"/><rect x="72" y="12.5" width="7" height="7" rx="1.6"/><rect x="-79" y="12.5" width="7" height="7" rx="1.6"/><rect x="82" y="12.5" width="7" height="7" rx="1.6"/><rect x="-89" y="12.5" width="7" height="7" rx="1.6"/><rect x="92" y="12.5" width="7" height="7" rx="1.6"/><rect x="-99" y="12.5" width="7" height="7" rx="1.6"/><rect x="102" y="12.5" width="7" height="7" rx="1.6"/><rect x="-109" y="12.5" width="7" height="7" rx="1.6"/><rect x="12" y="23.5" width="7" height="7" rx="1.6"/><rect x="-19" y="23.5" width="7" height="7" rx="1.6"/><rect x="22" y="23.5" width="7" height="7" rx="1.6"/><rect x="-29" y="23.5" width="7" height="7" rx="1.6"/><rect x="32" y="23.5" width="7" height="7" rx="1.6"/><rect x="-39" y="23.5" width="7" height="7" rx="1.6"/><rect x="42" y="23.5" width="7" height="7" rx="1.6"/><rect x="-49" y="23.5" width="7" height="7" rx="1.6"/><rect x="52" y="23.5" width="7" height="7" rx="1.6"/><rect x="-59" y="23.5" width="7" height="7" rx="1.6"/><rect x="62" y="23.5" width="7" height="7" rx="1.6"/><rect x="-69" y="23.5" width="7" height="7" rx="1.6"/><rect x="72" y="23.5" width="7" height="7" rx="1.6"/><rect x="-79" y="23.5" width="7" height="7" rx="1.6"/><rect x="82" y="23.5" width="7" height="7" rx="1.6"/><rect x="-89" y="23.5" width="7" height="7" rx="1.6"/><rect x="92" y="23.5" width="7" height="7" rx="1.6"/><rect x="-99" y="23.5" width="7" height="7" rx="1.6"/><rect x="102" y="23.5" width="7" height="7" rx="1.6"/><rect x="-109" y="23.5" width="7" height="7" rx="1.6"/><rect x="12" y="34.5" width="7" height="7" rx="1.6"/><rect x="-19" y="34.5" width="7" height="7" rx="1.6"/><rect x="22" y="34.5" width="7" height="7" rx="1.6"/><rect x="-29" y="34.5" width="7" height="7" rx="1.6"/><rect x="32" y="34.5" width="7" height="7" rx="1.6"/><rect x="-39" y="34.5" width="7" height="7" rx="1.6"/><rect x="42" y="34.5" width="7" height="7" rx="1.6"/><rect x="-49" y="34.5" width="7" height="7" rx="1.6"/><rect x="52" y="34.5" width="7" height="7" rx="1.6"/><rect x="-59" y="34.5" width="7" height="7" rx="1.6"/><rect x="62" y="34.5" width="7" height="7" rx="1.6"/><rect x="-69" y="34.5" width="7" height="7" rx="1.6"/><rect x="72" y="34.5" width="7" height="7" rx="1.6"/><rect x="-79" y="34.5" width="7" height="7" rx="1.6"/><rect x="82" y="34.5" width="7" height="7" rx="1.6"/><rect x="-89" y="34.5" width="7" height="7" rx="1.6"/><rect x="92" y="34.5" width="7" height="7" rx="1.6"/><rect x="-99" y="34.5" width="7" height="7" rx="1.6"/><rect x="102" y="34.5" width="7" height="7" rx="1.6"/><rect x="-109" y="34.5" width="7" height="7" rx="1.6"/><rect x="12" y="45.5" width="7" height="7" rx="1.6"/><rect x="-19" y="45.5" width="7" height="7" rx="1.6"/><rect x="22" y="45.5" width="7" height="7" rx="1.6"/><rect x="-29" y="45.5" width="7" height="7" rx="1.6"/><rect x="32" y="45.5" width="7" height="7" rx="1.6"/><rect x="-39" y="45.5" width="7" height="7" rx="1.6"/><rect x="42" y="45.5" width="7" height="7" rx="1.6"/><rect x="-49" y="45.5" width="7" height="7" rx="1.6"/><rect x="52" y="45.5" width="7" height="7" rx="1.6"/><rect x="-59" y="45.5" width="7" height="7" rx="1.6"/><rect x="62" y="45.5" width="7" height="7" rx="1.6"/><rect x="-69" y="45.5" width="7" height="7" rx="1.6"/><rect x="72" y="45.5" width="7" height="7" rx="1.6"/><rect x="-79" y="45.5" width="7" height="7" rx="1.6"/><rect x="82" y="45.5" width="7" height="7" rx="1.6"/><rect x="-89" y="45.5" width="7" height="7" rx="1.6"/><rect x="92" y="45.5" width="7" height="7" rx="1.6"/><rect x="-99" y="45.5" width="7" height="7" rx="1.6"/><rect x="12" y="56.5" width="7" height="7" rx="1.6"/><rect x="-19" y="56.5" width="7" height="7" rx="1.6"/><rect x="22" y="56.5" width="7" height="7" rx="1.6"/><rect x="-29" y="56.5" width="7" height="7" rx="1.6"/><rect x="32" y="56.5" width="7" height="7" rx="1.6"/><rect x="-39" y="56.5" width="7" height="7" rx="1.6"/><rect x="42" y="56.5" width="7" height="7" rx="1.6"/><rect x="-49" y="56.5" width="7" height="7" rx="1.6"/><rect x="52" y="56.5" width="7" height="7" rx="1.6"/><rect x="-59" y="56.5" width="7" height="7" rx="1.6"/><rect x="62" y="56.5" width="7" height="7" rx="1.6"/><rect x="-69" y="56.5" width="7" height="7" rx="1.6"/><rect x="72" y="56.5" width="7" height="7" rx="1.6"/><rect x="-79" y="56.5" width="7" height="7" rx="1.6"/><rect x="82" y="56.5" width="7" height="7" rx="1.6"/><rect x="-89" y="56.5" width="7" height="7" rx="1.6"/><rect x="92" y="56.5" width="7" height="7" rx="1.6"/><rect x="-99" y="56.5" width="7" height="7" rx="1.6"/><rect x="12" y="67.5" width="7" height="7" rx="1.6"/><rect x="-19" y="67.5" width="7" height="7" rx="1.6"/><rect x="22" y="67.5" width="7" height="7" rx="1.6"/><rect x="-29" y="67.5" width="7" height="7" rx="1.6"/><rect x="32" y="67.5" width="7" height="7" rx="1.6"/><rect x="-39" y="67.5" width="7" height="7" rx="1.6"/><rect x="42" y="67.5" width="7" height="7" rx="1.6"/><rect x="-49" y="67.5" width="7" height="7" rx="1.6"/><rect x="52" y="67.5" width="7" height="7" rx="1.6"/><rect x="-59" y="67.5" width="7" height="7" rx="1.6"/><rect x="62" y="67.5" width="7" height="7" rx="1.6"/><rect x="-69" y="67.5" width="7" height="7" rx="1.6"/><rect x="72" y="67.5" width="7" height="7" rx="1.6"/><rect x="-79" y="67.5" width="7" height="7" rx="1.6"/><rect x="82" y="67.5" width="7" height="7" rx="1.6"/><rect x="-89" y="67.5" width="7" height="7" rx="1.6"/><rect x="12" y="78.5" width="7" height="7" rx="1.6"/><rect x="-19" y="78.5" width="7" height="7" rx="1.6"/><rect x="22" y="78.5" width="7" height="7" rx="1.6"/><rect x="-29" y="78.5" width="7" height="7" rx="1.6"/><rect x="32" y="78.5" width="7" height="7" rx="1.6"/><rect x="-39" y="78.5" width="7" height="7" rx="1.6"/><rect x="42" y="78.5" width="7" height="7" rx="1.6"/><rect x="-49" y="78.5" width="7" height="7" rx="1.6"/><rect x="52" y="78.5" width="7" height="7" rx="1.6"/><rect x="-59" y="78.5" width="7" height="7" rx="1.6"/><rect x="62" y="78.5" width="7" height="7" rx="1.6"/><rect x="-69" y="78.5" width="7" height="7" rx="1.6"/><rect x="72" y="78.5" width="7" height="7" rx="1.6"/><rect x="-79" y="78.5" width="7" height="7" rx="1.6"/><rect x="12" y="89.5" width="7" height="7" rx="1.6"/><rect x="-19" y="89.5" width="7" height="7" rx="1.6"/><rect x="22" y="89.5" width="7" height="7" rx="1.6"/><rect x="-29" y="89.5" width="7" height="7" rx="1.6"/><rect x="32" y="89.5" width="7" height="7" rx="1.6"/><rect x="-39" y="89.5" width="7" height="7" rx="1.6"/><rect x="42" y="89.5" width="7" height="7" rx="1.6"/><rect x="-49" y="89.5" width="7" height="7" rx="1.6"/><rect x="52" y="89.5" width="7" height="7" rx="1.6"/><rect x="-59" y="89.5" width="7" height="7" rx="1.6"/><rect x="62" y="89.5" width="7" height="7" rx="1.6"/><rect x="-69" y="89.5" width="7" height="7" rx="1.6"/><rect x="12" y="100.5" width="7" height="7" rx="1.6"/><rect x="-19" y="100.5" width="7" height="7" rx="1.6"/><rect x="22" y="100.5" width="7" height="7" rx="1.6"/><rect x="-29" y="100.5" width="7" height="7" rx="1.6"/><rect x="32" y="100.5" width="7" height="7" rx="1.6"/><rect x="-39" y="100.5" width="7" height="7" rx="1.6"/><rect x="42" y="100.5" width="7" height="7" rx="1.6"/><rect x="-49" y="100.5" width="7" height="7" rx="1.6"/><rect x="52" y="100.5" width="7" height="7" rx="1.6"/><rect x="-59" y="100.5" width="7" height="7" rx="1.6"/><rect x="12" y="111.5" width="7" height="7" rx="1.6"/><rect x="-19" y="111.5" width="7" height="7" rx="1.6"/><rect x="22" y="111.5" width="7" height="7" rx="1.6"/><rect x="-29" y="111.5" width="7" height="7" rx="1.6"/><rect x="32" y="111.5" width="7" height="7" rx="1.6"/><rect x="-39" y="111.5" width="7" height="7" rx="1.6"/></g><path class="led" d="M101.4 -97.9A141 141 0 0 1 101.4 97.9"/><path class="led" d="M-101.4 97.9A141 141 0 0 1 -101.4 -97.9"/><text class="stl on" x="0" y="-182">Stage 1</text><text class="stl" x="188" y="6">Stage 2</text><text class="stl" x="0" y="194">Stage 3</text><text class="stl" x="-188" y="6">Stage 4</text><line class="dim" x1="-134" y1="0" x2="134" y2="0"/><rect class="pill" x="-74" y="-13" width="148" height="26" rx="13"/><text class="dt" x="0" y="5">Ø 27 m · C 84.8 m</text><line class="dim" x1="74.2" y1="-118.7" x2="124.5" y2="-199.3"/><text class="dt l" x="135.4" y="-210.3">10 m</text><line class="dim" x1="-235" y1="262" x2="235" y2="262"/><line class="dim" x1="-235" y1="254" x2="-235" y2="270"/><line class="dim" x1="235" y1="254" x2="235" y2="270"/><text class="dt" x="0" y="290">Ø 47 m overall · C 147.7 m</text></svg>
+        <figcaption class="rm-key"><span><i class="k-on"></i>Stage playing</span><span><i class="k-led"></i>LED walls</span><span><i class="k-ent"></i>Video entrances</span></figcaption></figure>
+      <div class="rm2-r"><ul class="pts rm-pts">
+        <li><b>600 seats</b>On a 27-metre platform that turns left or right to face any of the four stages</li>
+        <li><b>LED walls on a 360° track</b>Two 90° sections, 21.2 m each, open to reveal the stage that is playing</li>
+        <li><b>Corner mode</b>Two stages join into one wide stage</li>
+        <li><b>A multi-use house</b>Removable seating, a rotating downstage thrust and a rotating overhead rig for lighting, sound and effects</li>
+      </ul>
+      <div class="cf cf2"><figure class="cf-m"><svg viewBox="-128 -128 256 256" aria-hidden="true"><path class="sec on" d="M-79.7 -95.0A124 124 0 0 1 79.7 -95.0L47.6 -56.7A74 74 0 0 0 -47.6 -56.7Z"/><text class="mn on" x="0.0" y="-93.0">1</text><path class="sec" d="M95.0 -79.7A124 124 0 0 1 95.0 79.7L56.7 47.6A74 74 0 0 0 56.7 -47.6Z"/><text class="mn" x="99.0" y="6.0">2</text><path class="sec" d="M79.7 95.0A124 124 0 0 1 -79.7 95.0L-47.6 56.7A74 74 0 0 0 47.6 56.7Z"/><text class="mn" x="0.0" y="105.0">3</text><path class="sec" d="M-95.0 79.7A124 124 0 0 1 -95.0 -79.7L-56.7 -47.6A74 74 0 0 0 -56.7 47.6Z"/><text class="mn" x="-99.0" y="6.0">4</text><circle class="plat" r="70"/><g class="seat" transform="rotate(0)"><rect x="6" y="-57.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="-57.5" width="20.5" height="7" rx="3"/><rect x="6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="6" y="-33.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="-33.5" width="44.3" height="7" rx="3"/><rect x="6" y="-21.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="-21.5" width="49.3" height="7" rx="3"/><rect x="6" y="14.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="14.5" width="49.3" height="7" rx="3"/><rect x="6" y="26.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="26.5" width="44.3" height="7" rx="3"/><rect x="6" y="38.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="38.5" width="35.6" height="7" rx="3"/><rect x="6" y="50.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="50.5" width="20.5" height="7" rx="3"/><path class="fw" d="M-9 -62 L0 -72 L9 -62"/></g></svg><figcaption>Stage 1</figcaption></figure><figure class="cf-m"><svg viewBox="-128 -128 256 256" aria-hidden="true"><path class="sec on" d="M-79.7 -95.0A124 124 0 0 1 79.7 -95.0L47.6 -56.7A74 74 0 0 0 -47.6 -56.7Z"/><text class="mn on" x="0.0" y="-93.0">1</text><path class="sec on" d="M95.0 -79.7A124 124 0 0 1 95.0 79.7L56.7 47.6A74 74 0 0 0 56.7 -47.6Z"/><text class="mn on" x="99.0" y="6.0">2</text><path class="sec" d="M79.7 95.0A124 124 0 0 1 -79.7 95.0L-47.6 56.7A74 74 0 0 0 47.6 56.7Z"/><text class="mn" x="0.0" y="105.0">3</text><path class="sec" d="M-95.0 79.7A124 124 0 0 1 -95.0 -79.7L-56.7 -47.6A74 74 0 0 0 -56.7 47.6Z"/><text class="mn" x="-99.0" y="6.0">4</text><circle class="plat" r="70"/><g class="seat" transform="rotate(45)"><rect x="6" y="-57.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="-57.5" width="20.5" height="7" rx="3"/><rect x="6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="6" y="-33.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="-33.5" width="44.3" height="7" rx="3"/><rect x="6" y="-21.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="-21.5" width="49.3" height="7" rx="3"/><rect x="6" y="14.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="14.5" width="49.3" height="7" rx="3"/><rect x="6" y="26.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="26.5" width="44.3" height="7" rx="3"/><rect x="6" y="38.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="38.5" width="35.6" height="7" rx="3"/><rect x="6" y="50.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="50.5" width="20.5" height="7" rx="3"/><path class="fw" d="M-9 -62 L0 -72 L9 -62"/></g></svg><figcaption>Stages 1 and 2: corner mode</figcaption></figure><figure class="cf-m"><svg viewBox="-128 -128 256 256" aria-hidden="true"><path class="sec" d="M-79.7 -95.0A124 124 0 0 1 79.7 -95.0L47.6 -56.7A74 74 0 0 0 -47.6 -56.7Z"/><text class="mn" x="0.0" y="-93.0">1</text><path class="sec on" d="M95.0 -79.7A124 124 0 0 1 95.0 79.7L56.7 47.6A74 74 0 0 0 56.7 -47.6Z"/><text class="mn on" x="99.0" y="6.0">2</text><path class="sec" d="M79.7 95.0A124 124 0 0 1 -79.7 95.0L-47.6 56.7A74 74 0 0 0 47.6 56.7Z"/><text class="mn" x="0.0" y="105.0">3</text><path class="sec" d="M-95.0 79.7A124 124 0 0 1 -95.0 -79.7L-56.7 -47.6A74 74 0 0 0 -56.7 47.6Z"/><text class="mn" x="-99.0" y="6.0">4</text><circle class="plat" r="70"/><g class="seat" transform="rotate(90)"><rect x="6" y="-57.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="-57.5" width="20.5" height="7" rx="3"/><rect x="6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="6" y="-33.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="-33.5" width="44.3" height="7" rx="3"/><rect x="6" y="-21.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="-21.5" width="49.3" height="7" rx="3"/><rect x="6" y="14.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="14.5" width="49.3" height="7" rx="3"/><rect x="6" y="26.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="26.5" width="44.3" height="7" rx="3"/><rect x="6" y="38.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="38.5" width="35.6" height="7" rx="3"/><rect x="6" y="50.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="50.5" width="20.5" height="7" rx="3"/><path class="fw" d="M-9 -62 L0 -72 L9 -62"/></g></svg><figcaption>Stage 2</figcaption></figure><figure class="cf-m"><svg viewBox="-128 -128 256 256" aria-hidden="true"><path class="sec" d="M-79.7 -95.0A124 124 0 0 1 79.7 -95.0L47.6 -56.7A74 74 0 0 0 -47.6 -56.7Z"/><text class="mn" x="0.0" y="-93.0">1</text><path class="sec" d="M95.0 -79.7A124 124 0 0 1 95.0 79.7L56.7 47.6A74 74 0 0 0 56.7 -47.6Z"/><text class="mn" x="99.0" y="6.0">2</text><path class="sec on" d="M79.7 95.0A124 124 0 0 1 -79.7 95.0L-47.6 56.7A74 74 0 0 0 47.6 56.7Z"/><text class="mn on" x="0.0" y="105.0">3</text><path class="sec" d="M-95.0 79.7A124 124 0 0 1 -95.0 -79.7L-56.7 -47.6A74 74 0 0 0 -56.7 47.6Z"/><text class="mn" x="-99.0" y="6.0">4</text><circle class="plat" r="70"/><g class="seat" transform="rotate(180)"><rect x="6" y="-57.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="-57.5" width="20.5" height="7" rx="3"/><rect x="6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="6" y="-33.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="-33.5" width="44.3" height="7" rx="3"/><rect x="6" y="-21.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="-21.5" width="49.3" height="7" rx="3"/><rect x="6" y="14.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="14.5" width="49.3" height="7" rx="3"/><rect x="6" y="26.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="26.5" width="44.3" height="7" rx="3"/><rect x="6" y="38.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="38.5" width="35.6" height="7" rx="3"/><rect x="6" y="50.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="50.5" width="20.5" height="7" rx="3"/><path class="fw" d="M-9 -62 L0 -72 L9 -62"/></g></svg><figcaption>Stage 3</figcaption></figure><figure class="cf-m"><svg viewBox="-128 -128 256 256" aria-hidden="true"><path class="sec" d="M-79.7 -95.0A124 124 0 0 1 79.7 -95.0L47.6 -56.7A74 74 0 0 0 -47.6 -56.7Z"/><text class="mn" x="0.0" y="-93.0">1</text><path class="sec" d="M95.0 -79.7A124 124 0 0 1 95.0 79.7L56.7 47.6A74 74 0 0 0 56.7 -47.6Z"/><text class="mn" x="99.0" y="6.0">2</text><path class="sec" d="M79.7 95.0A124 124 0 0 1 -79.7 95.0L-47.6 56.7A74 74 0 0 0 47.6 56.7Z"/><text class="mn" x="0.0" y="105.0">3</text><path class="sec on" d="M-95.0 79.7A124 124 0 0 1 -95.0 -79.7L-56.7 -47.6A74 74 0 0 0 -56.7 47.6Z"/><text class="mn on" x="-99.0" y="6.0">4</text><circle class="plat" r="70"/><g class="seat" transform="rotate(270)"><rect x="6" y="-57.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="-57.5" width="20.5" height="7" rx="3"/><rect x="6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="-45.5" width="35.6" height="7" rx="3"/><rect x="6" y="-33.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="-33.5" width="44.3" height="7" rx="3"/><rect x="6" y="-21.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="-21.5" width="49.3" height="7" rx="3"/><rect x="6" y="14.5" width="49.3" height="7" rx="3"/><rect x="-55.3" y="14.5" width="49.3" height="7" rx="3"/><rect x="6" y="26.5" width="44.3" height="7" rx="3"/><rect x="-50.3" y="26.5" width="44.3" height="7" rx="3"/><rect x="6" y="38.5" width="35.6" height="7" rx="3"/><rect x="-41.6" y="38.5" width="35.6" height="7" rx="3"/><rect x="6" y="50.5" width="20.5" height="7" rx="3"/><rect x="-26.5" y="50.5" width="20.5" height="7" rx="3"/><path class="fw" d="M-9 -62 L0 -72 L9 -62"/></g></svg><figcaption>Stage 4</figcaption></figure></div>
+    <ul class="cf-l">
+      <li>The platform turns to whichever stage is playing; the others are reset behind the walls</li>
+      <li>No scene changes in front of the audience, and no dark weeks between productions</li>
+      <li>The second half goes wherever the room’s vote sends it</li>
+    </ul>
+      <div class="wrow rmb"><a class="btn screen-only" href="sitefit.mp4" target="_blank" rel="noopener">&#9654; Tour the exterior</a><a class="btn print-only" href="https://www.reversearena.com/consorci/sitefit.mp4">&#9654; Tour the exterior online</a><a class="btn screen-only" href="../#tour">&#9654; Tour the interior</a><a class="btn print-only" href="https://www.reversearena.com/#tour">&#9654; Tour the interior online</a></div></div>
+    </div>
+  </div></div>
+</section>
+
+
+
+<section class="pg" id="proof" data-name="First staged at sea" data-g="X">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Proof</div>
+    <h2 class="ht">First staged at sea, <span>built for Barcelona</span></h2>
+    <div class="proofw">
+      <figure class="pf"><div class="pm"><video src="poc.mp4" poster="poc.jpg" controls playsinline preload="none" aria-label="Viva la Música proof-of-concept clip, 43 seconds, with sound"></video><a class="playt print-only" href="https://www.reversearena.com/consorci/poc.mp4" aria-label="Play the Viva la Música clip online"><img src="poc.jpg" alt="Viva la Música at sea"><span class="playb" aria-hidden="true">&#9654;</span></a></div>
+        <figcaption><span class="lab">At sea</span><b>Viva la Música</b><span>The founders' show for Princess Cruises: the video wall makes the room seem to turn</span></figcaption></figure>
+      <div class="parr" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h34M28 4l8 8-8 8"/></svg></div>
+      <figure class="pf"><div class="pm"><a class="playt" href="https://www.reversearena.com/#tour" aria-label="Play the tour"><img src="r-turn.jpg" alt="The turntable: 600 seats in the middle, the stages all round" loading="lazy"><span class="playb" aria-hidden="true">&#9654;</span></a></div>
+        <figcaption><span class="lab">In Barcelona</span><b>Here the turn is real</b><span>600 seats on a platform that turns to face four stages</span></figcaption>
+        </figure>
+    </div>
+  </div></div>
+</section>
+
+
+<section class="pg" id="model3d" data-name="The room in 3D" data-g="H">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">The 3D model</div>
+    <h2 class="ht">Walk through the room <span>in 3D</span></h2>
+    <div class="m3">
+      <img src="r-fuego.jpg" alt="Stage 3, Team Fuego, with the glass riser lit" loading="lazy" data-lb>
+      <img src="r-stage4.jpg" alt="Stage 4, the hologram stage" loading="lazy" data-lb>
+      <img src="r-holo.jpg" alt="Stage 4: the angel on the hologram gauze" loading="lazy" data-lb>
+      <img src="r-vote.jpg" alt="The vote: the four teams dance in the aisles while the app counts" loading="lazy" data-lb>
+    </div>
+    <div class="wrow"><a class="btn screen-only" href="../#model">&#9654; Turn the room yourself</a><a class="btn print-only" href="https://www.reversearena.com/#model">&#9654; Turn the room yourself, online</a></div>
+    
+  </div></div>
+</section>
+
+
+
+<section class="pg" id="cameras" data-name="Filmed every night" data-g="H">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Filmed every night</div>
+    <h2 class="ht">Cameras <span>throughout the room</span></h2>
+    <div class="cam">
+      <figure class="cam-p"><img src="k-cams.jpg" alt="Cameras throughout the room: on cranes, on the platform and overhead" loading="lazy" data-lb></figure>
+      <ul class="pts">
+        <li><b>The documentary</b>Every show is filmed for the streaming competition documentary</li>
+        <li><b>Every angle</b>Cameras on cranes, on the platform, around the stage ring and overhead</li>
+        <li><b>Live to TV</b>Fibre from every camera to the in-house control room, and out to the broadcaster</li>
+      </ul>
+    </div>
+  </div></div>
+</section>
+<section class="pg" id="producers" data-name="The audience votes" data-g="H">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">The audience</div>
+    <h2 class="ht">The audience are <span>the producers</span></h2>
+    <div class="prd">
+      <figure><img src="p-1.jpg" alt="Arrival: a red carpet and cava on silver trays" loading="lazy" data-lb><figcaption><span class="pnum">1</span><b>Arrival</b><span>A red carpet in, and cava on silver trays</span></figcaption></figure>
+      <figure><img src="p-2-en.jpg" data-es="p-2-es.jpg" alt="The vote: the room chooses in the Reverse Arena app" loading="lazy" data-lb><figcaption><span class="pnum">2</span><b>Choose and vote</b><span>In the Reverse Arena app, the room votes on the choices the show presents</span><span>The votes decide the second half</span></figcaption></figure>
+      <figure><img src="p-3-en.jpg" data-es="p-3-es.jpg" alt="The interval: pinchos and drinks ordered in the app" loading="lazy" data-lb><figcaption><span class="pnum">3</span><b>Interval</b><span>Pinchos and drinks waiting, ordered in the app or included with a dinner package</span></figcaption></figure>
+    </div>
+  </div></div>
+</section>
+
+<section class="pg" id="school" data-name="The school" data-g="H">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">The school</div>
+    <h2 class="ht">Imperio School of Performing Arts <span>builds the show</span></h2>
+    <div class="sch2">
+      <div class="sch2-l">
+        <div class="sch2-c">
+          <div><b>110</b><i>pre-professional students a year</i><span>Recruited from dance studios, performing-arts schools and the competition and convention circuits</span></div>
+          <div><b>18</b><i>months, Miami then Barcelona</i><span>A competition season: students move between expert-led teams and compete for roles and paid captain posts</span></div>
+          <div><b>1</b><i>show, built by the school</i><span>Cast, content, wardrobe, music and yearly upgrades are the curriculum, paid for by tuition: about €1.6–2.3M a year</span></div>
+        </div>
+        <ul class="sch2-f">
+          <li>The method is under study at the University of Alabama, led by Dr. Robert D. Laird and Dr. Cailin Kerch</li>
+          <li>The school runs as a non-profit and covers its costs from tuition alone</li>
+        </ul>
+      </div>
+      <figure class="sch2-p"><img src="s-school.jpg" alt="A rehearsal at the school: a choreographer directs two dancers" loading="lazy" data-lb></figure>
+    </div>
+  </div></div>
+</section>
+
+<section class="pg" id="use" data-name="Day and night" data-g="H">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Use</div>
+    <h2 class="ht">One building, <span>day and night</span></h2>
+    <div class="uses">
+      <div class="use"><img src="r-show.jpg" alt="The audience on a show night" loading="lazy"><div class="k">Show nights</div><div class="v">Eight a week, 50 weeks a year</div></div>
+      <div class="use"><img src="r-filmed.jpg" alt="The house from a camera position" loading="lazy"><div class="k">Filming and broadcast</div><div class="v">Every show filmed and streamed</div></div>
+      <div class="use"><img src="r-two2.jpg" alt="Two stages in use at once" loading="lazy"><div class="k">School by day and night</div><div class="v">110 students rehearse and perform here</div></div>
+      <div class="use"><img src="r-dinner.jpg" alt="The room set for a dinner" loading="lazy"><div class="k">Dinners and events</div><div class="v">Dinner theatre and receptions. Not assumed in our financial model: all upside for our investors.</div></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">121,440</div><div class="t">tickets in the opening year, 46 show weeks</div></div>
+      <div class="stat"><div class="n">163,200</div><div class="t">tickets in year five</div></div>
+      <div class="stat"><div class="n">600</div><div class="t">seats: whole houses for groups and events</div></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="pg" id="city" data-name="For Barcelona" data-g="Y">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">For Barcelona</div>
+    <h2 class="ht">An anchor for <span>Catalunya Media City</span></h2>
+    <div class="cityw">
+      <img src="r-above.jpg" alt="The whole room from above, in the 3D model" loading="lazy" data-lb>
+      <div class="cl">
+        <ul class="pts">
+          <li><b>Next to the hub</b>The Generalitat's audiovisual campus at the Tres Xemeneies, bought in 2026; its €70.8M turbine hall is planned for 2028</li>
+          <li><b>A live stage for the hub</b>Shows made, tested and broadcast every night; a studio its companies and schools can use</li>
+          <li><b>For residents</b>Weekly residents' nights at reduced prices, and local scholarships</li>
+          <li><b>For local schools</b>Open to film, media and music schools, and to university partners</li>
+          <li><b>For visitors</b>More than 100,000 a year, even in the downside case, spending their evening in the city</li>
+          <li><b>Public benefit in time</b>The venue passes to the non-profit foundation</li>
+        </ul>
+        <div class="stats"><div class="stat"><div class="n">Nightly</div><div class="t">star-level shows</div></div><div class="stat"><div class="n">New</div><div class="t">show format, made in Barcelona</div></div><div class="stat"><div class="n">€43M</div><div class="t">privately financed</div></div></div>
+      </div>
+    </div>
+    <div class="foot">Catalunya Media City: Generalitat purchase of the Tres Xemeneies for €42M (June 2026); €70.8M for the turbine hall, works to end of 2028 (Vilaweb, 29 March 2025; Moncloa.com, 13 June 2026).</div>
+  </div></div>
+</section>
+
+<section class="pg" id="areas" data-name="Areas and site" data-g="Y">
+  <div class="sl hw"><div class="hs">
+    <div class="hrow"><div class="eb">Areas and site</div><div class="hbtn"><a class="btn screen-only" href="sitefit.mp4" target="_blank" rel="noopener">&#9654; Watch the site film</a><a class="btn print-only" href="https://www.reversearena.com/consorci/sitefit.mp4">&#9654; Watch the site film online</a></div></div>
+    <h2 class="ht">A 5,100 m² plot, <span>one level above ground</span></h2>
+    <div class="areas">
+      <div class="ab">
+        <div class="r"><div class="k">Performance hall<small>platform, stage ring, stage wings</small></div><div class="track"><i class="lo" style="width:37.1%"></i><span class="v">about 2,600</span></div></div>
+        <div class="r"><div class="k">Backstage<small>dressing rooms, wardrobe, rehearsal, loading</small></div><div class="track"><i class="lo" style="width:14.3%"></i><span class="v">about 1,000</span></div></div>
+        <div class="r"><div class="k">Front of house<small>600 guests eating at standing tables; bars, toilets, lobby</small></div><div class="track"><i class="lo" style="width:14.3%"></i><span class="v">about 1,000</span></div></div><div class="r"><div class="k">Broadcast and building<small>control room for the directors and switchers, offices, plant</small></div><div class="track"><i class="lo" style="width:7.1%"></i><span class="v">about 500</span></div></div>
+        <div class="r tot"><div class="k">Venue building<small>m² of floor area; loading below ground</small></div><div class="track"><i class="lo" style="width:72.9%"></i><span class="v">5,100</span></div></div>
+      </div>
+      <div class="needs">
+        <div class="need"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3"/></svg><div class="n">50 × 50 m</div><div class="t">at least; column-free, 14–17 m high over the hall only</div></div>
+        <div class="need"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM8 20h8M12 16v4"/></svg><div class="n">Live to TV</div><div class="t">over fibre from the in-house control room</div></div>
+        <div class="need"><svg viewBox="0 0 24 24"><path d="M2 7h12v9H2zM14 10h4l3 3v3h-7M5 19a1.5 1.5 0 1 0 0-.1M17 19a1.5 1.5 0 1 0 0-.1"/></svg><div class="n">Loading</div><div class="t">an underground dock for full-size trucks</div></div>
+        <div class="need"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM17 9l4 6M21 9l-4 6"/></svg><div class="n">Quiet</div><div class="t">acoustic separation from neighbours</div></div>
+        <div class="need"><svg viewBox="0 0 24 24"><path d="M5 4h14v12H5zM5 11h14M8 19l-2 2M16 19l2 2M8 16v3M16 16v3"/></svg><div class="n">Transit</div><div class="t">public transport; coach drop-off</div></div>
+        <div class="need"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V10h6v10M13 20V5h6v15"/></svg><div class="n">Later</div><div class="t">first refusal on adjacent land, for student housing</div></div>
+      </div>
+    </div>
+    <div class="foot"><span class="ln">Front of house: 600 guests at standing tables need about 600 m² (1 m² a person, the CTE density for standing public in bars and cafés), plus bars and food service, toilets, cloakroom and lobby.</span><span class="ln">Broadcast: the directors and switchers work in the in-house control room, with fibre to every camera and out to the broadcaster, so no truck yard is needed.</span><span class="ln">Loading is underground.</span></div>
+  </div></div>
+</section>
+
+<section class="pg" id="structure" data-name="Financial structure" data-g="Y">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Financial structure</div>
+    <h2 class="ht">Who owns, <span>who pays, who runs</span></h2>
+    <div class="dia">
+      <div class="bx land"><div class="t">Consorci del Besòs</div><div class="v">A long-term, renewable surface right on about 5,100 m²</div><div class="v">Ground rent: to be agreed with you</div></div>
+      <div class="bx eq"><div class="t">Equity <span class="pc2">70%</span></div><div class="m">€27.0M</div><div class="v">Two groups: the dance convention and competition industry, and a Spanish co&#8209;developer</div></div>
+      <div class="bx co key"><div class="t">The venue company</div><div class="v">Spanish, to be formed; builds and owns the venue</div><div class="v">Run by an established Spanish venue manager, with US training as needed</div><div class="m">€43.0M <small>development cost</small></div></div>
+      <div class="bx debt"><div class="t">Senior debt</div><div class="m">€16.0M</div><div class="v">Bank loan, repaid from operations</div></div>
+      <div class="bx sch"><div class="t">Imperio School of Performing Arts <span class="pc2">30%</span></div><div class="v">Non-profit foundation, with a board from Spain and the US</div><div class="v">Produces the show at its own cost and reinvests its share</div><div class="v">Over time, the whole venue passes to it</div></div>
+    </div>
+    <div>
+      <div class="uses-bar" aria-hidden="true"><i style="flex:18.5"></i><i style="flex:8"></i><i style="flex:8"></i><i style="flex:3.9"></i><i style="flex:4.6"></i></div>
+      <div class="uses-key"><span>Development cost, €M:</span><span><b>18.5</b> building</span><span><b>8.0</b> platform, machinery and seating</span><span><b>8.0</b> LED, lighting and production</span><span><b>3.9</b> contingency</span><span><b>4.6</b> pre-opening and finance</span></div>
+    </div>
+    <div class="foot"><span class="ln">The venue company is formed to sign the surface right; the foundation is formed before the school opens.</span><span class="ln">The investors run dance conventions and competitions in the US: the theatre brings their events to Spain and Europe, and the school recruits European talent.</span></div>
+  </div></div>
+</section>
+
+<section class="pg" id="timeline" data-name="Timeline and jobs" data-g="Y">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Timeline and jobs</div>
+    <h2 class="ht">Open in the fourth year, <span>about 90 people at work</span></h2>
+    <div class="tl">
+      <div class="st"><div class="y">Build year 1</div><div class="d">Design, permits, groundbreaking</div></div>
+      <div class="st"><div class="y">Build year 2</div><div class="d">Structure and machinery</div></div>
+      <div class="st"><div class="y">Build year 3</div><div class="d">Technology, previews</div></div>
+      <div class="st"><div class="y">Opening</div><div class="d">After a month of technical rehearsal</div></div>
+    </div>
+    <div class="jobw">
+      <div class="jtot"><div class="n">~90</div><div class="t">people at work in a show week</div></div>
+      <div class="jobs">
+        <div class="job"><div class="n">21</div><div class="h">Permanent venue roles</div><div class="t">Management, technical, front of house, stage, facilities, marketing, security</div></div>
+        <div class="job"><div class="n">~20</div><div class="h">Show-night team</div><div class="t">Ushers, access control, crew</div></div>
+        <div class="job"><div class="n">~25</div><div class="h">School faculty and staff</div><div class="t">Faculty, vocal coaches, stage captains, musicians, student services, documentary crew</div></div>
+        <div class="job"><div class="n">~25</div><div class="h">Through contractors</div><div class="t">Bars and catering, cleaning, app and IT</div></div>
+      </div>
+    </div>
+    <div class="plus"><span><b>+12</b>guest artists a year</span><span><b>+4</b>visiting choreographers a year</span><span><b>Hundreds</b>of construction workers across the trades during the build</span></div>
+    <div class="foot"><span class="ln">An established Spanish venue management company runs the venue, with US training as needed; the school opens with its US faculty and hires locally.</span><span class="ln">Build year 1 starts once the surface right is signed and the funding has closed.</span></div>
+  </div></div>
+</section>
+
+<section class="pg" id="ask" data-name="What we ask" data-g="Y">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">The proposal</div>
+    <h2 class="ht">What we ask, <span>and what we bring</span></h2>
+    <div class="askw">
+      <div class="askc key"><div class="lab">We ask the Consorci for</div>
+        <div class="ask2" style="grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)"><ul class="pts">
+          <li><b>A surface right</b>On a plot of about 5,100 m², long-term and renewable, with options</li>
+          <li><b>Welcome: a first refusal on adjacent land</b>For student housing later, built by a partner and leased to the school</li>
+          <li><b>Ground rent</b>To be agreed with you</li></ul>
+        <figure class="plot"><img src="ask-room.jpg" alt="The house in the 3D model, 600 seats" style="width:100%;border-radius:.8cqw;border:1px solid var(--rule);display:block"></figure>
+        </div></div>
+      <div class="askc bring"><div class="lab">We bring</div><ul class="pts">
+        <li><b>A €43.0M development</b>Building, platform, LED and production, to be funded by equity and a bank loan</li>
+        <li><b>The show</b>The founders, the school and its four teams; an established Spanish venue manager runs the building</li>
+        <li><b>The broadcast stage</b>Every show filmed, streamed and able to go live to TV</li></ul></div>
+    </div>
+    <div class="next"><b>Next step</b>An agreement in principle on the surface right, so the architect can design for the site and the investors can commit.</div>
+  </div></div>
+</section>
+
+<section class="pg" id="pl" data-name="P&amp;L" data-g="F">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Projected P&amp;L</div>
+    <h2 class="ht">P&amp;L at a glance, <span>before ground rent</span></h2>
+    <div class="plw">
+      <div>
+        <div class="chart" role="img" aria-label="Revenue and operating costs: base opening year 11.6 and 6.1, base year 5 17.2 and 8.0, downside opening year 8.8 and 5.6, downside year 5 13.3 and 7.2 million euros">
+          <div class="col"><div class="b rev" style="height:67.4%"><em>11.6</em></div><div class="b cost" style="height:35.5%"><em>6.1</em></div><div class="lbl"><b>Base</b>opening year</div></div>
+          <div class="col"><div class="b rev" style="height:100%"><em>17.2</em></div><div class="b cost" style="height:46.5%"><em>8.0</em></div><div class="lbl"><b>Base</b>year 5</div></div>
+          <div class="sep" aria-hidden="true"></div><div class="col"><div class="b rev" style="height:51.2%"><em>8.8</em></div><div class="b cost" style="height:32.6%"><em>5.6</em></div><div class="lbl"><b>Downside</b>opening year</div></div>
+          <div class="col"><div class="b rev" style="height:77.3%"><em>13.3</em></div><div class="b cost" style="height:41.9%"><em>7.2</em></div><div class="lbl"><b>Downside</b>year 5</div></div>
+        </div>
+        <div class="legend"><span><i style="background:var(--gold)"></i>Revenue</span><span><i style="background:#8d7b63"></i>Operating costs</span><span>€M</span></div>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="pl">
+        <thead><tr><th>€M</th><th>Base<br>yr 1</th><th>Base<br>yr 5</th><th>Down<br>yr 1</th><th>Down<br>yr 5</th></tr></thead>
+        <tbody>
+          <tr class="mut"><td>Occupancy</td><td>55%</td><td>68%</td><td>50%</td><td>65%</td></tr>
+          <tr><td>Revenue</td><td>11.6</td><td>17.2</td><td>8.8</td><td>13.3</td></tr>
+          <tr><td>Operating costs</td><td>6.1</td><td>8.0</td><td>5.6</td><td>7.2</td></tr>
+          <tr class="em"><td>Operating income</td><td>5.5</td><td>9.2</td><td>3.2</td><td>6.1</td></tr>
+          <tr class="rent"><td>Ground rent</td><td colspan="4" style="text-align:center">to be agreed with you</td></tr>
+          <tr><td>Debt service</td><td>2.1</td><td>2.1</td><td>2.1</td><td>2.1</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div class="foot">Years of operation. The full five-year P&amp;L for both cases, and the operating costs, follow.</div>
+  </div></div>
+</section>
+
+<section class="pg" id="pl-base" data-name="P&amp;L, base case" data-g="F">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">P&amp;L · base case</div>
+    <h2 class="ht">Base case, <span>first five years of operation</span></h2>
+    <div style="overflow-x:auto"><table class="pl full"><thead><tr><th>€M</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th><th>5 years</th></tr></thead><tbody><tr class="hd"><td colspan="7">Audience</td></tr><tr class="sub"><td>Tickets sold</td><td>121,440</td><td>144,000</td><td>156,000</td><td>158,400</td><td>163,200</td><td>743,040</td></tr><tr class="sub"><td>Occupancy</td><td>55%</td><td>60%</td><td>65%</td><td>66%</td><td>68%</td><td></td></tr><tr class="sub"><td>Average net ticket, €</td><td>90.0</td><td>91.8</td><td>93.6</td><td>95.5</td><td>97.4</td><td></td></tr><tr class="hd"><td colspan="7">Revenue</td></tr><tr class=""><td>Show revenue</td><td>10.93</td><td>13.22</td><td>14.61</td><td>15.13</td><td>15.90</td><td>69.78</td></tr><tr class=""><td>Food and drink, venue share</td><td>0.43</td><td>0.58</td><td>0.70</td><td>0.71</td><td>0.73</td><td>3.15</td></tr><tr class=""><td>Private events</td><td>0.11</td><td>0.15</td><td>0.20</td><td>0.20</td><td>0.20</td><td>0.85</td></tr><tr class=""><td>LED installation and sponsorship, net</td><td>0.16</td><td>0.29</td><td>0.39</td><td>0.39</td><td>0.39</td><td>1.61</td></tr><tr class="em"><td>Revenue</td><td>11.62</td><td>14.24</td><td>15.89</td><td>16.43</td><td>17.22</td><td>75.40</td></tr><tr class="hd"><td colspan="7">Operating costs</td></tr><tr class=""><td>Staff, building and running costs</td><td>4.03</td><td>4.23</td><td>4.55</td><td>4.82</td><td>5.00</td><td>22.63</td></tr><tr class=""><td>Ticketing, agency and card fees</td><td>1.14</td><td>1.38</td><td>1.52</td><td>1.58</td><td>1.66</td><td>7.27</td></tr><tr class=""><td>Music rights (SGAE, AGEDI/AIE)</td><td>0.93</td><td>1.12</td><td>1.24</td><td>1.29</td><td>1.35</td><td>5.93</td></tr><tr class=""><td>Operating costs</td><td>6.10</td><td>6.73</td><td>7.31</td><td>7.69</td><td>8.00</td><td>35.83</td></tr><tr class="em"><td>Operating income</td><td>5.52</td><td>7.51</td><td>8.58</td><td>8.74</td><td>9.22</td><td>39.57</td></tr><tr class="rent"><td>Ground rent</td><td colspan="6" style="text-align:center">to be agreed with you</td></tr><tr class=""><td>Debt service, €16.0M senior loan</td><td>2.13</td><td>2.13</td><td>2.13</td><td>2.13</td><td>2.13</td><td>10.63</td></tr><tr class=""><td>Corporate income tax</td><td>0.54</td><td>1.05</td><td>1.34</td><td>1.40</td><td>1.54</td><td>5.86</td></tr><tr class="em"><td>Cash after debt service and tax, before ground rent</td><td>2.86</td><td>4.33</td><td>5.12</td><td>5.22</td><td>5.55</td><td>23.08</td></tr></tbody></table></div>
+    <div class="mbtn"><button class="btn screen-only" type="button" data-model>Open the full model &#8599;</button><a class="btn print-only" href="https://www.reversearena.com/consorci/#pl-base">Open the full model online &#8599;</a></div><div class="foot"><span class="ln">8 shows a week, 50 weeks (46 in the opening year: the first month is technical rehearsal). Occupancy 55% rising to 68%. €90 average net ticket, +2% a year.</span><span class="ln">The school produces the show at its own cost, paid by tuition.</span></div>
+  </div></div>
+</section>
+
+<section class="pg" id="pl-down" data-name="P&amp;L, downside case" data-g="F">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">P&amp;L · downside case</div>
+    <h2 class="ht">Downside case, <span>fewer tickets at lower prices</span></h2>
+    <div style="overflow-x:auto"><table class="pl full"><thead><tr><th>€M</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th><th>5 years</th></tr></thead><tbody><tr class="hd"><td colspan="7">Audience</td></tr><tr class="sub"><td>Tickets sold</td><td>105,600</td><td>126,720</td><td>138,240</td><td>142,848</td><td>149,760</td><td>663,168</td></tr><tr class="sub"><td>Occupancy</td><td>50%</td><td>55%</td><td>60%</td><td>62%</td><td>65%</td><td></td></tr><tr class="sub"><td>Average net ticket, €</td><td>80.0</td><td>81.2</td><td>82.4</td><td>83.7</td><td>84.9</td><td></td></tr><tr class="hd"><td colspan="7">Revenue</td></tr><tr class=""><td>Show revenue</td><td>8.45</td><td>10.29</td><td>11.39</td><td>11.95</td><td>12.72</td><td>54.80</td></tr><tr class=""><td>Food and drink, venue share</td><td>0.32</td><td>0.38</td><td>0.41</td><td>0.43</td><td>0.45</td><td>1.99</td></tr><tr class=""><td>Private events</td><td>0.08</td><td>0.11</td><td>0.15</td><td>0.15</td><td>0.15</td><td>0.64</td></tr><tr class="em"><td>Revenue</td><td>8.84</td><td>10.78</td><td>11.96</td><td>12.53</td><td>13.32</td><td>57.42</td></tr><tr class="hd"><td colspan="7">Operating costs</td></tr><tr class=""><td>Staff, building and running costs</td><td>4.01</td><td>4.20</td><td>4.46</td><td>4.67</td><td>4.78</td><td>22.13</td></tr><tr class=""><td>Ticketing, agency and card fees</td><td>0.88</td><td>1.07</td><td>1.19</td><td>1.25</td><td>1.33</td><td>5.71</td></tr><tr class=""><td>Music rights (SGAE, AGEDI/AIE)</td><td>0.72</td><td>0.87</td><td>0.97</td><td>1.02</td><td>1.08</td><td>4.66</td></tr><tr class=""><td>Operating costs</td><td>5.61</td><td>6.15</td><td>6.62</td><td>6.93</td><td>7.19</td><td>32.50</td></tr><tr class="em"><td>Operating income</td><td>3.24</td><td>4.63</td><td>5.34</td><td>5.59</td><td>6.13</td><td>24.93</td></tr><tr class="rent"><td>Ground rent</td><td colspan="6" style="text-align:center">to be agreed with you</td></tr><tr class=""><td>Debt service, €16.0M senior loan</td><td>2.13</td><td>2.13</td><td>2.13</td><td>2.13</td><td>2.13</td><td>10.63</td></tr><tr class=""><td>Corporate income tax</td><td>0.00</td><td>0.33</td><td>0.53</td><td>0.61</td><td>0.76</td><td>2.23</td></tr><tr class="em"><td>Cash after debt service and tax, before ground rent</td><td>1.11</td><td>2.17</td><td>2.69</td><td>2.86</td><td>3.24</td><td>12.07</td></tr></tbody></table></div>
+    <div class="mbtn"><button class="btn screen-only" type="button" data-model>Open the full model &#8599;</button><a class="btn print-only" href="https://www.reversearena.com/consorci/#pl-base">Open the full model online &#8599;</a></div><div class="foot"><span class="ln">8 shows a week, 48 weeks (44 in the opening year). Occupancy 50% rising to 65%. €80 average net ticket, +1.5% a year.</span><span class="ln">Flagship show only: no LED installation or sponsorship income.</span></div>
+  </div></div>
+</section>
+
+<section class="pg" id="opex" data-name="Operating costs" data-g="F">
+  <div class="sl hw"><div class="hs">
+    <div class="eb">Operating costs</div>
+    <h2 class="ht">What it costs <span>to run, by department</span></h2>
+    <div style="overflow-x:auto"><table class="pl full"><thead><tr><th>€M</th><th>Year 1</th><th>Year 2</th><th>Year 5</th><th>5 years</th></tr></thead><tbody><tr class=""><td>Executive leadership</td><td>0.40</td><td>0.41</td><td>0.59</td><td>2.40</td></tr><tr class=""><td>Technical operations</td><td>0.66</td><td>0.68</td><td>0.73</td><td>3.48</td></tr><tr class=""><td>Front of house</td><td>0.35</td><td>0.36</td><td>0.39</td><td>1.84</td></tr><tr class=""><td>Back of house</td><td>0.08</td><td>0.08</td><td>0.09</td><td>0.42</td></tr><tr class=""><td>Building operations and maintenance</td><td>0.47</td><td>0.53</td><td>0.82</td><td>3.31</td></tr><tr class=""><td>Marketing and commercial</td><td>0.60</td><td>0.62</td><td>0.66</td><td>3.15</td></tr><tr class=""><td>Administration</td><td>0.35</td><td>0.36</td><td>0.39</td><td>1.86</td></tr><tr class=""><td>Security and compliance</td><td>0.23</td><td>0.23</td><td>0.25</td><td>1.19</td></tr><tr class=""><td>Insurance, utilities and other</td><td>0.57</td><td>0.58</td><td>0.62</td><td>2.97</td></tr><tr class=""><td>Contingency and reserves, 10%</td><td>0.37</td><td>0.38</td><td>0.45</td><td>2.06</td></tr><tr class="em"><td>Fixed operating costs</td><td>4.08</td><td>4.23</td><td>5.00</td><td>22.67</td></tr><tr class="sub"><td>Ticketing, agency and card fees, and music rights, vary with sales: see the P&amp;L</td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+    <div class="obar"><div class="lab">Year 1 fixed operating costs, €4.08M, by department</div><div class="hbars"><div class="hb"><span class="hl">Technical operations</span><span class="ht2"><i style="width:100.0%"></i></span><b>0.66</b></div><div class="hb"><span class="hl">Marketing</span><span class="ht2"><i style="width:90.9%"></i></span><b>0.60</b></div><div class="hb"><span class="hl">Insurance, utilities, other</span><span class="ht2"><i style="width:86.4%"></i></span><b>0.57</b></div><div class="hb"><span class="hl">Building and maintenance</span><span class="ht2"><i style="width:71.2%"></i></span><b>0.47</b></div><div class="hb"><span class="hl">Executive leadership</span><span class="ht2"><i style="width:60.6%"></i></span><b>0.40</b></div><div class="hb"><span class="hl">Contingency</span><span class="ht2"><i style="width:56.1%"></i></span><b>0.37</b></div><div class="hb"><span class="hl">Front of house</span><span class="ht2"><i style="width:53.0%"></i></span><b>0.35</b></div><div class="hb"><span class="hl">Administration</span><span class="ht2"><i style="width:53.0%"></i></span><b>0.35</b></div><div class="hb"><span class="hl">Security</span><span class="ht2"><i style="width:34.8%"></i></span><b>0.23</b></div><div class="hb"><span class="hl">Back of house</span><span class="ht2"><i style="width:12.1%"></i></span><b>0.08</b></div></div></div>
+    <div class="mbtn"><button class="btn screen-only" type="button" data-model>Open the full model &#8599;</button><a class="btn print-only" href="https://www.reversearena.com/consorci/#pl-base">Open the full model online &#8599;</a></div><div class="foot"><span class="ln">Staff costs include Spanish social security.</span><span class="ln">Fixed lines grow 2.5% a year, except lines on a set schedule. Every line, with its basis, is in the full model.</span><span class="ln">Per-show lines scale with each case's number of shows, so the P&amp;L carries slightly different totals in year 1: €4.03M base, €4.01M downside.</span></div>
+  </div></div>
+</section>
+</main>
+</div>
+
+<div class="mdl" id="mdl" hidden role="dialog" aria-label="Financial model"><div class="mdl-bar"><b>Financial model &middot; Consorci edition</b><span class="mdl-tabs"><button type="button" data-pg="1" aria-current="true">1</button><button type="button" data-pg="2">2</button><button type="button" data-pg="3">3</button><button type="button" data-pg="4">4</button><button type="button" data-pg="5">5</button><button type="button" data-pg="6">6</button><button type="button" data-pg="7">7</button><button type="button" data-pg="8">8</button><button type="button" data-pg="9">9</button></span><button class="mdl-x" type="button" aria-label="Close">&times;</button></div><div class="mdl-body"><div class="mdl-note">Every line of the plan with its basis. Page <span id="mdlN">1</span> of 9 &middot; <span id="mdlT">Summary</span> &middot; click the page to zoom.</div><img id="mdlI" src="model/m-1.jpg" alt="Financial model page 1"></div></div>
+<div class="lb" id="lb" hidden><button type="button" aria-label="Close">&times;</button><img alt=""></div>
+
+<script>
+(()=>{
+  const pages=[...document.querySelectorAll('.pg')], N=pages.length, pad=i=>String(i).padStart(2,'0');
+  barN=document.getElementById('barN'), barT=document.getElementById('barT'), btn=document.getElementById('menuBtn');
+  const links=[];
+  pages.forEach((p,i)=>{ const n=pad(i+1), name=p.dataset.name;
+    const head=document.createElement('div'); head.className='pgh'; head.innerHTML='<b>'+n+'</b><span></span>'; head.querySelector('span').textContent=name; p.prepend(head);
+    const li=document.createElement('li'), a=document.createElement('a'); a.href='#'+p.id; a.innerHTML='<b>'+n+'</b><span></span>'; a.querySelector('span').textContent=name; li.append(a); document.getElementById('toc-'+p.dataset.g).append(li);
+    links.push([p,a,n,name]); });
+  const menu=on=>{ document.body.classList.toggle('menu',on); btn.setAttribute('aria-expanded',on?'true':'false'); };
+  btn.addEventListener('click',()=>menu(!document.body.classList.contains('menu')));
+  document.getElementById('toc').addEventListener('click',e=>{ if(e.target.closest('a')) menu(false); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape') menu(false); });
+  let cur=null; const mark=()=>{ const y=innerHeight*.35; let best=links[0];
+    for(const l of links){ if(l[0].getBoundingClientRect().top<=y) best=l; }
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4) best=links[links.length-1];
+    if(best===cur) return; if(cur) cur[1].classList.remove('on'); cur=best; cur[1].classList.add('on'); barN.textContent=cur[2]+' / '+pad(N); barT.textContent=cur[3]; };
+  addEventListener('scroll',mark,{passive:true}); addEventListener('resize',mark); mark();
+  const lb=document.getElementById('lb'), lbi=lb.querySelector('img');
+  document.querySelectorAll('[data-lb]').forEach(im=>im.addEventListener('click',()=>{ lbi.src=im.currentSrc||im.src; lbi.alt=im.alt; lb.hidden=false; }));
+  const close=()=>{ lb.hidden=true; lbi.src=''; }; lb.addEventListener('click',close); addEventListener('keydown',e=>{ if(e.key==='Escape'&&!lb.hidden) close(); });
+  const fv=document.getElementById('filmv'); if(fv) fv.addEventListener('error',()=>{ fv.removeAttribute('controls'); },true);
+})();
+</script>
+<script>
+(()=>{ const M=document.getElementById('mdl'), I=document.getElementById('mdlI'), B=M.querySelector('.mdl-body'), N=document.getElementById('mdlN'), Tt=document.getElementById('mdlT'), names=['Summary', 'Summary (cont.)', 'Base case', 'Base case (cont.)', 'Downside case', 'Downside case (cont.)', 'Operating costs', 'Operating costs (cont.)', 'Operating costs (notes)'];
+  const go=n=>{ I.src='model/m-'+n+'.jpg'; I.alt='Financial model page '+n; N.textContent=n; Tt.textContent=names[n-1]; M.querySelectorAll('[data-pg]').forEach(b=>b.setAttribute('aria-current',b.dataset.pg==String(n))); B.scrollTop=0; };
+  const pageFor=b=>{ const sec=b.closest('section'); const id=sec&&sec.id; return id==='pl-down'?5:id==='opex'?7:id==='pl-base'?3:1; };
+  document.querySelectorAll('[data-model]').forEach(b=>b.addEventListener('click',()=>{ go(pageFor(b)); B.classList.remove('zoom'); M.hidden=false; }));
+  M.querySelectorAll('[data-pg]').forEach(b=>b.addEventListener('click',()=>go(+b.dataset.pg)));
+  I.addEventListener('click',()=>B.classList.toggle('zoom'));
+  M.querySelector('.mdl-x').addEventListener('click',()=>{ M.hidden=true; });
+  addEventListener('keydown',e=>{ if(M.hidden) return; if(e.key==='Escape') M.hidden=true; const n=+N.textContent; if(e.key==='ArrowRight'&&n<9) go(n+1); if(e.key==='ArrowLeft'&&n>1) go(n-1); });
+})();
+</script>
+
+<script>
+(()=>{
+  const D={"▶ Watch the site film":"▶ Ver el vídeo del solar","▶ Watch the site film online":"▶ Ver el vídeo del solar en línea","▶ Click here for the tour":"▶ Pulse aquí para ver el recorrido","Dinner theatre and receptions. Not assumed in our financial model: all upside for our investors.":"Cenas espectáculo y recepciones. No incluido en nuestro modelo financiero: todo es beneficio adicional para nuestros inversores.","▶ Turn the room yourself": "▶ Gire la sala usted mismo", "▶ Turn the room yourself, online": "▶ Gire la sala usted mismo, en línea", "▶ Tour the exterior": "▶ Recorrer el exterior", "▶ Tour the exterior online": "▶ Recorrer el exterior en línea", "▶ Tour the interior": "▶ Recorrer el interior", "▶ Tour the interior online": "▶ Recorrer el interior en línea", "Watch first · 3D model demonstration, with sound": "Véalo primero · demostración en modelo 3D, con sonido", "The theater": "El teatro", "in action": "en acción", "Ninety seconds inside the 3D model: the room turns, the walls open, four student teams compete, and the audience votes.": "Noventa segundos dentro del modelo 3D: la sala gira, las pantallas se abren, cuatro equipos de estudiantes compiten y el público vota.", "▶ Watch it happen in the film": "▶ Véalo en la película", "Watch first": "Véalo primero", "Open the 3D model ↗": "Abrir el modelo 3D ↗", "Open the 3D model online ↗": "Abrir el modelo 3D en línea ↗", "Open the full model ↗": "Abrir el modelo completo ↗", "Open the full model online ↗": "Abrir el modelo completo en línea ↗", "▶ Watch the film online": "▶ Vea la película en línea", "▶ Watch the tour": "▶ Vea el recorrido", "▶ Watch the tour online": "▶ Vea el recorrido en línea", "Play the film": "Reproducir la película", "Open the PDF to read or save": "Abrir el PDF para leer o guardar", "Password protected. For the password, message Chad on WhatsApp:": "Protegido con contraseña. Para obtenerla, escriba a Chad por WhatsApp:", "Back to the theater": "Volver al teatro", "Audiovisual research and production development": "Investigación y desarrollo de producción audiovisual", "A proposal for the Consorci del Besòs · Nov ’26": "Propuesta para el Consorci del Besòs · nov. 2026", "ALT::Reverse Arena Theater, Barcelona: the audience in the middle, the stages all round": "Reverse Arena Theater, Barcelona: el público en el centro y los escenarios alrededor", "Summary · for the Consorci del Besòs": "Resumen · para el Consorci del Besòs", "Who we are, what we build,": "Quiénes somos, qué construimos", "and why here": "y por qué aquí", "Who we are": "Quiénes somos", "Liz Imperio and Chad Carlberg, Emmy-nominated creative directors": "Liz Imperio y Chad Carlberg, directores creativos nominados a los Emmy", "Shows for Jennifer Lopez, Madonna, Ricky Martin, the Latin Grammys and the AMAs": "Espectáculos para Jennifer Lopez, Madonna, Ricky Martin, los Latin Grammy y los AMA", "Liz has taught on the dance convention circuit for 36 years": "Liz: 36 años en el circuito de convenciones de danza", "The SUCCESS.dance app: 8,500+ dancers, parents and teachers": "La app SUCCESS.dance: más de 8.500 bailarines, padres y profesores", "LA talent agencies and top convention faculty on board": "Con agencias de talento de Los Ángeles y profesorado de primer nivel", "What it is": "Qué es", "A 600-seat theatre: the audience sits on a turning platform, four stages all round": "600 butacas sobre una plataforma giratoria, con cuatro escenarios alrededor", "A school at its core: Imperio School of Performing Arts, a non-profit foundation to be formed, 110 students a year": "Una escuela en su núcleo: Imperio School of Performing Arts, 110 alumnos al año", "A research stage for live and televised shows, filmed every night": "Un escenario de investigación para el directo y la televisión", "Patent-pending design; the effect was first staged at sea in the founders' show for Princess Cruises": "Patente en trámite; el efecto se estrenó en alta mar para Princess Cruises", "How it works": "Cómo funciona", "The room turns to whichever stage is playing; LED walls open and close on the show": "La sala gira hacia el escenario en uso; las pantallas LED se abren y se cierran", "Four student teams compete; the audience votes in the app and decides the second half": "Cuatro equipos de alumnos compiten; el público vota en la app y decide la segunda parte", "The season is filmed as a documentary competition": "La temporada se graba como una competición documental", "Tuition pays for the show; equity and a bank loan pay for the building": "La matrícula paga el espectáculo; capital y préstamo bancario, el edificio", "Why lease to us": "Por qué nosotros", "A live stage and broadcast studio to anchor Catalunya Media City": "Un escenario en directo y un plató de emisión como ancla de Catalunya Media City", "120,000+ visitors a year; residents' nights and local scholarships": "Más de 120.000 visitantes al año; noches para vecinos y becas locales", "About 90 people at work in a show week; hundreds more during the build": "Unas 90 personas trabajando en una semana de funciones; cientos más durante la obra", "Over time the venue passes to the non-profit foundation, for public benefit": "Con el tiempo, el recinto pasa a la fundación sin ánimo de lucro, en beneficio público", "seats": "butacas", "stages": "escenarios", "€43.0M": "43,0 M€", "development": "de inversión", "5,100 m²": "5.100 m²", "plot": "de parcela", "3 years": "3 años", "to opening": "hasta abrir", "The project in brief": "El proyecto en breve", "A theatre, a broadcast stage": "Un teatro, un plató de emisión", "and a school": "y una escuela", "The project": "El proyecto", "Use": "Uso", "Audiovisual research and production development: new technology for live and televised shows": "I+D de producción audiovisual: nueva tecnología para el directo y la televisión", "Venue": "Recinto", "600 seats on a rotating platform, four stages": "600 butacas en una plataforma giratoria, cuatro escenarios", "Programme": "Programación", "8 shows a week, 50 weeks a year": "8 funciones semanales, 50 semanas al año", "Residents": "Vecinos", "A weekly show at residents’ prices; local scholarships": "Función semanal a precio de vecino; becas locales", "Visitors": "Visitantes", "121,440 tickets in the opening year, 163,200 in the fifth": "121.440 entradas el año 1; 163.200 el año 5", "School": "Escuela", "Imperio School of Performing Arts, a non-profit foundation; 110 students a year, filmed as a documentary competition": "Imperio School of Performing Arts, sin ánimo de lucro; 110 alumnos al año; competición documental", "Other uses": "Otros usos", "Filming, broadcast, dinner theatre, events": "Rodajes, emisiones, cena-espectáculo, eventos", "Building": "Edificio", "Ideally one level: a column-free hall of at least 50 × 50 m, 14–17 m high, with backstage and front of house around it": "Idealmente en una planta: sala diáfana de 50 × 50 m como mínimo y 14–17 m de altura", "IP": "Patente", "Patent pending; foreign filings complete": "En trámite; solicitudes internacionales presentadas", "Location": "Ubicación", "Area": "Zona", "Besòs audiovisual and technology area": "Área audiovisual del Besòs", "Neighbours": "Entorno", "The Fòrum and Catalunya Media City": "El Fòrum y Catalunya Media City", "Role": "Papel", "A live stage and broadcast studio anchoring the media hub": "Escenario y plató como ancla del polo audiovisual", "Later": "Más adelante", "Student housing on adjacent land, built by a partner": "Residencia de estudiantes en suelo contiguo", "Sources and uses, €M": "Fuentes y usos, M€", "Equity": "Capital", "Senior debt": "Deuda sénior", "Development cost": "Coste de desarrollo", "Building shell and systems": "Edificio e instalaciones", "Platform, machinery, seating": "Plataforma, maquinaria, butacas", "LED, lighting, production": "LED, iluminación, producción", "Contingency": "Imprevistos", "Pre-opening and finance": "Preapertura y financiación", "Ownership": "Propiedad", "Venue company": "Sociedad del recinto", "Spanish, to be formed": "Española, en constitución", "Equity investors": "Inversores de capital", "70%: the dance convention and competition industry, and a Spanish co‑developer": "70%: sector de convenciones de danza y un codesarrollador español", "The school": "La escuela", "30%, for the show it produces; over time, the whole venue": "30%, por el espectáculo; con el tiempo, todo el recinto", "From the Consorci": "Del Consorci", "Surface right": "Derecho de superficie", "A plot of about 5,100 m², long-term and renewable, with options": "Unos 5.100 m², a largo plazo, renovable, con opciones", "Adjacent land": "Suelo contiguo", "A first refusal, for student housing": "Derecho de tanteo, para residencia de estudiantes", "Ground rent": "Canon", "To be agreed with you": "A acordar con ustedes", "to be agreed with you": "a acordar con ustedes", "Operations, before ground rent, €M": "Explotación, antes del canon, M€", "Base y1": "Base a1", "Base y5": "Base a5", "Down y1": "Desf. a1", "Down y5": "Desf. a5", "Revenue": "Ingresos", "Operating costs": "Costes operativos", "Operating income": "Resultado operativo", "Debt service": "Servicio de la deuda", "Jobs": "Empleo", "21 permanent roles and a show-night team of about 20": "21 fijos y unas 20 personas en noches de función", "About 25: faculty, stage captains, musicians, student services": "Unos 25: profesorado, capitanes de escena, músicos", "Contracted": "Subcontratados", "About 25: bars and catering, cleaning, app and IT": "Unos 25: restauración, limpieza, app e informática", "Construction": "Construcción", "Hundreds, across the trades, over the build": "Cientos, de todos los oficios", "Timeline": "Calendario", "Years 1–3": "Años 1–3", "Design, permits, build, technology": "Diseño, licencias, obra, tecnología", "Year 4": "Año 4", "Opening, after a month of technical rehearsal": "Apertura, tras un mes de ensayos técnicos", "The founders": "Los fundadores", "Why the founders": "Por qué los fundadores", "Liz runs a dance convention in a different city every weekend, for thousands of students: a school of 110 in one building is familiar ground": "Liz dirige una convención de danza en una ciudad distinta cada fin de semana, para miles de alumnos: una escuela de 110 en un solo edificio es terreno conocido", "Together we have built shows of this scale for Jennifer Lopez, Ricky Martin and the Latin Grammys": "Juntos hemos creado espectáculos de esta escala para Jennifer Lopez, Ricky Martin y los Latin Grammy", "The venue is built on that experience": "El recinto se basa en esa experiencia", "ALT::The founders: Liz Imperio and Chad Carlberg": "Los fundadores: Liz Imperio y Chad Carlberg", "Partners": "Socios", "Built by the industry,": "Creado por el sector,", "for the industry": "para el sector", "Design and build": "Diseño y construcción", "Working now": "Ya trabajando", "Lead architect: Torre Diagonal ZeroZero, LEAF Award 2011; the budget is his": "Arquitecto principal: Torre Diagonal ZeroZero, premio LEAF 2011; autor del presupuesto", "Stage and production design: Latin Grammys, Latin Billboards, La Voz": "Diseño escénico y de producción: Latin Grammy, Latin Billboards, La Voz", "Talent": "Talento", "US dance convention network": "Red de convenciones de danza de EE. UU.", "Dancers and dance studios across the US": "Bailarines y escuelas de danza de todo EE. UU.", "Los Angeles talent agencies: sponsors of the SUCCESS.dance app; talent for auditions": "Agencias de talento de Los Ángeles: patrocinadoras de la app SUCCESS.dance; talento para audiciones", "Faculty": "Profesorado", "Committed": "Confirmados", "Musical theatre: On Your Feet!, The Addams Family": "Teatro musical: On Your Feet!, La familia Addams", "Illusion and stagecraft": "Ilusionismo y técnica escénica", "Voice and artist brand": "Voz y marca de artista", "Story and transmedia: Transformers, Avatar, Pirates of the Caribbean": "Narrativa y transmedia: Transformers, Avatar, Piratas del Caribe", "Research": "Investigación", "Study under way": "Estudio en curso", "University of Alabama, College of Human Environmental Sciences": "Universidad de Alabama, College of Human Environmental Sciences", "Research on the Imperio method, led by Dr. Robert D. Laird and Dr. Cailin Kerch": "Investigación sobre el método Imperio, dirigida por el Dr. Robert D. Laird y la Dra. Cailin Kerch", "Letter of support, September 2026": "Carta de apoyo, septiembre de 2026", "Working now: already engaged on the project. Committed: have said yes to their role.": "Ya trabajando: ya implicados en el proyecto. Confirmados: han aceptado su papel.", "ALT::University of Alabama letter of support, September 2026": "Carta de apoyo de la Universidad de Alabama, septiembre de 2026", "ALT::The concept: 600 seats, 4 stages, 4 student teams": "El concepto: 600 butacas, 4 escenarios, 4 equipos de alumnos", "The room": "La sala", "ALT::The room: 600 seats on a rotating platform, four stages, LED walls on a 360° track": "La sala: 600 butacas en una plataforma giratoria, cuatro escenarios, pantallas LED sobre un carril de 360°", "Four stages, one audience": "Cuatro escenarios, un público", "ALT::Four stages, one audience: the platform turns to whichever stage is playing; stages 1 and 2 join for a corner mode": "Cuatro escenarios, un público: la plataforma gira hacia el escenario en uso; los escenarios 1 y 2 se unen en modo esquina", "First staged at sea": "Estrenado en alta mar", "Proof": "Antecedente", "First staged at sea,": "Estrenado en alta mar,", "built for Barcelona": "construido para Barcelona", "At sea": "En alta mar", "The founders' show for Princess Cruises: the video wall makes the room seem to turn": "El espectáculo de los fundadores para Princess Cruises: la pantalla de vídeo hace que la sala parezca girar", "In Barcelona": "En Barcelona", "Here the turn is real": "Aquí el giro es real", "600 seats on a platform that turns to face four stages": "600 butacas en una plataforma que gira hacia cuatro escenarios", "ALT::Viva la Música at sea": "Viva la Música en alta mar", "ALT::The Reverse Arena model: the audience in the middle, facing a stage": "El modelo del Reverse Arena: el público en el centro, frente a un escenario", "Cover": "Portada", "Summary": "Resumen", "RAIL::Dossier for the Consorci del Besòs": "Dosier para el Consorci del Besòs", "RAIL::The numbers": "Las cifras", "RAIL::Open the PDF version": "Abrir la versión PDF", "RAIL::Back": "Volver", "RAIL::Contents": "Contenido", "Star-level shows every night, from the team behind JLo, Madonna and the Latin Grammys": "Espectáculos de primer nivel cada noche, del equipo de JLo, Madonna y los Latin Grammy", "A new show format made in Barcelona, with more shows already in development": "Un nuevo formato de espectáculo creado en Barcelona, con más espectáculos ya en desarrollo", "Audiovisual R&D for live and TV, at the heart of Catalunya Media City": "I+D audiovisual para el directo y la televisión, en el corazón de Catalunya Media City", "€43M of private investment, drawing visitors to Besòs and away from the crowded centre": "43 M€ de inversión privada que atrae visitantes al Besòs, lejos del centro saturado", "The room,": "La sala,", "in the model": "en el modelo", "The 600 seats turn to face any of the four stages. Two LED walls slide round the audience to close the room or open it on the show.": "Las 600 butacas giran hacia cualquiera de los cuatro escenarios. Dos pantallas LED se deslizan alrededor del público para cerrar la sala o abrirla al espectáculo.", "▶ Watch the film with sound in the online dossier": "▶ Vea la película con sonido en el dosier en línea", "The 3D model": "El modelo 3D", "Walk through the room": "Recorra la sala", "in 3D": "en 3D", "ALT::Stage 3 in its awards-show look, lasers over the audience": "El escenario 3 con su imagen de gala de premios, láseres sobre el público", "ALT::Stage 4: the singer's entrance under the hologram figure": "Escenario 4: la entrada del cantante bajo la figura holográfica", "ALT::The vote: the four teams dance in the aisles while the app counts": "La votación: los cuatro equipos bailan en los pasillos mientras la app hace el recuento", "ALT::From above: the screens close round the audience": "Desde arriba: las pantallas se cierran alrededor del público", "Open the 3D model": "Abrir el modelo 3D", "▶ The interactive 3D model opens from the online dossier": "▶ El modelo 3D interactivo se abre desde el dosier en línea", "Every seat, stage, lift and screen at true size, in a model you can turn, walk and play.": "Cada butaca, escenario, elevador y pantalla a tamaño real, en un modelo que se puede girar, recorrer y poner en marcha.", "ALT::The audience are the producers: arrival, the vote, the interval": "El público es el productor: la llegada, la votación, el entreacto", "ALT::Cameras throughout the room": "Cámaras por toda la sala", "ALT::Imperio School of Performing Arts builds the show: 110 students a year, 18 months, one show built by the school": "Imperio School of Performing Arts crea el espectáculo: 110 alumnos al año, 18 meses, un espectáculo hecho por la escuela", "One building,": "Un edificio,", "day and night": "de día y de noche", "ALT::The audience on a show night": "El público en una noche de función", "Show nights": "Noches de función", "Eight a week, 50 weeks a year": "Ocho a la semana, 50 semanas al año", "ALT::Cameras around the room": "Cámaras alrededor de la sala", "Filming and broadcast": "Rodaje y emisión", "Every show filmed and streamed": "Cada función, grabada y emitida en streaming", "ALT::An audition at the school": "Una audición en la escuela", "School by day and night": "Escuela de día y de noche", "School by day": "Escuela de día", "110 students rehearse and perform here": "110 alumnos ensayan y actúan aquí", "ALT::The room set for a dinner": "La sala preparada para una cena", "Dinners and events": "Cenas y eventos", "Dinner theatre and receptions": "Cena-espectáculo y recepciones", "tickets in the opening year, 46 show weeks": "entradas el año de apertura, 46 semanas de función", "tickets in year five": "entradas el quinto año", "seats: whole houses for groups and events": "butacas: aforos completos para grupos y eventos", "For Barcelona": "Para Barcelona", "An anchor for": "Un ancla para", "ALT::From above: 600 seats in the round, in the 3D model": "Desde arriba: 600 butacas en círculo, en el modelo 3D", "Next to the hub": "Junto al polo audiovisual", "The Generalitat's audiovisual campus at the Tres Xemeneies, bought in 2026; its €70.8M turbine hall is planned for 2028": "El campus audiovisual de la Generalitat en las Tres Xemeneies, adquirido en 2026; su sala de turbinas, de 70,8 M€, está prevista para 2028", "A live stage for the hub": "Un escenario en directo para el polo", "Shows made, tested and broadcast every night; a studio its companies and schools can use": "Espectáculos creados, probados y emitidos cada noche; un plató al servicio de sus empresas y escuelas", "For residents": "Para los vecinos", "Weekly residents' nights at reduced prices, and local scholarships": "Noches semanales para vecinos a precio reducido y becas locales", "For local schools": "Para las escuelas locales", "Open to film, media and music schools, and to university partners": "Abierto a escuelas de cine, medios y música, y a universidades colaboradoras", "For visitors": "Para los visitantes", "120,000+ a year, spending their evening in the city": "Más de 120.000 al año, que pasan la velada en la ciudad", "Public benefit in time": "Beneficio público a largo plazo", "The venue passes to the non-profit foundation": "El recinto pasa a la fundación sin ánimo de lucro", "Nightly": "Cada noche", "star-level shows": "espectáculos de primer nivel", "New": "Nuevo", "show format, made in Barcelona": "formato, creado en Barcelona", "€43M": "43 M€", "private investment": "de inversión privada", "Catalunya Media City: Generalitat purchase of the Tres Xemeneies for €42M (June 2026); €70.8M for the turbine hall, works to end of 2028 (Vilaweb, 29 March 2025; Moncloa.com, 13 June 2026).": "Catalunya Media City: compra de las Tres Xemeneies por la Generalitat por 42 M€ (junio de 2026); 70,8 M€ para la sala de turbinas, con obras hasta finales de 2028 (Vilaweb, 29 de marzo de 2025; Moncloa.com, 13 de junio de 2026).", "Areas and site": "Superficies y parcela", "A 5,100 m² plot,": "Una parcela de 5.100 m²,", "one level above ground": "una sola planta sobre rasante", "Performance hall": "Sala de espectáculos", "platform, stage ring, stage wings": "plataforma, anillo escénico, hombros", "Backstage": "Backstage", "dressing rooms, wardrobe, rehearsal, loading": "camerinos, vestuario, ensayo, carga", "about 1,000": "unos 1.000", "about 2,600": "unos 2.600", "about 500": "unos 500", "5,100": "5.100", "Front of house": "Zona de público", "600 guests eating at standing tables; bars, toilets, lobby": "600 invitados comiendo en mesas altas; barras, aseos, vestíbulo", "Broadcast and building": "Emisión y edificio", "control room for the directors and switchers, offices, plant": "control de realización, oficinas, instalaciones", "Venue building": "Edificio del recinto", "m² of floor area; loading below ground": "m² construidos; carga bajo rasante", "at least; column-free, 14–17 m high over the hall only": "como mínimo; diáfana, con 14–17 m de altura solo sobre la sala", "Live to TV": "En directo a TV", "over fibre from the in-house control room": "por fibra desde el control de realización propio", "Loading": "Carga", "an underground dock for full-size trucks": "un muelle subterráneo para camiones de gran tamaño", "Quiet": "Acústica", "acoustic separation from neighbours": "aislamiento acústico respecto a los vecinos", "Transit": "Transporte", "public transport; coach drop-off": "transporte público; parada de autocares", "first refusal on adjacent land, for student housing": "derecho de tanteo sobre el suelo contiguo, para residencia de estudiantes", "Front of house: 600 guests at standing tables need about 600 m² (1 m² a person, the CTE density for standing public in bars and cafés), plus bars and food service, toilets, cloakroom and lobby.": "Zona de público: 600 invitados en mesas altas necesitan unos 600 m² (1 m² por persona, la densidad del CTE para público de pie en bares y cafeterías), más barras y servicio de comida, aseos, guardarropa y vestíbulo.", "Broadcast: the directors and switchers work in the in-house control room, with fibre to every camera and out to the broadcaster, so no truck yard is needed.": "Emisión: el equipo de realización trabaja en el control propio, con fibra a cada cámara y hacia la cadena, así que no hace falta espacio para unidades móviles.", "Loading is underground.": "La carga es subterránea.", "Financial structure": "Estructura financiera", "Who owns,": "Quién es propietario,", "who pays, who runs": "quién paga, quién gestiona", "A long-term, renewable surface right on about 5,100 m²": "Derecho de superficie a largo plazo, renovable, sobre unos 5.100 m²", "Ground rent: to be agreed with you": "Canon: a acordar con ustedes", "€27.0M": "27,0 M€", "Two groups: the dance convention and competition industry, and a Spanish co‑developer": "Dos grupos: el sector de convenciones y competiciones de danza, y un codesarrollador español", "The venue company": "La sociedad del recinto", "Spanish, to be formed; builds and owns the venue": "Española, en constitución; construye el recinto y es su propietaria", "Run by an established Spanish venue manager, with US training as needed": "Lo gestiona un operador español consolidado, con formación de EE. UU. si hace falta", "development cost": "coste de desarrollo", "€16.0M": "16,0 M€", "Bank loan, repaid from operations": "Préstamo bancario, devuelto con la explotación", "Non-profit foundation, with a board from Spain and the US": "Fundación sin ánimo de lucro; patronato de España y EE. UU.", "Produces the show at its own cost and reinvests its share": "Produce el espectáculo a su cargo y reinvierte su parte", "Over time, the whole venue passes to it": "Con el tiempo, todo el recinto pasa a ella", "Development cost, €M:": "Coste de desarrollo, M€:", "building": "edificio", "platform, machinery and seating": "plataforma, maquinaria y butacas", "LED, lighting and production": "LED, iluminación y producción", "contingency": "imprevistos", "pre-opening and finance": "preapertura y financiación", "The venue company is formed to sign the surface right; the foundation is formed before the school opens.": "La sociedad del recinto se constituye para firmar el derecho de superficie; la fundación, antes de que abra la escuela.", "The investors run dance conventions and competitions in the US: the theatre brings their events to Spain and Europe, and the school recruits European talent.": "Los inversores organizan convenciones y competiciones de danza en EE. UU.: el teatro trae sus eventos a España y Europa, y la escuela capta talento europeo.", "Timeline and jobs": "Calendario y empleo", "Open in the fourth year,": "Apertura en el cuarto año,", "about 90 people at work": "unas 90 personas trabajando", "Build year 1": "Obra, año 1", "Design, permits, groundbreaking": "Diseño, licencias, inicio de obra", "Build year 2": "Obra, año 2", "Structure and machinery": "Estructura y maquinaria", "Build year 3": "Obra, año 3", "Technology, previews": "Tecnología, preestrenos", "Opening": "Apertura", "After a month of technical rehearsal": "Tras un mes de ensayos técnicos", "people at work in a show week": "personas trabajando en una semana de funciones", "Permanent venue roles": "Puestos fijos del recinto", "Management, technical, front of house, stage, facilities, marketing, security": "Dirección, técnica, sala, escenario, mantenimiento, marketing, seguridad", "Show-night team": "Equipo de noche de función", "Ushers, access control, crew": "Acomodadores, control de accesos, técnicos", "School faculty and staff": "Profesorado y personal de la escuela", "Faculty, vocal coaches, stage captains, musicians, student services, documentary crew": "Profesorado, preparadores vocales, capitanes de escena, músicos, servicios al alumno, equipo documental", "Through contractors": "A través de contratas", "Bars and catering, cleaning, app and IT": "Barras y restauración, limpieza, app e informática", "guest artists a year": "artistas invitados al año", "visiting choreographers a year": "coreógrafos invitados al año", "Hundreds": "Cientos", "of construction workers across the trades during the build": "de trabajadores de la construcción, de todos los oficios, durante la obra", "An established Spanish venue management company runs the venue, with US training as needed; the school opens with its US faculty and hires locally.": "Una empresa española consolidada gestiona el recinto, con formación de EE. UU. si hace falta; la escuela abre con su profesorado estadounidense y contrata en la zona.", "Build year 1 starts when the surface right is signed.": "El año 1 de obra empieza al firmarse el derecho de superficie.", "The proposal": "La propuesta", "What we ask,": "Lo que pedimos", "and what we bring": "y lo que aportamos", "We ask the Consorci for": "Pedimos al Consorci", "A surface right": "Un derecho de superficie", "On a plot of about 5,100 m², long-term and renewable, with options": "Sobre una parcela de unos 5.100 m², a largo plazo y renovable, con opciones", "Welcome: a first refusal on adjacent land": "Sería bienvenido: un derecho de tanteo sobre el suelo contiguo", "For student housing later, built by a partner and leased to the school": "Para una futura residencia de estudiantes, construida por un socio y arrendada a la escuela", "ALT::The house in the 3D model, 600 seats": "La sala en el modelo 3D, 600 butacas", "We bring": "Aportamos", "A €43.0M development": "Una inversión de 43,0 M€", "Building, platform, LED and production, to be funded by equity and a bank loan": "Edificio, plataforma, LED y producción, financiados con capital y un préstamo bancario", "The show": "El espectáculo", "The founders, the school and its four teams; an established Spanish venue manager runs the building": "Los fundadores, la escuela y sus cuatro equipos; un operador español consolidado gestiona el edificio", "The broadcast stage": "El plató de emisión", "Every show filmed, streamed and able to go live to TV": "Cada función grabada, emitida en streaming y lista para ir en directo a televisión", "Next step": "Siguiente paso", "An agreement in principle on the surface right, so the architect can design for the site and the investors can commit.": "Un acuerdo de principio sobre el derecho de superficie, para que el arquitecto pueda proyectar sobre la parcela y los inversores puedan comprometerse.", "Projected P&L": "Cuenta de resultados prevista", "P&L at a glance,": "La cuenta de resultados, de un vistazo,", "before ground rent": "antes del canon", "opening year": "año de apertura", "year 5": "año 5", "Downside": "Desfavorable", "€M": "M€", "yr 1": "año 1", "yr 5": "año 5", "Down": "Desf.", "Occupancy": "Ocupación", "Years of operation. The full five-year P&L for both cases, and the operating costs, follow.": "Años de explotación. A continuación, la cuenta de resultados completa a cinco años en ambos escenarios y los costes operativos.", "P&L · base case": "Cuenta de resultados · escenario base", "Base case,": "Escenario base,", "first five years of operation": "primeros cinco años de explotación", "Year 1": "Año 1", "Year 2": "Año 2", "Year 3": "Año 3", "Year 5": "Año 5", "5 years": "5 años", "Audience": "Público", "Tickets sold": "Entradas vendidas", "Average net ticket, €": "Entrada media neta, €", "Show revenue": "Ingresos de taquilla", "Food and drink, venue share": "Comida y bebida, parte del recinto", "Private events": "Eventos privados", "LED installation and sponsorship, net": "Instalación LED y patrocinio, neto", "Staff, building and running costs": "Personal, edificio y funcionamiento", "Ticketing, agency and card fees": "Comisiones de venta, agencias y tarjetas", "Music rights (SGAE, AGEDI/AIE)": "Derechos musicales (SGAE, AGEDI/AIE)", "Debt service, €16.0M senior loan": "Servicio de la deuda, préstamo sénior de 16,0 M€", "Corporate income tax": "Impuesto sobre sociedades", "Cash after debt service and tax, before ground rent": "Caja tras deuda e impuestos, antes del canon", "Open the full model": "Abrir el modelo completo", "▶ The full model, every line and its source, opens from the online dossier": "▶ El modelo completo, con cada partida y su fuente, se abre desde el dosier en línea", "8 shows a week, 50 weeks (46 in the opening year: the first month is technical rehearsal). Occupancy 55% rising to 68%. €90 average net ticket, +2% a year.": "8 funciones a la semana, 50 semanas (46 el año de apertura: el primer mes es de ensayos técnicos). Ocupación del 55% al 68%. Entrada media neta de 90 €, +2% al año.", "The school produces the show at its own cost, paid by tuition.": "La escuela produce el espectáculo a su cargo, pagado con la matrícula.", "P&L · downside case": "Cuenta de resultados · escenario desfavorable", "Downside case,": "Caso desfavorable,", "fewer tickets at lower prices": "menos entradas y más baratas", "8 shows a week, 48 weeks (44 in the opening year). Occupancy 50% rising to 65%. €80 average net ticket, +1.5% a year.": "8 funciones a la semana, 48 semanas (44 el año de apertura). Ocupación del 50% al 65%. Entrada media neta de 80 €, +1,5% al año.", "Flagship show only: no LED installation or sponsorship income.": "Solo el espectáculo principal: sin ingresos por instalación LED ni patrocinio.", "What it costs": "Lo que cuesta", "to run, by department": "su funcionamiento, por departamento", "Executive leadership": "Dirección ejecutiva", "Technical operations": "Operaciones técnicas", "Back of house": "Zona técnica", "Building operations and maintenance": "Explotación y mantenimiento del edificio", "Marketing and commercial": "Marketing y área comercial", "Administration": "Administración", "Security and compliance": "Seguridad y cumplimiento normativo", "Insurance, utilities and other": "Seguros, suministros y otros", "Contingency and reserves, 10%": "Imprevistos y reservas, 10%", "Fixed operating costs": "Costes operativos fijos", "Ticketing, agency and card fees, and music rights, vary with sales: see the P&L": "Las comisiones de venta, agencias y tarjetas, y los derechos musicales varían con las ventas: ver la cuenta de resultados", "Year 1 fixed operating costs, €4.08M, by department": "Costes operativos fijos del año 1, 4,08 M€, por departamento", "Insurance, utilities, other": "Seguros, suministros, otros", "Building and maintenance": "Edificio y mantenimiento", "Security": "Seguridad", "Staff costs include Spanish social security; every role is paid above the collective-agreement floor.": "Los costes de personal incluyen la Seguridad Social; todos los puestos cobran por encima del mínimo del convenio colectivo.", "Fixed lines grow 2.5% a year, except lines on a set schedule. Every line, with its basis, is in the full model.": "Las partidas fijas crecen un 2,5% al año, salvo las que siguen un calendario fijado. Cada partida, con su base, está en el modelo completo.", "Per-show lines scale with each case's number of shows, so the P&L carries slightly different totals in year 1: €4.03M base, €4.01M downside.": "Las partidas por función dependen del número de funciones; por eso el año 1 muestra totales algo distintos: 4,03 M€ en el base y 4,01 M€ en el desfavorable.", "The room in 3D": "La sala en 3D", "The audience votes": "El público vota", "Filmed every night": "Grabado cada noche", "Day and night": "De día y de noche", "What we ask": "Lo que pedimos", "P&L": "Cuenta de resultados", "P&L, base case": "Cuenta de resultados, escenario base", "P&L, downside case": "Cuenta de resultados, escenario desfavorable", "The audience turns": "El público gira", "in the middle": "en el centro", "A 600-seat venue: the audience turns in the middle of a ring of four stages": "Un recinto de 600 butacas: el público gira en el centro de un anillo de cuatro escenarios", "Each stage is run by a student team, competing against the others": "Cada escenario lo lleva un equipo de alumnos, que compite con los demás", "seats on one turning platform": "butacas en una sola plataforma giratoria", "stages in a ring around it": "escenarios en un anillo a su alrededor", "student teams, one per stage": "equipos de alumnos, uno por escenario", "ALT::The LED walls slide open or closed, revealing or hiding the stages behind them": "Las pantallas LED se abren o se cierran y muestran u ocultan los escenarios que hay detrás", "The LED walls slide open or closed, revealing the stages behind them": "Las pantallas LED se abren o se cierran y descubren los escenarios que hay detrás", "One room,": "Una sala,", "four stages around the audience": "cuatro escenarios alrededor del público", "Stage 1": "Escenario 1", "Stage 2": "Escenario 2", "Stage 3": "Escenario 3", "Stage 4": "Escenario 4", "Ø 27 m · C 84.8 m": "Ø 27 m · C 84,8 m", "Ø 47 m overall · C 147.7 m": "Ø 47 m en total · C 147,7 m", "Stage playing": "Escenario en uso", "LED walls": "Pantallas LED", "Video entrances": "Entradas de vídeo", "600 seats": "600 butacas", "On a 27-metre platform that turns left or right to face any of the four stages": "En una plataforma de 27 metros que gira a izquierda o derecha hacia cualquiera de los cuatro escenarios", "LED walls on a 360° track": "Pantallas LED sobre un carril de 360°", "Two 90° sections, 21.2 m each, open to reveal the stage that is playing": "Dos secciones de 90°, de 21,2 m cada una, que se abren para descubrir el escenario en uso", "Corner mode": "Modo esquina", "Two stages join into one wide stage": "Dos escenarios se unen en uno solo, más ancho", "A multi-use house": "Una sala polivalente", "Removable seating, a rotating downstage thrust and a rotating overhead rig for lighting, sound and effects": "Butacas desmontables, una pasarela delantera giratoria y una parrilla aérea giratoria para iluminación, sonido y efectos", "How the room turns": "Cómo gira la sala", "Four stages,": "Cuatro escenarios,", "one audience": "un solo público", "Stages 1 and 2: corner mode": "Escenarios 1 y 2: modo esquina", "The platform turns to whichever stage is playing; the others are reset behind the walls": "La plataforma gira hacia el escenario en uso; los demás se preparan detrás de las pantallas", "No scene changes in front of the audience, and no dark weeks between productions": "Sin cambios de escena delante del público y sin semanas cerradas entre producciones", "The second half goes wherever the room’s vote sends it": "La segunda parte va adonde la lleve el voto de la sala", "The audience": "El público", "The audience are": "El público es", "the producers": "el productor", "ALT::Arrival: a red carpet and cava on silver trays": "La llegada: alfombra roja y cava en bandejas de plata", "Arrival": "Llegada", "A red carpet in, and cava on silver trays": "Entrada por alfombra roja, con cava en bandejas de plata", "ALT::The vote: the room chooses in the Reverse Arena app": "La votación: la sala elige en la app de Reverse Arena", "Choose and vote": "Elegir y votar", "In the Reverse Arena app, the room votes on the choices the show presents": "En la app de Reverse Arena, la sala vota las opciones que plantea el espectáculo", "The votes decide the second half": "Los votos deciden la segunda parte", "ALT::The interval: pinchos and drinks ordered in the app": "El entreacto: pinchos y bebidas pedidos en la app", "Interval": "Entreacto", "Pinchos and drinks waiting, ordered in the app or included with a dinner package": "Pinchos y bebidas esperando, pedidos en la app o incluidos con un menú de cena", "Cameras": "Cámaras", "throughout the room": "por toda la sala", "ALT::Cameras throughout the room: on cranes, on the platform and overhead": "Cámaras por toda la sala: en grúas, en la plataforma y en el techo", "The documentary": "El documental", "Every show is filmed for the streaming competition documentary": "Cada función se graba para el documental de la competición en streaming", "Every angle": "Todos los ángulos", "Cameras on cranes, on the platform, around the stage ring and overhead": "Cámaras en grúas, en la plataforma, alrededor del anillo escénico y en el techo", "Fibre from every camera to the in-house control room, and out to the broadcaster": "Fibra desde cada cámara hasta el control de realización propio, y de ahí a la cadena", "builds the show": "crea el espectáculo", "pre-professional students a year": "alumnos preprofesionales al año", "Recruited from dance studios, performing-arts schools and the competition and convention circuits": "Seleccionados en escuelas de danza, escuelas de artes escénicas y los circuitos de competiciones y convenciones", "months, Miami then Barcelona": "meses, primero Miami y luego Barcelona", "A competition season: students move between expert-led teams and compete for roles and paid captain posts": "Una temporada de competición: los alumnos rotan entre equipos dirigidos por expertos y compiten por papeles y puestos de capitán remunerados", "show, built by the school": "espectáculo, creado por la escuela", "Cast, content, wardrobe, music and yearly upgrades are the curriculum, paid for by tuition: about €1.6–2.3M a year": "Reparto, contenidos, vestuario, música y mejoras anuales forman el plan de estudios, pagado con la matrícula: unos 1,6–2,3 M€ al año", "The method is under study at the University of Alabama, led by Dr. Robert D. Laird and Dr. Cailin Kerch": "El método se estudia en la Universidad de Alabama, bajo la dirección del Dr. Robert D. Laird y la Dra. Cailin Kerch", "The school runs as a non-profit and covers its costs from tuition alone": "La escuela funciona sin ánimo de lucro y cubre sus costes solo con la matrícula", "ALT::A rehearsal at the school: a choreographer directs two dancers": "Un ensayo en la escuela: una coreógrafa dirige a dos bailarinas", "The": "Los", "founders": "fundadores", "Choreographer and creative director for Jennifer Lopez, Madonna, Gloria Estefan and Ricky Martin": "Coreógrafa y directora creativa para Jennifer Lopez, Madonna, Gloria Estefan y Ricky Martin", "Contributing choreographer on the Emmy-winning Goodwill Games": "Coreógrafa colaboradora en los Goodwill Games, ganadores de un Emmy", "Artistic director of a US dance convention; on industry boards, including the Choreographers Guild": "Directora artística de una convención de danza de EE. UU.; miembro de juntas del sector, entre ellas el Choreographers Guild", "Trained under Kenny Ortega, and still works alongside him": "Formada con Kenny Ortega, con quien sigue trabajando", "Creative director and producer across 25 years of Latin entertainment": "Director creativo y productor durante 25 años en el entretenimiento latino", "The Latin Grammys, the Latin Billboards and the AMAs": "Los Latin Grammy, los Latin Billboards y los AMA", "Univision, Telemundo, ABC, FOX and NBC": "Univision, Telemundo, ABC, FOX y NBC", "With Liz, Emmy-nominated creative director for creating CNCO on Univision’s La Banda, with Simon Cowell": "Con Liz, director creativo nominado a los Emmy por crear CNCO en La Banda de Univision, con Simon Cowell", "“Liz is one of the most talented and inspirational choreographers working today. Her track record shows that she is a true virtuoso.”": "«Liz es una de las coreógrafas con más talento e inspiración de hoy. Su trayectoria demuestra que es una verdadera virtuosa.»", "Lead architect: Torre Diagonal ZeroZero, LEAF Award 2011; the construction budget is his": "Arquitecto principal: Torre Diagonal ZeroZero, premio LEAF 2011; autor del presupuesto de obra", "Build year 1 starts once the surface right is signed and the funding has closed.": "El año 1 de obra empieza una vez firmado el derecho de superficie y cerrada la financiación.", "Welcome, not required: a first refusal, for student housing": "Deseable, no imprescindible: derecho de tanteo, para residencia de estudiantes", "Staff costs include Spanish social security.": "Los costes de personal incluyen la Seguridad Social.", "More than 100,000 a year, even in the downside case, spending their evening in the city": "Más de 100.000 al año, incluso en el escenario desfavorable, que pasan la velada en la ciudad", "A €43M venue, privately financed, drawing visitors to Besòs and away from the crowded centre": "43 M€ de financiación privada que llevan visitantes al Besòs, lejos del centro saturado", "privately financed": "financiación privada", "Emmy-nominated creative directors Liz Imperio and Chad Carlberg": "Liz Imperio y Chad Carlberg, directores creativos nominados a los Emmy", "Shows for Jennifer Lopez, Madonna, Ricky Martin and the Latin Grammys": "Espectáculos para Jennifer Lopez, Madonna, Ricky Martin y los Latin Grammy", "A 600-seat theatre: the audience turns, four stages all round": "Un teatro de 600 butacas: el público gira, con cuatro escenarios alrededor", "A school at its core, 110 students a year": "Una escuela en su núcleo, 110 alumnos al año", "The audience votes in the app and decides the second half": "El público vota en la app y decide la segunda parte", "€43M privately financed, bringing visitors to Besòs": "43 M€ de financiación privada que traen visitantes al Besòs", "The concept": "El concepto", "A 600-seat venue where the audience rotates in the middle of a ring-shaped stage, revealing four distinct stages, each run by a student team competing against the rest.": "Un recinto de 600 butacas donde el público gira en el centro de un escenario en anillo y descubre cuatro escenarios distintos, cada uno a cargo de un equipo de alumnos que compite con los demás.", "Seats": "Butacas", "Stages": "Escenarios", "Student teams": "Equipos de alumnos", "Rotating central audience": "Público central giratorio", "One surrounding performance ring": "Un anillo escénico alrededor", "Competing against one another": "Que compiten entre sí", "Star-level shows every night, made in Barcelona": "Espectáculos de primer nivel cada noche, creados en Barcelona", "Audiovisual R&D at the heart of Catalunya Media City": "I+D audiovisual en el corazón de Catalunya Media City", "ALT::Stage 3, Team Fuego, with the glass riser lit": "Escenario 3, Team Fuego, con el elevador de cristal iluminado", "ALT::Stage 4, the hologram stage": "Escenario 4, el escenario de hologramas", "ALT::Two stages at once, in corner mode": "Dos escenarios a la vez, en modo esquina", "ALT::The turntable: 600 seats in the middle, the stages all round": "La plataforma giratoria: 600 butacas en el centro y los escenarios alrededor", "ALT::Stage 4: the angel and the demon on the hologram gauze": "Escenario 4: el ángel y el demonio sobre la gasa holográfica", "ALT::The house from a camera position": "La sala desde una posición de cámara", "ALT::Two stages in use at once": "Dos escenarios en uso a la vez", "ALT::The whole room from above, in the 3D model": "Toda la sala desde arriba, en el modelo 3D"};
+  const DONE=["cover", "summary", "facts", "founders", "partners", "concept", "stages", "proof", "film", "model3d", "producers", "cameras", "school", "use", "city", "areas", "structure", "timeline", "ask", "pl", "pl-base", "pl-down", "opex"], IMG={};
+  const NUM=/^[\d\s.,%€·+–×~-]+$/, orig=new WeakMap(), origAlt=new WeakMap();
+  const swapNum=t=>t.replace(/[.,]/g,c=>c==='.'?',':'.');
+  const nodes=()=>{ const out=[]; const roots=[...DONE.map(id=>document.getElementById(id)),document.getElementById('toc'),document.querySelector('.bar')].filter(Boolean);
+    for(const r of roots){ const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT); let n; while(n=w.nextNode()) out.push(n); }
+    for(const h of document.querySelectorAll('.pgh span')) { const w=document.createTreeWalker(h,NodeFilter.SHOW_TEXT); let n; while(n=w.nextNode()) out.push(n); }
+    return out; };
+  const tr=(t,rail)=>{ const k=t.trim(); if(!k) return null; if(D[k]) return t.replace(k,D[k]); if(D['RAIL::'+k]) return t.replace(k,D['RAIL::'+k]); return null; };
+  let lang='en';
+  function apply(l){ lang=l; document.documentElement.lang=l;
+    for(const n of new Set(nodes())){ if(!orig.has(n)) orig.set(n,n.nodeValue); const en=orig.get(n);
+      if(l==='en'){ n.nodeValue=en; continue; }
+      const inDone=DONE.some(id=>{ const s=document.getElementById(id); return s&&s.contains(n); });
+      const t=tr(en); if(t!=null){ n.nodeValue=t; continue; }
+      if(inDone&&NUM.test(en.trim())) n.nodeValue=swapNum(en); }
+    for(const a of document.querySelectorAll('a[data-es-href]')){ if(!a.dataset.enHref) a.dataset.enHref=a.getAttribute('href'); a.setAttribute('href',l==='es'?a.dataset.esHref:a.dataset.enHref); }
+    for(const im of document.querySelectorAll('img[data-es]')){ if(!im.dataset.en) im.dataset.en=im.getAttribute('src'); const want=l==='es'?im.dataset.es:im.dataset.en; if(im.getAttribute('src')!==want) im.setAttribute('src',want); }
+    for(const id of DONE){ const sec=document.getElementById(id); if(!sec) continue; for(const im of sec.querySelectorAll('img[alt]')){ if(!origAlt.has(im)) origAlt.set(im,im.alt); const a=origAlt.get(im); im.alt=l==='es'&&D['ALT::'+a]?D['ALT::'+a]:a; } }
+    let done=0, total=0;
+    for(const p of document.querySelectorAll('.pg')){ total++; const h=p.querySelector('.pgh'); if(!h) continue; let tag=h.querySelector('.todo'); const ok=DONE.includes(p.id); if(ok) done++;
+      if(l==='es'&&(!ok||IMG[p.id])){ if(!tag){ tag=document.createElement('span'); h.append(tag); } tag.className='todo'+(ok?' img':''); tag.textContent=ok?'Imagen en inglés':'Sin traducir'; }
+      else if(tag) tag.remove(); }
+    const note=document.getElementById('langNote'); note.hidden=l!=='es'; note.textContent='Traducidas: '+done+' de '+total+' páginas';
+    for(const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false');
+    try{ localStorage.setItem('dossier-lang',l); }catch(e){} }
+  document.querySelector('.lang').addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) apply(b.dataset.l); });
+  const bt=document.getElementById('barT'); if(bt) new MutationObserver(()=>{ if(lang!=='es') return; const k=bt.textContent.trim(); if(D[k]&&bt.textContent!==D[k]) bt.textContent=D[k]; }).observe(bt,{childList:true,characterData:true,subtree:true});
+  let saved='en'; try{ saved=localStorage.getItem('dossier-lang')||'en'; }catch(e){}
+  if(saved==='es') apply('es');
+})();
+
+/* PDF: inside a Claude page a plain link cannot hand over a file, so the page asks the viewer to save it (downloads); anywhere that is not offered the link opens the PDF as before */
+(()=>{ const v=document.getElementById('filmv'), b=document.querySelector('.playbig'); if(!v||!b) return; const up=()=>{ b.hidden=!v.paused&&!v.ended; }; ['play','playing','pause','ended'].forEach(e=>v.addEventListener(e,up)); up(); })();
+(()=>{ let DL=null; (async()=>{ try{ for(let k=0;k<60&&!(window.claude&&window.claude.use);k++) await new Promise(r=>setTimeout(r,100)); DL=window.claude&&window.claude.use?await window.claude.use('downloads'):null; }catch(e){ DL=null; } })();
+  document.querySelectorAll('a.pdf[data-es-href]').forEach(a=>a.addEventListener('click',e=>{ if(!DL) return; e.preventDefault(); const href=a.getAttribute('href'), t=a.textContent; a.textContent='Preparing the PDF…';
+    fetch(href).then(r=>r.blob()).then(b=>DL.save({filename:href.split('/').pop(),data:b})).catch(()=>{ try{ window.open(href,'_blank'); }catch(_){} }).finally(()=>{ a.textContent=t; }); })); })();
+</script>
+
+<script src="../t.js" defer></script>
+</body></html>
