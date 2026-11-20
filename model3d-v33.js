@@ -3825,8 +3825,7 @@ const FV=window.FV;
 // For readers of the dossier (his call, 16 Nov): the room seen from above with a handful of easy buttons: rotate left, rotate right, open or close the
 // screens, show lights or house lights, and the mode (theater, dinner, late night cultural events). Every other control is hidden.
 const EZ={on:false,r:54,ph:.7,rig:true,people0:true,seat0:null,modes:[['theatre','Theater mode'],['dinner','Dinner mode'],['club','Late night cultural events']]};
-function ezLabels(){ $('#ezScr span').textContent=S.gapT>.3?'Close the screens':'Open the screens'; const m=EZ.modes.find(x=>x[0]===S.room)||EZ.modes[0]; $('#ezMode b').textContent=m[1];
-  $('#ezShowL').setAttribute('aria-pressed',S.house?'false':'true'); $('#ezHouseL').setAttribute('aria-pressed',S.house?'true':'false'); }
+function ezLabels(){ }
 function ezView(){ if(window.EZ_ROOMVIEW){ const asp=camera.aspect||1.6, fov=asp<1?58:42; V.fov=fov; V.r=Math.max(EZ.r,26/(Math.tan(fov*D2R/2)*asp)); V.ph=EZ.ph; V.th=Math.PI-S.discA+.4; V.tgt.set(0,1,0); setView('room'); try{ marker.visible=false; }catch(e){} return; }
   /* 16 Nov, his note: this page is seen from a seat, full screen. You look around by dragging and change seats by tapping any chair; the house is empty so every chair is free */
   sit(V.seat||LAY.seats[0]); }   /* the whole room from above and behind the house, far enough back that it fits a phone held upright */
@@ -3838,20 +3837,14 @@ function ezStart(){ if(EZ.on) return; EZ.on=true;
   window.__norender=false; try{ if(typeof AU!=='undefined'&&AU.ctx) AU.ctx.resume(); }catch(e){} chooseHide();
   { const L=$('#loading'); if(L&&!L.hidden){ document.body.classList.add('ezwait'); const iv=setInterval(()=>{ if(L.hidden){ clearInterval(iv); setTimeout(()=>document.body.classList.remove('ezwait'),500); } },200); setTimeout(()=>{ clearInterval(iv); document.body.classList.remove('ezwait'); },60000); } }   /* the room stays covered until it is set: no half-built close-ups while loading */
   window.__VIDGAP=66; if(!window.__QS&&(window.devicePixelRatio||1)>1.3){ window.__QS=Math.min(1,1.3/(window.devicePixelRatio||1)); try{ resize(); }catch(e){} }   /* v28: the look-around starts at a sharpness a laptop can keep smooth; the watch raises it if there is room */
-  document.body.classList.add('easy'); $('#ezCtl').hidden=false; $('#ezBack').hidden=false; $('#ezAll').hidden=false; $('#ezBack span').textContent=EZ.fromChoice?'Back to the menu':'Back to the dossier'; $('#ezHint').hidden=false; $('#ezH1').classList.remove('gone'); $('#ezH2').classList.remove('gone');
+  document.body.classList.add('easy'); $('#ezCtl').hidden=false; $('#ezAll').hidden=false; $('#ezHint').hidden=false; $('#ezH1').classList.remove('gone'); $('#ezH2').classList.remove('gone');
   if(!EZ.rig) ezRig(false); EZ.people0=!!S.people; EZ.seat0=V.seat; if(S.people) setPeople(false); TOUR.fast=true;   /* the seats fold away in about four seconds here, as in the tour, so a press of Mode shows its result at once */ if(S.house) $('#house').click(); if(S.room!=='theatre'){ setRoom('theatre'); FOLD.after=null; $('#roomSel').value='theatre'; } setGap(ONE_STAGE); ezView(); ezLabels(); }
-function ezStop(){ if(!EZ.on) return; EZ.on=false; window.__VIDGAP=0; ezRig(true); TOUR.fast=false; if(EZ.people0&&!S.people) setPeople(true); document.body.classList.remove('easy'); $('#ezCtl').hidden=true; $('#ezBack').hidden=true; $('#ezAll').hidden=true; $('#ezHint').hidden=true; }
+function ezStop(){ if(!EZ.on) return; EZ.on=false; window.__VIDGAP=0; ezRig(true); TOUR.fast=false; if(EZ.people0&&!S.people) setPeople(true); document.body.classList.remove('easy'); $('#ezCtl').hidden=true; $('#ezAll').hidden=true; $('#ezHint').hidden=true; }
 { const clearHash=()=>{ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} };
-  $('#ezBack').addEventListener('click',e=>{ if(!EZ.fromChoice) return; e.preventDefault(); EZ.fromChoice=false; ezStop(); clearHash(); chooseShow(); });   /* came in from the screen after the film: Back returns there */
   $('#ezAll').addEventListener('click',()=>{ FLOW.fromDossier=!EZ.fromChoice; menuLabel(); EZ.fromChoice=false; ezStop(); clearHash(); setClean(false); });   /* the full design page, with every control */
-  const B=$('#ezBack'); if(/claude/.test(location.hostname)){ B.href='https://claude.ai/artifact/U8VdAgg2DDUdW4nThRPCkF#model3d'; B.target='_blank'; B.rel='noopener'; }
   $('#ezL').addEventListener('click',()=>{ ezSound(); S.faceT=S.faceT-TAU/4; EV('turn'); });
   $('#ezR').addEventListener('click',()=>{ ezSound(); S.faceT=S.faceT+TAU/4; EV('turn'); });
   $('#ezScr').addEventListener('click',()=>{ ezSound(); setGap(S.gapT>.3?0:(S.club?180:ONE_STAGE)); EV('screens'); ezLabels(); });
-  $('#ezShowL').addEventListener('click',()=>{ ezSound(); if(S.house) $('#house').click(); ezLabels(); });
-  $('#ezHouseL').addEventListener('click',()=>{ ezSound(); if(!S.house) $('#house').click(); ezLabels(); });
-  $('#ezMode').addEventListener('click',()=>{ ezSound(); const i=EZ.modes.findIndex(x=>x[0]===S.room), nx=EZ.modes[(i+1)%EZ.modes.length][0]; setRoom(nx); $('#roomSel').value=nx;   /* the room's own camera move follows the change: the floor for late night, the room from above for dinner, back to your seat for the theater */
-    if(S.club) setGap(0); else if(S.gapT<.3) setGap(ONE_STAGE); EV('fold'); ezLabels(); });
   { let seat0=null; renderer.domElement.addEventListener('pointermove',e=>{ if(EZ.on&&e.buttons) $('#ezH1').classList.add('gone'); },{passive:true}); setInterval(()=>{ if(!EZ.on) return; if(seat0===null) seat0=V.seat; else if(V.seat!==seat0){ seat0=V.seat; $('#ezH2').classList.add('gone'); } },400); }
   const isM=()=>/^#(model|look)(-quiet)?$/.test(location.hash), go=()=>{ if(isM()){ if(/^#look/.test(location.hash)) EZ.fromChoice=true; if(/-quiet$/.test(location.hash)){ window.__quiet=true; try{ setSound(false); }catch(e){} } ezStart(); } else ezStop(); }; addEventListener('hashchange',go); if(isM()) setTimeout(go,300); }   // #model-quiet: the same page with the sound held off, for silent checks
 // preview: plays the film live in the browser, from the start or skipped ahead to a moment
