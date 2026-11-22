@@ -3808,6 +3808,7 @@ function chooseHide(){ const C=$('#choose'); C.classList.remove('on'); setTimeou
 /* 17 Nov, his call (phone fix): the film player now lives in the page's own small script (window.__intro, in the page head), so the film plays before any of the 3D
    is even requested; this 3D code loads only after the film ends or is skipped, or when a link goes straight to the room. Here the room just hooks into it. */
 const FV=window.FV;
+const EZ={on:false,r:54,ph:.7,rig:true,people0:true,seat0:null,modes:[['theatre','Theater mode'],['dinner','Dinner mode'],['club','Late night cultural events']]};   /* declared before IN.ready(): a Look-around press queued while the room loaded ran the click handler first and hit this const before it existed */   /* declared before the intro block: a Look-around press queued while the room loaded ran its click handler before this const existed */
 { const I=$('#intro'); const IN=window.__intro;
   IN.hooks.play=()=>{ window.__norender=true; try{ if(typeof AU!=='undefined'&&AU.ctx) AU.ctx.suspend(); }catch(e){} };
   IN.hooks.done=()=>{ window.__norender=false; try{ if(typeof AU!=='undefined'&&AU.ctx) AU.ctx.resume(); }catch(e){} };
@@ -3824,7 +3825,6 @@ const FV=window.FV;
 // ================= THE SIMPLE MODEL PAGE (#model) =================
 // For readers of the dossier (his call, 16 Nov): the room seen from above with a handful of easy buttons: rotate left, rotate right, open or close the
 // screens, show lights or house lights, and the mode (theater, dinner, late night cultural events). Every other control is hidden.
-const EZ={on:false,r:54,ph:.7,rig:true,people0:true,seat0:null,modes:[['theatre','Theater mode'],['dinner','Dinner mode'],['club','Late night cultural events']]};
 function ezLabels(){ }
 function ezView(){ if(window.EZ_ROOMVIEW){ const asp=camera.aspect||1.6, fov=asp<1?58:42; V.fov=fov; V.r=Math.max(EZ.r,26/(Math.tan(fov*D2R/2)*asp)); V.ph=EZ.ph; V.th=Math.PI-S.discA+.4; V.tgt.set(0,1,0); setView('room'); try{ marker.visible=false; }catch(e){} return; }
   /* 16 Nov, his note: this page is seen from a seat, full screen. You look around by dragging and change seats by tapping any chair; the house is empty so every chair is free */

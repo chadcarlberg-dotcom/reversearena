@@ -322,7 +322,7 @@ const Q=s=>document.querySelector(s);
    measured several times a second; small drift is trimmed by a rate change too small to hear, a jump such as a seek or a stall restarts both tracks
    at the video's time with a 20 ms crossfade). The slider is an equal-power crossfade between the two, so the middle is both at full presence.
    If the tracks cannot load or decode, the slider never appears and the film plays its own sound exactly as before. */
-const XS={files:['f39/track-show.mp3','f39/track-backstage.mp3'],ctx:null,buf:[null,null],ready:false,failed:false,x:0,set:null,gA:null,gB:null,out:null,
+const XS={files:['f39/track-show.mp3','f39/track-backstage-v4.mp3'],ctx:null,buf:[null,null],ready:false,failed:false,x:0,set:null,gA:null,gB:null,out:null,
   pv:-1,pn:0,mv:false,dh:[],raf:0,iv:0,stats:{starts:0,resyncs:0,maxd:0}};
 function xsUse(){ return XS.ready&&!XS.failed&&!!XS.ctx; }
 /* the film's own sound is silenced by volume 0 where the browser allows it (desktop, Android): the video then keeps its own audio clock, which runs
