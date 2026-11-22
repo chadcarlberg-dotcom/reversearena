@@ -176,7 +176,26 @@ body.easy .top,body.easy .wrap,body.easy #ctl,body.easy #caption,body.easy #choo
 #intro.playing .ip{display:none} #intro .poster{position:absolute;inset:0;background:#000 center/cover no-repeat;opacity:.9}
 #intro .poster::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,#0006 0%,#0000 45%,#0007 100%)}
 @media (min-aspect-ratio:4/3){ #intro video{object-fit:cover} }
-#intro .ip{gap:clamp(10px,2.2vh,22px)}#intro .ip h1{order:1;font-size:clamp(24px,5.2vw,62px);letter-spacing:.14em;text-shadow:0 2px 22px #000c}#intro .ip small{order:2;font-size:clamp(14px,1.6vw,18px);letter-spacing:.06em;margin-top:-.3em;text-shadow:0 2px 14px #000c}/* 16 Nov, his note (the flat yellow disc was not stylish): dark glass, a thin gold ring, the arrow lit from inside, slow rings rippling out */#introPlay{order:3;margin-top:clamp(10px,3vh,34px);position:relative;width:clamp(96px,13vw,132px);height:clamp(96px,13vw,132px);border:1.5px solid #f0c35ad9;background:radial-gradient(circle at 50% 30%,#ffffff2e 0%,#17120a8c 55%,#0b0a0d99 100%);color:#f8d98a;-webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);box-shadow:0 0 0 8px #f0c35a12,0 18px 54px #000d,inset 0 1px 0 #ffffff55,inset 0 -12px 26px #0009;animation:none}#introPlay::before,#introPlay::after{content:'';position:absolute;inset:-1.5px;border-radius:50%;border:1px solid #f0c35a;opacity:0;pointer-events:none;animation:ipRing 3.4s cubic-bezier(.2,.6,.3,1) infinite}#introPlay::after{animation-delay:1.7s}@keyframes ipRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.8);opacity:0}}#introPlay svg{width:34%;height:34%;margin-left:7%;filter:drop-shadow(0 0 12px #f0c35a99)}#introPlay:hover{transform:scale(1.06);border-color:#ffe19a;background:radial-gradient(circle at 50% 30%,#ffffff45 0%,#2a2010a0 55%,#0b0a0d99 100%)}@media (prefers-reduced-motion:reduce){#introPlay::before,#introPlay::after{animation:none}}#intro .ip::after{content:'Play the film \00b7  60 seconds, with sound';order:4;font:500 clamp(12px,1.5vw,16px) Outfit,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#f6ecd6;text-shadow:0 2px 12px #000c}@keyframes ipPulse{0%{box-shadow:0 0 0 0 #f0c35a99,0 12px 40px #000a}70%{box-shadow:0 0 0 28px #f0c35a00,0 12px 40px #000a}100%{box-shadow:0 0 0 0 #f0c35a00,0 12px 40px #000a}}#intro .poster::after{background:radial-gradient(ellipse at center,#0008 0%,#0004 38%,#0000 70%)}#intro .poster{opacity:1}   /* the film's own first frame carries the name: the landing is the film and a play button */
+#intro .ip{gap:clamp(10px,2.2vh,22px)}#intro .ip h1{order:1;font-size:clamp(24px,5.2vw,62px);letter-spacing:.14em;text-shadow:0 2px 22px #000c}#intro .ip small{order:2;font-size:clamp(14px,1.6vw,18px);letter-spacing:.06em;margin-top:-.3em;text-shadow:0 2px 14px #000c}/* 16 Nov, his note (the flat yellow disc was not stylish): dark glass, a thin gold ring, the arrow lit from inside, slow rings rippling out */#introPlay{order:3;margin-top:clamp(10px,3vh,34px);position:relative;width:clamp(96px,13vw,132px);height:clamp(96px,13vw,132px);border:1.5px solid #f0c35ad9;background:radial-gradient(circle at 50% 30%,#ffffff2e 0%,#17120a8c 55%,#0b0a0d99 100%);color:#f8d98a;-webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);box-shadow:0 0 0 8px #f0c35a12,0 18px 54px #000d,inset 0 1px 0 #ffffff55,inset 0 -12px 26px #0009;animation:none}#introPlay::before,#introPlay::after{content:'';position:absolute;inset:-1.5px;border-radius:50%;border:1px solid #f0c35a;opacity:0;pointer-events:none;animation:ipRing 3.4s cubic-bezier(.2,.6,.3,1) infinite}#introPlay::after{animation-delay:1.7s}@keyframes ipRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.8);opacity:0}}#introPlay svg{width:34%;height:34%;margin-left:7%;filter:drop-shadow(0 0 12px #f0c35a99)}#introPlay:hover{transform:scale(1.06);border-color:#ffe19a;background:radial-gradient(circle at 50% 30%,#ffffff45 0%,#2a2010a0 55%,#0b0a0d99 100%)}@media (prefers-reduced-motion:reduce){#introPlay::before,#introPlay::after{animation:none}}#intro .ip::after{content:'Play the film \00b7  90 seconds, with sound';order:4;font:500 clamp(12px,1.5vw,16px) Outfit,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#f6ecd6;text-shadow:0 2px 12px #000c}@keyframes ipPulse{0%{box-shadow:0 0 0 0 #f0c35a99,0 12px 40px #000a}70%{box-shadow:0 0 0 28px #f0c35a00,0 12px 40px #000a}100%{box-shadow:0 0 0 0 #f0c35a00,0 12px 40px #000a}}#intro .poster::after{background:radial-gradient(ellipse at center,#0008 0%,#0004 38%,#0000 70%)}#intro .poster{opacity:1}   /* the film's own first frame carries the name: the landing is the film and a play button */
+/* 17 Nov: the backstage cross slider on the film (z-film.js, XS): Show on the left, the backstage director channel on the right */
+#xsl{position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:4;width:min(440px,calc(100% - 32px));box-sizing:border-box;display:flex;align-items:center;gap:4px;padding:5px 8px;border-radius:999px;background:#0a090ec4;border:1px solid #f0c35a3d;-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2);box-shadow:0 10px 34px #0009;opacity:0;pointer-events:none;transition:opacity .45s;--x:0;-webkit-user-select:none;user-select:none}
+#xsl[hidden]{display:none!important}
+#intro.playing #xsl{opacity:1;pointer-events:auto}
+#intro.playing #xsl.idle{opacity:.55}
+#xsl button{flex:none;display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:0 10px;border:0;background:none;color:#f4efe48c;font:600 12px Outfit,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:999px;transition:color .2s;-webkit-tap-highlight-color:transparent}
+#xsl button.on{color:#f6dc9a}
+#xsl button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+#xsl button svg{width:16px;height:16px;flex:none}
+#xsl .xdot{width:7px;height:7px;border-radius:50%;background:#ff5a4e;opacity:calc(.18 + var(--x)*.82);box-shadow:0 0 calc(var(--x)*10px) #ff5a4e;flex:none}
+#xsl .xtr{position:relative;flex:1;min-width:84px;height:42px;touch-action:none;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent}
+#xsl .xtr:focus-visible{outline:2px solid var(--gold);outline-offset:0;border-radius:10px}
+#xsl .xslot{position:absolute;left:14px;right:14px;top:50%;height:4px;margin-top:-2px;border-radius:4px;background:linear-gradient(90deg,#f0c35a,#f0c35a26 42%,#ff5a4e26 58%,#ff5a4e);box-shadow:inset 0 1px 2px #000}
+#xsl .xmid{position:absolute;left:50%;top:13px;bottom:13px;width:1px;background:#ffffff38}
+#xsl .xknob{position:absolute;top:50%;left:calc(14px + var(--x) * (100% - 28px));width:16px;height:30px;margin:-15px 0 0 -8px;border-radius:5px;background:linear-gradient(180deg,#fff1c4,#e2b24a 55%,#a8781c);box-shadow:0 2px 8px #000d,inset 0 1px 0 #fffb}
+#xsl .xknob::after{content:'';position:absolute;left:3px;right:3px;top:50%;height:2px;margin-top:-1px;border-radius:1px;background:#4a3209}
+#xsl.bk .xknob{box-shadow:0 2px 8px #000d,inset 0 1px 0 #fffb,0 0 14px #ff5a4e66}
+@media (max-width:640px){ #xsl{bottom:calc(66px + env(safe-area-inset-bottom,0px))} #intro.xs-on #introSnd{bottom:calc(126px + env(safe-area-inset-bottom,0px))} #xsl button{padding:0 7px;letter-spacing:.12em} }
+@media (max-width:360px){ #xsl button svg{display:none} }
 #intro.playing .poster{display:none}
 #intro video{opacity:0;transition:opacity .4s} #intro.playing video{opacity:1}   /* v23: the film video shows only once it plays; before that the dimmed poster and the play button */
 /* 16 Nov: every screen has a clear way back. Menu pill on the design page; exits carry words, not only an x */
@@ -197,9 +216,9 @@ body.easy #room canvas{transition:opacity .7s} body.ezwait #room canvas{opacity:
 </style>
 <div id="room">
   <canvas id="gl" aria-label="Three-dimensional model of the Reverse Arena Theater. Drag to look around, scroll or pinch to move closer, tap a seat to sit there."></canvas>
-  <div id="intro"><div class="poster" style="background-image:url(film-poster-v24.jpg)"></div><div class="ver" style="position:absolute;left:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55);z-index:5">VERSION 39</div>
-    <div class="ip"><small>A one-minute show. Turn the sound up and press play.</small><h1>REVERSE ARENA THEATER</h1><button id="introPlay" type="button" aria-label="Play the film"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button></div></div>
-  <div id="choose" hidden><div class="ver" style="position:absolute;right:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55)">VERSION 39</div><div class="ch-in"><small>REVERSE ARENA THEATER &middot; BARCELONA</small><h2>Step inside</h2>
+  <div id="intro"><div class="poster" style="background-image:url(film-poster-v24.jpg)"></div><div class="ver" style="position:absolute;left:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55);z-index:5">VERSION 39b</div>
+    <div class="ip"><small>Turn the sound up and press play.</small><h1>REVERSE ARENA THEATER</h1><button id="introPlay" type="button" aria-label="Play the film"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button></div></div>
+  <div id="choose" hidden><div class="ver" style="position:absolute;right:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55)">VERSION 39b</div><div class="ch-in"><small>REVERSE ARENA THEATER &middot; BARCELONA</small><h2>Step inside</h2>
     <div class="ch-row"><button type="button" id="chTour"><b>Watch the tour</b><span>The room, built piece by piece, with your host</span></button>
     <button type="button" id="chDesign"><b>Look around the room</b><span>Sit anywhere, turn the room, open the screens</span></button></div>
     <button type="button" id="chAgain" class="ch-link">Replay the film</button></div></div>
@@ -293,6 +312,91 @@ IN.boot=()=>{ if(booting) return booting; booting=new Promise(res=>{ let i=0; co
 IN.ready=()=>{ IN.isReady=true; const id=IN.pending; IN.pending=null; if(id){ const b=$(id); if(b) b.click(); } };
 function chooseShow(){ C.hidden=false; requestAnimationFrame(()=>C.classList.add('on')); }
 function chooseHide(){ C.classList.remove('on'); setTimeout(()=>{ if(!C.classList.contains('on')) C.hidden=true; },700); }
+const Q=s=>document.querySelector(s);
+/* 17 Nov, his yes: "backstage v2 YES: polish the flagged calls, then build the cross slider into the site's film player, preloaded, instant". His words on it:
+   "no digital stumbles, so adding a switch to change is as clean as watching a video and pressing a button just brings up the backstage director channel.
+   no lag. no glitch. no loading error" and "turning a knob or a cross slider for the audio channel like they're doing it themselves adds a layer of interaction".
+   THE BACKSTAGE CROSS SLIDER. Two tracks of the same 90.5 s: the show mix (the film's own sound) and the backstage director channel (show-caller,
+   departments, camera director, comms, the show under them). Both are fetched and decoded while the first page waits, so nothing loads on a switch.
+   One clock: the film video. The video plays muted and both tracks run in Web Audio, started at the video's own time and kept on it (drift is
+   measured several times a second; small drift is trimmed by a rate change too small to hear, a jump such as a seek or a stall restarts both tracks
+   at the video's time with a 20 ms crossfade). The slider is an equal-power crossfade between the two, so the middle is both at full presence.
+   If the tracks cannot load or decode, the slider never appears and the film plays its own sound exactly as before. */
+const XS={files:['f39/track-show.mp3','f39/track-backstage.mp3'],ctx:null,buf:[null,null],ready:false,failed:false,x:0,set:null,gA:null,gB:null,out:null,
+  pv:-1,pn:0,mv:false,dh:[],raf:0,iv:0,stats:{starts:0,resyncs:0,maxd:0}};
+function xsUse(){ return XS.ready&&!XS.failed&&!!XS.ctx; }
+/* the film's own sound is silenced by volume 0 where the browser allows it (desktop, Android): the video then keeps its own audio clock, which runs
+   smoothly while the 3D model loads behind it (a muted video's clock stops on every late frame). iPhones and iPads do not allow volume changes: muted there. */
+function xsQuiet(v){ try{ v.volume=0; }catch(e){} if(v.volume!==0) v.muted=true; else v.muted=false; }
+function xsSilent(v){ return v.muted||v.volume===0; }
+function xsInit(){ const AC=window.AudioContext||window.webkitAudioContext; if(!AC||!window.fetch||/[?&]noxs/.test(location.search)){ XS.failed=true; return; }
+  try{ XS.ctx=new AC(); }catch(e){ XS.failed=true; return; }
+  const c=XS.ctx; XS.out=c.createGain(); XS.out.connect(c.destination); XS.gA=c.createGain(); XS.gB=c.createGain(); XS.gA.connect(XS.out); XS.gB.connect(XS.out); xsMix(XS.x,true);
+  const dec=ab=>new Promise((res,rej)=>{ const p=c.decodeAudioData(ab,res,rej); if(p&&p.then) p.then(res,rej); });
+  const get=(u,i)=>fetch(u).then(r=>{ if(!r.ok) throw new Error(u+' '+r.status); return r.arrayBuffer(); }).then(dec).then(b=>{ XS.buf[i]=b; });
+  Promise.all(XS.files.map(get)).then(()=>{ XS.ready=true; xsUI(); xsLoop(); }).catch(e=>{ XS.failed=true; console.warn('backstage tracks',e); xsUI(); }); }
+// the slider position 0 (show) .. 1 (backstage), equal power
+function xsMix(x,now){ XS.x=Math.max(0,Math.min(1,x)); if(!XS.ctx) return; const a=Math.cos(XS.x*Math.PI/2), b=Math.sin(XS.x*Math.PI/2), t=XS.ctx.currentTime;
+  for(const [g,v] of [[XS.gA,a],[XS.gB,b]]){ try{ g.gain.cancelScheduledValues(t); if(now) g.gain.setValueAtTime(v,t); else g.gain.setTargetAtTime(v,t,0.012); }catch(e){ g.gain.value=v; } } }
+// the context time of the sample the listener hears right now
+function xsHeard(){ const c=XS.ctx; try{ const o=c.getOutputTimestamp&&c.getOutputTimestamp(); if(o&&o.contextTime>0&&o.performanceTime>0){ const h=o.contextTime+(performance.now()-o.performanceTime)/1000; if(h<=c.currentTime+0.01&&h>c.currentTime-0.5) return h; } }catch(e){}
+  return c.currentTime-Math.min(0.3,(c.baseLatency||0)+(c.outputLatency||0)); }
+function xsPos(s){ return s.p0+s.rate*(xsHeard()-s.t0); }   // track second being heard
+function xsFadeOut(s,at,f){ for(const g of [s.ga,s.gb]){ try{ g.gain.cancelScheduledValues(at); g.gain.setValueAtTime(g.gain.value,at); g.gain.linearRampToValueAtTime(0,at+f); }catch(e){} }
+  for(const n of [s.a,s.b]){ try{ n.stop(at+f+0.02); }catch(e){} } setTimeout(()=>{ for(const n of [s.ga,s.gb]){ try{ n.disconnect(); }catch(e){} } },(at-XS.ctx.currentTime+f)*1000+400); }
+function xsStop(){ const s=XS.set; XS.set=null; XS.dh=[]; if(s) xsFadeOut(s,XS.ctx.currentTime,0.015); }
+function xsStart(f){ const v=FV.vid, c=XS.ctx; f=f||0.012; const old=XS.set;
+  const now=c.currentTime, when=now+0.025, lat=Math.max(0,now-xsHeard()), pos=v.currentTime+(when-now)+lat;   // where the picture will be when this sample reaches the ear
+  if(pos>=XS.buf[0].duration-0.05){ xsStop(); return; }
+  const s={rate:1,t0:when,p0:pos}; s.ga=c.createGain(); s.gb=c.createGain(); s.ga.connect(XS.gA); s.gb.connect(XS.gB);
+  s.a=c.createBufferSource(); s.a.buffer=XS.buf[0]; s.a.connect(s.ga); s.b=c.createBufferSource(); s.b.buffer=XS.buf[1]; s.b.connect(s.gb);
+  for(const g of [s.ga,s.gb]){ g.gain.setValueAtTime(0,when); g.gain.linearRampToValueAtTime(1,when+f); }
+  s.a.start(when,Math.max(0,pos)); s.b.start(when,Math.max(0,pos)); XS.set=s; XS.dh=[]; XS.stats.starts++;
+  if(old) xsFadeOut(old,when,f);
+  if(!xsSilent(v)){ const ms=Math.max(0,(when-now+lat)*1000); setTimeout(()=>{ if(XS.set===s) xsQuiet(v); },ms); } }   // hand-over from the video's own sound (only if Play came before the tracks were ready)
+function xsSetRate(s,r){ if(Math.abs(r-s.rate)<1e-5) return; const h=xsHeard(); s.p0=s.p0+s.rate*(h-s.t0); s.t0=h; s.rate=r; const t=XS.ctx.currentTime; for(const n of [s.a,s.b]){ try{ n.playbackRate.setValueAtTime(r,t); }catch(e){} } }
+// keeps the tracks on the picture: runs every frame while the film is on (and every 250 ms when the tab is in the back)
+function xsTick(){ const v=FV.vid, c=XS.ctx; if(!v||!xsUse()) return;
+  const now=performance.now(), vt=v.currentTime;
+  if(vt!==XS.pv){ XS.mv=vt>XS.pv&&vt-XS.pv<1; XS.pv=vt; XS.pn=now; } else if(now-XS.pn>150) XS.mv=false;   // the picture is moving: its clock advanced in the last 150 ms
+  const go=FV.want&&!v.paused&&!v.ended&&!v.seeking&&v.readyState>=3&&XS.mv&&c.state==='running';
+  if(!go){ if(XS.set) xsStop(); XS.ms=null; return; }
+  if(!XS.set){ const m0=XS.ms||(XS.ms={vt,t:now}), dv=vt-m0.vt, dt=(now-m0.t)/1000;   // the picture just started moving (Play, after a seek or a pause):
+    if((dv>=0.06&&dv/Math.max(dt,1e-3)>0.8)||dt>0.3){ XS.ms=null; xsStart(); } return; }   // start the sound once its clock runs steadily (60-300 ms)
+  const d=xsPos(XS.set)-vt; if(Math.abs(d)>XS.stats.maxd&&XS.dh.length>3) XS.stats.maxd=Math.abs(d);
+  XS.dh.push(d); if(XS.dh.length>3) XS.dh.shift(); if(XS.dh.length<3) return;
+  const m=[...XS.dh].sort((a,b)=>a-b)[1];   // median of the last three readings
+  const d2=XS.dh[XS.dh.length-2];
+  if(Math.abs(m)>0.025||(Math.abs(d)>0.025&&Math.abs(d2)>0.025&&d*d2>0)){ XS.stats.resyncs++; xsStart(0.025); return; }   // two readings past 25 ms the same way: the picture froze or jumped   // a jump (seek, stall, tab woke up): restart on the picture, crossfaded
+  xsSetRate(XS.set,Math.abs(m)<0.004?1:1-Math.max(-0.01,Math.min(0.01,m*0.5))); }   // small drift: at most 1 % speed for a moment (a sixth of a semitone), not heard
+function xsLoop(){ if(XS.iv) return; const f=()=>{ xsTick(); XS.raf=requestAnimationFrame(f); }; XS.raf=requestAnimationFrame(f); XS.iv=setInterval(xsTick,250);
+  const v=FV.vid; if(v) ['pause','waiting','seeking','emptied','ended','abort'].forEach(e=>v.addEventListener(e,()=>{ if(XS.set) xsStop(); XS.mv=false; }));
+  if(XS.ctx.onstatechange===null) XS.ctx.onstatechange=()=>{ if(XS.ctx.state!=='running'&&XS.set) xsStop(); }; }
+// the user's press of Play (or Replay) unlocks the sound on phones: resume the context in the same gesture; on iPhones also ask for the media
+// sound channel, so the ring/silent switch does not mute the tracks (the film's own sound plays through it too)
+function xsGesture(){ if(!XS.ctx) return; try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){}
+  try{ if(!navigator.audioSession&&(/iP(hone|ad|od)/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1))&&!XS.unl){ const a=new Audio('data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=='); a.loop=true; a.setAttribute('playsinline',''); const p=a.play(); if(p&&p.catch) p.catch(()=>{}); XS.unl=a; } }catch(e){}
+  try{ XS.out.gain.value=window.__quiet?0:1; const p=XS.ctx.resume(); if(p&&p.catch) p.catch(()=>{}); }catch(e){} }
+// the slider on the film: Show on the left, Backstage on the right; drag it, tap a side to glide there, or use the arrow keys
+function xsUI(){ const I=Q('#intro'); if(!I) return; let w=Q('#xsl');
+  if(!w){ w=document.createElement('div'); w.id='xsl'; w.innerHTML='<button type="button" class="xl" data-x="0" aria-label="Listen to the show"><b>Show</b></button><div class="xtr" role="slider" tabindex="0" aria-label="Sound: the show or the backstage channel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="The show"><i class="xslot"></i><i class="xmid"></i><i class="xfill"></i><i class="xknob"></i></div><button type="button" class="xr" data-x="1" aria-label="Listen to the backstage channel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><path d="M4 14h3v6H5a1 1 0 0 1-1-1zM20 14h-3v6h2a1 1 0 0 0 1-1z"/><path d="M17 20c0 1.2-2 2-4 2"/></svg><b>Backstage</b><i class="xdot"></i></button>'; I.appendChild(w); xsWire(w); }
+  w.hidden=!xsUse(); I.classList.toggle('xs-on',xsUse()); xsShow(); }
+function xsShow(){ const w=Q('#xsl'); if(!w) return; const x=XS.x, tr=w.querySelector('.xtr');
+  w.style.setProperty('--x',x.toFixed(4)); w.classList.toggle('bk',x>0.5); w.querySelector('.xl').classList.toggle('on',x<0.6); w.querySelector('.xr').classList.toggle('on',x>0.4);
+  tr.setAttribute('aria-valuenow',Math.round(x*100)); tr.setAttribute('aria-valuetext',x<0.15?'The show':x>0.85?'Backstage':'Both, '+Math.round(x*100)+' % backstage'); }
+function xsSet(x,glide){ cancelAnimationFrame(XS.gl||0); if(!glide){ xsMix(x); xsShow(); return; }
+  const x0=XS.x, t0=performance.now(), T=320; const f=()=>{ const k=Math.min(1,(performance.now()-t0)/T), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; xsMix(x0+(x-x0)*e); xsShow(); if(k<1) XS.gl=requestAnimationFrame(f); }; f(); }
+function xsWire(w){ const tr=w.querySelector('.xtr'); let drag=false;
+  const at=e=>{ const r=tr.getBoundingClientRect(), k=14; return (e.clientX-r.left-k)/Math.max(1,r.width-2*k); };
+  tr.addEventListener('pointerdown',e=>{ drag=true; try{ tr.setPointerCapture(e.pointerId); }catch(_){} xsSet(at(e)); xsWake(); e.preventDefault(); });
+  tr.addEventListener('pointermove',e=>{ if(drag){ xsSet(at(e)); xsWake(); } });
+  const up=()=>{ if(!drag) return; drag=false; if(XS.x<0.04) xsSet(0); else if(XS.x>0.96) xsSet(1); }; tr.addEventListener('pointerup',up); tr.addEventListener('pointercancel',up); tr.addEventListener('lostpointercapture',up);
+  tr.addEventListener('keydown',e=>{ const k=e.key, s=e.shiftKey?0.25:0.1; let x=null; if(k==='ArrowRight'||k==='ArrowUp') x=XS.x+s; else if(k==='ArrowLeft'||k==='ArrowDown') x=XS.x-s; else if(k==='Home') x=0; else if(k==='End') x=1; if(x!==null){ e.preventDefault(); xsSet(Math.round(Math.max(0,Math.min(1,x))*100)/100,k==='Home'||k==='End'); xsWake(); } });
+  w.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ const t=+b.dataset.x; xsSet(XS.x===t?1-t:t,true); xsWake(); }));   /* a tap on a side glides there; a second tap on the side you are on glides back */
+  const I=Q('#intro'); ['pointermove','pointerdown','touchstart'].forEach(ev=>I.addEventListener(ev,xsWake,{passive:true})); }
+window.__xs={XS,get FV(){ return FV; },set:x=>xsSet(x),pos:()=>XS.set?xsPos(XS.set):null,heard:()=>xsHeard()};   // for the automated checks (read-only use)
+function xsEnd(){ if(XS.unl){ try{ XS.unl.pause(); }catch(e){} XS.unl=null; } }
+function xsWake(){ const w=Q('#xsl'); if(!w) return; w.classList.remove('idle'); clearTimeout(XS.idle); XS.idle=setTimeout(()=>w.classList.add('idle'),3500); }
 // a phone held in the hand (touch screen, small side under 600 px): the film opens in the phone's own full-screen player
 const isPhone=()=>{ try{ return matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=600; }catch(e){ return false; } };
 function setup(){ if(FV.vid) return FV.vid; let v=$('introVid'); if(!v){ v=document.createElement('video'); v.id='introVid'; I.insertBefore(v,I.querySelector('.ip')); }
@@ -316,18 +420,20 @@ function setup(){ if(FV.vid) return FV.vid; let v=$('introVid'); if(!v){ v=docum
 let sk=$('introSkip'); if(!sk){ sk=document.createElement('button'); sk.id='introSkip'; sk.type='button'; sk.textContent='Skip'; I.appendChild(sk); } sk.hidden=false;   /* v23f: his note, the visitor sees just the play button and the small Skip in the corner */
 /* 16 Nov, his report: "theres no sound on the website". Whenever the film is running silent, a clear button brings the sound on. */
 let sb=$('introSnd'); if(!sb){ sb=document.createElement('button'); sb.id='introSnd'; sb.type='button'; sb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>Turn the sound on</span>'; sb.hidden=true; I.appendChild(sb); }
-function sndCheck(){ const v=FV.vid; sb.hidden=!(v&&FV.want&&!v.paused&&v.muted&&!window.__quiet); }
-sb.addEventListener('click',()=>{ const v=FV.vid; if(v){ v.muted=false; v.volume=1; const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } sb.hidden=true; });
-function done(){ const v=FV.vid; if(!FV.want&&I.hidden) return; FV.want=false; IN.playing=false;
+function sndCheck(){ const v=FV.vid, silent=xsUse()?XS.ctx.state!=='running':(v&&(v.muted||v.volume===0)); sb.hidden=!(v&&FV.want&&!v.paused&&silent&&!window.__quiet); }   /* with the backstage slider the video is silent on purpose: the sound is missing only when the audio context is not running */
+sb.addEventListener('click',()=>{ const v=FV.vid; if(xsUse()){ xsGesture(); if(v){ const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } sb.hidden=true; return; } if(v){ v.muted=false; v.volume=1; const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } sb.hidden=true; });
+function done(){ const v=FV.vid; if(!FV.want&&I.hidden) return; FV.want=false; IN.playing=false; xsEnd();
   if(v){ try{ v.pause(); }catch(e){} try{ if(v.webkitDisplayingFullscreen) v.webkitExitFullscreen(); }catch(e){} v.setAttribute('playsinline',''); v.playsInline=true; }
   if(IN.fs){ IN.fs=false; try{ if(document.fullscreenElement) document.exitFullscreen().catch(()=>{}); }catch(e){} }
   I.classList.add('gone'); sk.hidden=true; sb.hidden=true; setTimeout(()=>{ I.hidden=true; I.classList.remove('playing'); },800);
   window.__norender=false; if(IN.hooks.done) IN.hooks.done(); chooseShow(); IN.boot(); }
-function startPlay(v){ v.muted=false; const pr=v.play(); if(pr&&pr.catch) pr.catch(e=>{ if(e&&e.name==='NotAllowedError'&&FV.want){ v.muted=true; v.play().catch(()=>{}); } }); }   // muted only when the browser refuses sound; the button below then brings it on
+function startPlay(v){ if(xsUse()) xsQuiet(v); else { v.muted=false; v.volume=1; } const pr=v.play(); if(pr&&pr.catch) pr.catch(e=>{ if(xsUse()&&!v.muted){ v.play().catch(()=>{ v.muted=true; v.play().catch(()=>{}); }); return; } if(e&&e.name==='NotAllowedError'&&FV.want){ v.muted=true; v.play().catch(()=>{}); } }); }   // muted only when the browser refuses sound; the button below then brings it on
 function play(){ chooseHide(); I.hidden=false; I.classList.remove('gone'); I.classList.add('playing'); sk.hidden=false; IN.playing=true;
   window.__norender=true; if(IN.hooks.play) IN.hooks.play();
   const v=setup(); FV.want=true; if(v.currentTime>0){ try{ v.currentTime=0; }catch(e){} }
-  const phone=isPhone(), ios=phone&&v.webkitEnterFullscreen&&!(document.fullscreenEnabled&&I.requestFullscreen);
+  if(!XS.ctx&&!XS.failed) xsInit(); xsGesture(); xsWake();   /* the backstage tracks: unlock the sound in this press */
+  const phone=isPhone(), ios=phone&&v.webkitEnterFullscreen&&!(document.fullscreenEnabled&&I.requestFullscreen)&&!xsUse();   /* iPhone: with the slider ready the film plays in the page so the slider stays in reach */
+  if(ios) XS.failed=true;
   if(ios){ v.removeAttribute('playsinline'); v.playsInline=false; }   // iPhone: without playsinline, play() opens the phone's own full-screen player
   startPlay(v);   // in the same tap, nothing waited on before it, so the sound is allowed
   if(ios){ try{ if(v.readyState>=1&&!v.webkitDisplayingFullscreen) v.webkitEnterFullscreen(); }catch(e){} }
@@ -340,7 +446,7 @@ $('chAgain').addEventListener('click',play);
 C.addEventListener('click',e=>{ if(IN.isReady) return; const b=e.target.closest('#chTour,#chDesign'); if(!b) return; e.preventDefault(); e.stopImmediatePropagation(); IN.pending=b.id; chooseHide(); if(LD) LD.hidden=false; IN.boot(); },true);
 // links straight into the room (#look, #tour, #model, #film, test links) and ?nointro skip the film page: the room loads at once
 if(location.hash.length>1||/[?&]norefl|[?&]nointro/.test(location.search)){ IN.boot(); }
-else setup();
+else { setup(); try{ xsInit(); }catch(e){ XS.failed=true; } }   // fetch and decode both sound tracks while the first page waits
 })();
 </script>
 
