@@ -175,6 +175,19 @@ body.easy .top,body.easy .wrap,body.easy #ctl,body.easy #caption,body.easy #choo
 #introSkip{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:3;border:1px solid var(--line2);background:#0009;color:var(--text);border-radius:999px;padding:9px 16px;font:500 13px Outfit,Arial,sans-serif;cursor:pointer}
 #intro.playing .ip{display:none} #intro .poster{position:absolute;inset:0;background:#000 center/cover no-repeat;opacity:.9}
 #intro .poster::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,#0006 0%,#0000 45%,#0007 100%)}
+/* v40: the arrival film opens the page; at its end the same picture says Start the Show */
+#intro #arrVid{display:none} #intro.arr #arrVid{display:block;z-index:1} #intro.arr #introVid{display:none}
+#arrEnd{position:absolute;inset:0;z-index:5;pointer-events:none;animation:arrIn .9s ease both}
+#arrEnd[hidden]{display:none}
+@keyframes arrIn{from{opacity:0}to{opacity:1}}
+#ssBox{position:absolute;width:92px;height:92px}
+#ssLabel{position:absolute;left:50%;bottom:calc(100% + 14px);transform:translateX(-50%);white-space:nowrap;font:500 clamp(15px,2vw,24px) Outfit,Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#f6ecd6;text-shadow:0 2px 14px #000,0 0 4px #000;pointer-events:none}
+#startShow{pointer-events:auto;position:absolute;inset:0;width:100%;height:100%;border-radius:50%;border:2px solid var(--gold);background:#0008;color:var(--gold);display:grid;place-items:center;cursor:pointer;padding:0;transition:transform .15s,background .15s;animation:ssPulse 1.9s ease-in-out infinite}
+#startShow svg{width:38px;height:38px;margin-left:6px}
+#startShow:hover{transform:scale(1.06);background:#f0c35a22} #startShow:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@keyframes ssPulse{0%,100%{box-shadow:0 0 0 0 #f0c35a77}50%{box-shadow:0 0 0 16px #f0c35a00}}
+#intro.arr:not(.arr-end) #xsl{display:none!important} #intro.arr-end #xsl{opacity:1;pointer-events:auto}
+@media (prefers-reduced-motion:reduce){#startShow{animation:none}}
 @media (min-aspect-ratio:4/3){ #intro video{object-fit:cover} }
 #intro .ip{gap:clamp(10px,2.2vh,22px)}#intro .ip h1{order:1;font-size:clamp(24px,5.2vw,62px);letter-spacing:.14em;text-shadow:0 2px 22px #000c}#intro .ip small{order:2;font-size:clamp(14px,1.6vw,18px);letter-spacing:.06em;margin-top:-.3em;text-shadow:0 2px 14px #000c}/* 16 Nov, his note (the flat yellow disc was not stylish): dark glass, a thin gold ring, the arrow lit from inside, slow rings rippling out */#introPlay{order:3;margin-top:clamp(10px,3vh,34px);position:relative;width:clamp(96px,13vw,132px);height:clamp(96px,13vw,132px);border:1.5px solid #f0c35ad9;background:radial-gradient(circle at 50% 30%,#ffffff2e 0%,#17120a8c 55%,#0b0a0d99 100%);color:#f8d98a;-webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);box-shadow:0 0 0 8px #f0c35a12,0 18px 54px #000d,inset 0 1px 0 #ffffff55,inset 0 -12px 26px #0009;animation:none}#introPlay::before,#introPlay::after{content:'';position:absolute;inset:-1.5px;border-radius:50%;border:1px solid #f0c35a;opacity:0;pointer-events:none;animation:ipRing 3.4s cubic-bezier(.2,.6,.3,1) infinite}#introPlay::after{animation-delay:1.7s}@keyframes ipRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.8);opacity:0}}#introPlay svg{width:34%;height:34%;margin-left:7%;filter:drop-shadow(0 0 12px #f0c35a99)}#introPlay:hover{transform:scale(1.06);border-color:#ffe19a;background:radial-gradient(circle at 50% 30%,#ffffff45 0%,#2a2010a0 55%,#0b0a0d99 100%)}@media (prefers-reduced-motion:reduce){#introPlay::before,#introPlay::after{animation:none}}#intro .ip::after{content:'Play the film \00b7  90 seconds, with sound';order:4;font:500 clamp(12px,1.5vw,16px) Outfit,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#f6ecd6;text-shadow:0 2px 12px #000c}@keyframes ipPulse{0%{box-shadow:0 0 0 0 #f0c35a99,0 12px 40px #000a}70%{box-shadow:0 0 0 28px #f0c35a00,0 12px 40px #000a}100%{box-shadow:0 0 0 0 #f0c35a00,0 12px 40px #000a}}#intro .poster::after{background:radial-gradient(ellipse at center,#0008 0%,#0004 38%,#0000 70%)}#intro .poster{opacity:1}   /* the film's own first frame carries the name: the landing is the film and a play button */
 /* 17 Nov: the backstage cross slider on the film (z-film.js, XS): Show on the left, the backstage director channel on the right */
@@ -216,9 +229,9 @@ body.easy #room canvas{transition:opacity .7s} body.ezwait #room canvas{opacity:
 </style>
 <div id="room">
   <canvas id="gl" aria-label="Three-dimensional model of the Reverse Arena Theater. Drag to look around, scroll or pinch to move closer, tap a seat to sit there."></canvas>
-  <div id="intro"><div class="poster" style="background-image:url(film-poster-v24.jpg)"></div><div class="ver" style="position:absolute;left:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55);z-index:5">VERSION 39b</div>
+  <div id="intro"><div class="poster" style="background-image:url(arrival-poster.jpg)"></div><div class="ver" style="position:absolute;left:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55);z-index:5">VERSION 40a</div>
     <div class="ip"><small>Turn the sound up and press play.</small><h1>REVERSE ARENA THEATER</h1><button id="introPlay" type="button" aria-label="Play the film"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button></div></div>
-  <div id="choose" hidden><div class="ver" style="position:absolute;right:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55)">VERSION 39b</div><div class="ch-in"><small>REVERSE ARENA THEATER &middot; BARCELONA</small><h2>Step inside</h2>
+  <div id="choose" hidden><div class="ver" style="position:absolute;right:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55)">VERSION 40a</div><div class="ch-in"><small>REVERSE ARENA THEATER &middot; BARCELONA</small><h2>Step inside</h2>
     <div class="ch-row"><button type="button" id="chTour"><b>Watch the tour</b><span>The room, built piece by piece, with your host</span></button>
     <button type="button" id="chDesign"><b>Look around the room</b><span>Sit anywhere, turn the room, open the screens</span></button></div>
     <button type="button" id="chAgain" class="ch-link">Replay the film</button></div></div>
@@ -438,10 +451,23 @@ function play(){ chooseHide(); I.hidden=false; I.classList.remove('gone'); I.cla
   startPlay(v);   // in the same tap, nothing waited on before it, so the sound is allowed
   if(ios){ try{ if(v.readyState>=1&&!v.webkitDisplayingFullscreen) v.webkitEnterFullscreen(); }catch(e){} }
   else if(phone&&I.requestFullscreen){ IN.fs=true; I.requestFullscreen({navigationUI:'hide'}).catch(()=>{ IN.fs=false; }); } }   // Android: the film's own layer fills the screen, Skip and the sound button stay on it
-IN.play=play; IN.done=done;
-sk.addEventListener('click',done);
-$('introPlay').addEventListener('click',play);
-$('chAgain').addEventListener('click',play);
+IN.done=done;
+/* v40: the page opens on the arrival film. At its end the same picture says Start the Show (and the Show/Backstage slider is there); the button starts the show, the show ends on the menu, and the menu's Replay brings back the arrival film. */
+const AR={vid:null};
+{ const e=document.createElement('div'); e.id='arrEnd'; e.hidden=true; e.innerHTML='<div id="ssBox"><div id="ssLabel">Start the Show</div><button id="startShow" type="button" aria-label="Start the show"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button></div>'; I.appendChild(e); }
+function arrLayout(){ const v=AR.vid, b=$('ssBox'); if(!b) return; const vw=(v&&v.videoWidth)||1280, vh=(v&&v.videoHeight)||720, W=I.clientWidth, H=I.clientHeight, cover=W/H>=4/3, k=cover?Math.max(W/vw,H/vh):Math.min(W/vw,H/vh), rw=vw*k, rh=vh*k, ox=(W-rw)/2, oy=(H-rh)/2; const D=92; const cx=ox+rw*0.5, cy=Math.max(H*0.42,Math.min(H*0.8,oy+rh*0.62)); b.style.width=b.style.height=D+'px'; b.style.left=(cx-D/2)+'px'; b.style.top=(cy-D/2)+'px'; }
+window.addEventListener('resize',()=>{ if(!$('arrEnd').hidden) arrLayout(); });
+function arrSetup(){ if(AR.vid) return AR.vid; const v=document.createElement('video'); v.id='arrVid'; v.src='f39/arrival.mp4'; v.setAttribute('playsinline',''); v.playsInline=true; v.preload='auto'; v.poster='arrival-poster.jpg'; I.insertBefore(v,I.querySelector('.ip')); v.addEventListener('ended',arrEnd); AR.vid=v; return v; }
+function arrEnd(){ if(!I.classList.contains('arr')||I.classList.contains('arr-end')) return; I.classList.add('arr-end'); $('arrEnd').hidden=false; arrLayout(); sk.hidden=true; sb.hidden=true; if(!XS.ctx&&!XS.failed) xsInit(); xsUI(); xsWake(); }
+function arrPlay(){ chooseHide(); FV.want=false; I.hidden=false; I.classList.remove('gone','arr-end'); I.classList.add('playing','arr'); $('arrEnd').hidden=true; sk.hidden=false; sb.hidden=true; IN.playing=true; window.__norender=true; if(IN.hooks.play) IN.hooks.play();
+  const v=arrSetup(); try{ v.currentTime=0; }catch(e){} v.muted=false; v.volume=1; const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{ v.muted=true; v.play().catch(()=>{}); });
+  if(!XS.ctx&&!XS.failed) xsInit(); if(XS.ctx) xsGesture(); }
+function arrToShow(){ const v=AR.vid; if(v){ try{ v.pause(); }catch(e){} } $('arrEnd').hidden=true; I.classList.remove('arr','arr-end'); play(); }
+$('startShow').addEventListener('click',arrToShow);
+IN.play=arrPlay; IN.playShow=play; IN.arrEnd=arrEnd;
+sk.addEventListener('click',()=>{ if(I.classList.contains('arr')){ const v=AR.vid; if(v){ try{ v.pause(); if(v.duration) v.currentTime=Math.max(0,v.duration-0.05); }catch(e){} } arrEnd(); return; } done(); });
+$('introPlay').addEventListener('click',arrPlay);
+$('chAgain').addEventListener('click',arrPlay);
 // a choice pressed before the room has loaded waits on a clean "Setting the room" screen, then goes ahead by itself
 C.addEventListener('click',e=>{ if(IN.isReady) return; const b=e.target.closest('#chTour,#chDesign'); if(!b) return; e.preventDefault(); e.stopImmediatePropagation(); IN.pending=b.id; chooseHide(); if(LD) LD.hidden=false; IN.boot(); },true);
 // links straight into the room (#look, #tour, #model, #film, test links) and ?nointro skip the film page: the room loads at once
