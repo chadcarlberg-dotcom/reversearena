@@ -177,6 +177,7 @@ body.easy .top,body.easy .wrap,body.easy #ctl,body.easy #caption,body.easy #choo
 #intro .poster::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,#0006 0%,#0000 45%,#0007 100%)}
 /* v40: the arrival film opens the page; at its end the same picture says Start the Show */
 #intro #arrVid{display:none} #intro.arr #arrVid{display:block;z-index:1} #intro.arr #introVid{display:none}
+#arrVid{transition:opacity .8s ease} #intro.arr-out #introVid{display:block} #intro.arr-out #arrVid{opacity:0;z-index:2;pointer-events:none}
 #arrEnd{position:absolute;inset:0;z-index:5;pointer-events:none;animation:arrIn .9s ease both}
 #arrEnd[hidden]{display:none}
 @keyframes arrIn{from{opacity:0}to{opacity:1}}
@@ -413,7 +414,7 @@ function xsWake(){ const w=Q('#xsl'); if(!w) return; w.classList.remove('idle');
 // a phone held in the hand (touch screen, small side under 600 px): the film opens in the phone's own full-screen player
 const isPhone=()=>{ try{ return matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=600; }catch(e){ return false; } };
 function setup(){ if(FV.vid) return FV.vid; let v=$('introVid'); if(!v){ v=document.createElement('video'); v.id='introVid'; I.insertBefore(v,I.querySelector('.ip')); }
-  v.setAttribute('playsinline',''); v.playsInline=true; v.preload='auto'; v.poster='film-poster-v24.jpg'; FV.vid=v;
+  v.setAttribute('playsinline',''); v.playsInline=true; v.preload='auto'; FV.vid=v;   /* no poster: the show dissolves in from the arrival film's last frame */
   /* v30: the film ends on a fade to black at 60.5 s; the closing title comes up over the black, as at the end of the long cut */
   { let tt=I.querySelector('.vtitle'); if(!tt){ tt=document.createElement('div'); tt.className='vtitle'; tt.style.cssText='position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;z-index:3;pointer-events:none;opacity:0;color:#f6ecd6;transition:opacity .25s linear';
       tt.innerHTML='<div style="font:400 clamp(26px,5vw,54px) Marcellus,\'Times New Roman\',serif;letter-spacing:.14em">REVERSE ARENA THEATER</div><div style="margin-top:10px;font:400 clamp(12px,1.9vw,20px) Outfit,Arial,sans-serif;letter-spacing:.6em;color:#f0c35a">BARCELONA</div>'; I.appendChild(tt); }
@@ -459,10 +460,11 @@ function arrLayout(){ const v=AR.vid, b=$('ssBox'); if(!b) return; const vw=(v&&
 window.addEventListener('resize',()=>{ if(!$('arrEnd').hidden) arrLayout(); });
 function arrSetup(){ if(AR.vid) return AR.vid; const v=document.createElement('video'); v.id='arrVid'; v.src='f39/arrival.mp4'; v.setAttribute('playsinline',''); v.playsInline=true; v.preload='auto'; v.poster='arrival-poster.jpg'; I.insertBefore(v,I.querySelector('.ip')); v.addEventListener('ended',arrEnd); AR.vid=v; return v; }
 function arrEnd(){ if(!I.classList.contains('arr')||I.classList.contains('arr-end')) return; I.classList.add('arr-end'); $('arrEnd').hidden=false; arrLayout(); sk.hidden=true; sb.hidden=true; if(!XS.ctx&&!XS.failed) xsInit(); xsUI(); xsWake(); }
-function arrPlay(){ chooseHide(); FV.want=false; I.hidden=false; I.classList.remove('gone','arr-end'); I.classList.add('playing','arr'); $('arrEnd').hidden=true; sk.hidden=false; sb.hidden=true; IN.playing=true; window.__norender=true; if(IN.hooks.play) IN.hooks.play();
+function arrPlay(){ chooseHide(); FV.want=false; I.hidden=false; clearTimeout(AR.out); I.classList.remove('gone','arr-end','arr-out'); I.classList.add('playing','arr'); $('arrEnd').hidden=true; sk.hidden=false; sb.hidden=true; IN.playing=true; window.__norender=true; if(IN.hooks.play) IN.hooks.play();
   const v=arrSetup(); try{ v.currentTime=0; }catch(e){} v.muted=false; v.volume=1; const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{ v.muted=true; v.play().catch(()=>{}); });
   if(!XS.ctx&&!XS.failed) xsInit(); if(XS.ctx) xsGesture(); }
-function arrToShow(){ const v=AR.vid; if(v){ try{ v.pause(); }catch(e){} } $('arrEnd').hidden=true; I.classList.remove('arr','arr-end'); play(); }
+function arrToShow(){ const v=AR.vid; if(v){ try{ v.pause(); }catch(e){} } $('arrEnd').hidden=true; I.classList.remove('arr-end'); I.classList.add('arr-out'); play();   /* the last frame of the arrival film dissolves into the show: no jump */
+  clearTimeout(AR.out); AR.out=setTimeout(()=>{ I.classList.remove('arr','arr-out'); },900); }
 $('startShow').addEventListener('click',arrToShow);
 IN.play=arrPlay; IN.playShow=play; IN.arrEnd=arrEnd;
 sk.addEventListener('click',()=>{ if(I.classList.contains('arr')){ const v=AR.vid; if(v){ try{ v.pause(); if(v.duration) v.currentTime=Math.max(0,v.duration-0.05); }catch(e){} } arrEnd(); return; } done(); });
