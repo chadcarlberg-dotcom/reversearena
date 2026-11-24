@@ -136,6 +136,8 @@ body.clean #filmBtn{background:var(--gold);color:#140e05;border-color:var(--gold
 /* intro: the page opens on the film; when it ends (or on Skip) the 3D model takes over */
 #choose{position:fixed;inset:0;z-index:40;display:grid;place-items:center;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));background:radial-gradient(ellipse at 50% 60%,#0b0a10aa,#050508e6);opacity:0;transition:opacity .7s}
 #choose.on{opacity:1}
+#choose{background:radial-gradient(ellipse at 50% 60%,#0b0a10aa,#050508e6),url(menu-room.jpg) center/cover no-repeat #050508}
+#loading.cover{position:fixed;inset:0;left:0;top:0;transform:none;display:grid;place-items:center;z-index:45;background:radial-gradient(ellipse at 50% 60%,#0b0a10cc,#050508f0),url(menu-room.jpg) center/cover no-repeat #050508}
 #choose .ch-in{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;max-width:760px;width:100%}
 #choose small{font:500 12px Outfit,Arial,sans-serif;letter-spacing:.4em;color:var(--gold)}
 #choose h2{margin:0;font:400 clamp(26px,4vw,44px) Marcellus,'Times New Roman',serif;letter-spacing:.1em;color:#f6ecd6}
@@ -240,9 +242,9 @@ body.easy #room canvas{transition:opacity .7s} body.ezwait #room canvas{opacity:
 </style>
 <div id="room">
   <canvas id="gl" aria-label="Three-dimensional model of the Reverse Arena Theater. Drag to look around, scroll or pinch to move closer, tap a seat to sit there."></canvas>
-  <div id="intro"><div class="poster" style="background-image:url(title-card.jpg)"></div><div class="ver" style="position:absolute;left:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55);z-index:5">VERSION 40i</div>
+  <div id="intro"><div class="poster" style="background-image:url(title-card.jpg)"></div><div class="ver" style="position:absolute;left:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55);z-index:5">VERSION 40j</div>
     <div class="ip"><button id="introPlay" type="button" aria-label="Play the film"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button></div></div>
-  <div id="choose" hidden><div class="ver" style="position:absolute;right:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55)">VERSION 40i</div><div class="ch-in"><small>REVERSE ARENA THEATER &middot; BARCELONA</small><h2>Step inside</h2>
+  <div id="choose" hidden><div class="ver" style="position:absolute;right:14px;bottom:10px;font:500 11px Outfit,system-ui,sans-serif;letter-spacing:.16em;color:rgba(255,255,255,.55)">VERSION 40j</div><div class="ch-in"><small>REVERSE ARENA THEATER &middot; BARCELONA</small><h2>Step inside</h2>
     <div class="ch-row"><button type="button" id="chTour"><b>Watch the tour</b><span>The room, built piece by piece, with your host</span></button>
     <button type="button" id="chDesign"><b>Look around the room</b><span>Sit anywhere, turn the room, open the screens</span></button></div>
     <button type="button" id="chAgain" class="ch-link">Replay the film</button></div></div>
@@ -315,6 +317,7 @@ body.easy #room canvas{transition:opacity .7s} body.ezwait #room canvas{opacity:
     </div>
   </div>
 </div>
+<script src="hls.light.min.js"></script>
 <script>window.__D3=["https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Reflector.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js", "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/utils/SkeletonUtils.js", "model3d-v33.js"];
 /* 17 Nov, his call (phone fix): on arrival the page loads only what the film needs: this script, the poster and the film. The 3D room
    (three.js, the models, the characters, the holo videos, the music) is requested only after the film ends or is skipped, or straight away when a
@@ -360,7 +363,7 @@ function xsInit(){ const AC=window.AudioContext||window.webkitAudioContext; if(!
   const get=(u,i)=>fetch(u).then(r=>{ if(!r.ok) throw new Error(u+' '+r.status); return r.arrayBuffer(); }).then(dec).then(b=>{ XS.buf[i]=b; });
   const go=()=>Promise.all(XS.files.map(get)).then(()=>{ XS.ready=true; xsUI(); xsLoop(); }).catch(e=>{ XS.failed=true; console.warn('backstage tracks',e); xsUI(); });
   /* v40i: while the arrival film is still filling its buffer, the two backstage tracks wait their turn (they are only needed at its end) */
-  const t0=Date.now(), wait=()=>{ const v=window.AR_vid&&window.AR_vid(); let ahead=99; try{ if(v&&!v.ended&&v.buffered.length) ahead=v.buffered.end(v.buffered.length-1)-v.currentTime; else if(v&&!v.ended) ahead=0; }catch(e){}
+  const t0=Date.now(), wait=()=>{ const v=(FV.want&&FV.vid)||(window.AR_vid&&window.AR_vid()); let ahead=99; try{ if(v&&!v.ended&&v.buffered.length) ahead=v.buffered.end(v.buffered.length-1)-v.currentTime; else if(v&&!v.ended) ahead=0; }catch(e){}
     if(ahead>=25||(v&&v.duration&&v.currentTime>v.duration*0.5)||Date.now()-t0>60000) go(); else setTimeout(wait,1000); }; wait(); }
 // the slider position 0 (show) .. 1 (backstage), equal power
 function xsMix(x,now){ XS.x=Math.max(0,Math.min(1,x)); if(!XS.ctx) return; const a=Math.cos(XS.x*Math.PI/2), b=Math.sin(XS.x*Math.PI/2), t=XS.ctx.currentTime;
@@ -428,19 +431,30 @@ function xsWake(){ const w=Q('#xsl'); if(!w) return; w.classList.remove('idle');
 const isPhone=()=>{ try{ return matchMedia('(pointer:coarse)').matches&&Math.min(screen.width,screen.height)<=600; }catch(e){ return false; } };
 /* v40i, 24 Nov (a friend's phone stuttered): phones and slow connections get the lighter copies of the same films; a film that stalls for 2.5 s steps down to the lighter copy where it stopped */
 const SMALL=(()=>{ try{ const c=navigator.connection; return isPhone()||!!(c&&(c.saveData||/2g|3g/.test(c.effectiveType||'')||(c.downlink&&c.downlink<4))); }catch(e){ return isPhone(); } })();
-function rescue(v,go){ v.addEventListener('waiting',()=>{ clearTimeout(v._rs); v._rs=setTimeout(()=>{ if(!v.paused&&!v.seeking&&v.readyState<3) go(); },2500); }); ['playing','pause','seeking'].forEach(e=>v.addEventListener(e,()=>clearTimeout(v._rs))); }
+function rescue(v,go){ v.addEventListener('waiting',()=>{ clearTimeout(v._rs); v._rs=setTimeout(()=>{ if(v._st) return; if(!v.paused&&!v.seeking&&v.readyState<3) go(); },2500); }); ['playing','pause','seeking'].forEach(e=>v.addEventListener(e,()=>clearTimeout(v._rs))); }
+/* v40j, 24 Nov, his call: both films stream at the best quality each viewer's connection can carry, stepping up or down as it changes (1080/720/480 for the show, 720/540/360 for the arrival film).
+   Safari and iPhone play the stream themselves; other browsers use the small player file hls.light.min.js. If the stream cannot play, the plain film file is used as before. */
+function stream(v,name,mp4,auto){ const url='f39/hls/'+name+'/master.m3u8', ua=navigator.userAgent;
+  const native=!!v.canPlayType('application/vnd.apple.mpegurl'), apple=/iPhone|iPad|iPod/.test(ua)||(/Safari/.test(ua)&&!/Chrome|Chromium|Edg|Firefox|Android/.test(ua));
+  const back=()=>{ const t=v.currentTime||0, was=!v.paused; if(v._hls){ try{ v._hls.destroy(); }catch(_){} v._hls=null; } v._st=null; v.src=mp4; v.load(); v.addEventListener('loadedmetadata',()=>{ try{ if(t>.5) v.currentTime=t; }catch(_){} if(was){ const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } },{once:true}); };
+  if(native&&(apple||!(window.Hls&&Hls.isSupported()))){ v._st='native'; v.src=url; v.addEventListener('error',()=>{ if(v._st==='native'&&v.error) back(); }); return; }
+  if(window.Hls&&Hls.isSupported()){ const h=new Hls({autoStartLoad:!!auto,startLevel:-1,capLevelToPlayerSize:true,maxBufferLength:30,maxMaxBufferLength:60}); v._st='hls'; v._hls=h; h.loadSource(url); h.attachMedia(v);
+    h.on(Hls.Events.ERROR,(e,d)=>{ if(!d.fatal) return; if(d.type===Hls.ErrorTypes.NETWORK_ERROR&&!v._hlsRetry){ v._hlsRetry=1; h.startLoad(); return; } if(d.type===Hls.ErrorTypes.MEDIA_ERROR&&!v._hlsMed){ v._hlsMed=1; h.recoverMediaError(); return; } back(); });
+    return; }
+  v.src=mp4; }
+function streamGo(v){ if(v&&v._hls&&!v._hlsGo){ v._hlsGo=1; try{ const a=window.AR_vid&&window.AR_vid(); if(a&&a._hls&&a._hls.bandwidthEstimate){ const bw=a._hls.bandwidthEstimate; v._hls.bandwidthEstimate=bw; let pick=-1, best=0; v._hls.levels.forEach((l,i)=>{ const r=l.averageBitrate||l.bitrate; if(r<bw*0.75&&r>best){ best=r; pick=i; } }); if(pick<0){ let lo=1e12; v._hls.levels.forEach((l,i)=>{ if(l.bitrate<lo){ lo=l.bitrate; pick=i; } }); } v._hls.startLevel=pick; } }catch(e){} v._hls.startLoad(-1); } else if(v&&v._st==='native') v.preload='auto'; }
 function setup(){ if(FV.vid) return FV.vid; let v=$('introVid'); if(!v){ v=document.createElement('video'); v.id='introVid'; I.insertBefore(v,I.querySelector('.ip')); }
   v.setAttribute('playsinline',''); v.playsInline=true; v.preload='metadata'; FV.vid=v;   /* no poster: the show dissolves in from the arrival film's last frame */
   /* v30: the film ends on a fade to black at 60.5 s; the closing title comes up over the black, as at the end of the long cut */
   { let tt=I.querySelector('.vtitle'); if(!tt){ tt=document.createElement('div'); tt.className='vtitle'; tt.style.cssText='position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;z-index:3;pointer-events:none;opacity:0;color:#f6ecd6;transition:opacity .25s linear';
       tt.innerHTML='<div style="font:400 clamp(26px,5vw,54px) Marcellus,\'Times New Roman\',serif;letter-spacing:.14em">REVERSE ARENA THEATER</div><div style="margin-top:10px;font:400 clamp(12px,1.9vw,20px) Outfit,Arial,sans-serif;letter-spacing:.6em;color:#f0c35a">BARCELONA</div>'; I.appendChild(tt); }
     v.addEventListener('timeupdate',()=>{ const d=v.duration||60.5; tt.style.opacity=String(Math.max(0,Math.min(1,-1 /* V39: the full film carries its own end title */))); }); v.addEventListener('play',()=>{ if(v.currentTime<1) tt.style.opacity='0'; }); }
-  v.src=SMALL?'f39/film720.mp4':'f39/film1080.mp4';
+  stream(v,'show',SMALL?'f39/film720.mp4':'f39/film1080.mp4',false);
   // the smaller file only if the big one cannot be played at all; it picks up where the film stopped, and keeps the sound if the browser allows
   const fallback=()=>{ if(FV.fell) return; const cur=v.currentSrc||v.src||''; const nx=/film1080/.test(cur)?'f39/film720.mp4':'f39/film480.mp4'; if(/film480/.test(cur)) return; if(nx.indexOf('480')>0) FV.fell=true; FV.switching=Date.now(); const t=v.currentTime||0;
     v.src=nx; v.load(); if(t>.5) v.addEventListener('loadedmetadata',()=>{ try{ v.currentTime=t; }catch(e){} },{once:true});
     if(FV.want) startPlay(v); };
-  FV.fallback=fallback; v.addEventListener('error',()=>{ if(!FV.fell&&v.error) fallback(); }); rescue(v,()=>{ if(FV.want) fallback(); });
+  FV.fallback=fallback; v.addEventListener('error',()=>{ if(!v._st&&!FV.fell&&v.error) fallback(); }); rescue(v,()=>{ if(FV.want) fallback(); });
   v.addEventListener('ended',done);
   ['playing','volumechange','timeupdate','pause'].forEach(e=>v.addEventListener(e,sndCheck));
   // leaving the phone's full-screen player (the Done button, or a swipe down) ends the film and brings the choice screen; a switch to the single file can drop full screen by itself and does not count
@@ -456,11 +470,11 @@ function done(){ const v=FV.vid; if(!FV.want&&I.hidden) return; FV.want=false; I
   if(v){ try{ v.pause(); }catch(e){} try{ if(v.webkitDisplayingFullscreen) v.webkitExitFullscreen(); }catch(e){} v.setAttribute('playsinline',''); v.playsInline=true; }
   if(IN.fs){ IN.fs=false; try{ if(document.fullscreenElement) document.exitFullscreen().catch(()=>{}); }catch(e){} }
   I.classList.add('gone'); sk.hidden=true; sb.hidden=true; setTimeout(()=>{ I.hidden=true; I.classList.remove('playing'); },800);
-  window.__norender=false; if(IN.hooks.done) IN.hooks.done(); chooseShow(); IN.boot(); }
+  window.__norender=false; if(IN.hooks.done) IN.hooks.done(); chooseShow(); }   /* v40j: the room loads only when a visitor presses Watch the tour or Look around the room */
 function startPlay(v){ if(xsUse()) xsQuiet(v); else { v.muted=false; v.volume=1; } const pr=v.play(); if(pr&&pr.catch) pr.catch(e=>{ if(xsUse()&&!v.muted){ v.play().catch(()=>{ v.muted=true; v.play().catch(()=>{}); }); return; } if(e&&e.name==='NotAllowedError'&&FV.want){ v.muted=true; v.play().catch(()=>{}); } }); }   // muted only when the browser refuses sound; the button below then brings it on
 function play(){ chooseHide(); I.hidden=false; I.classList.remove('gone'); I.classList.add('playing'); sk.hidden=false; IN.playing=true;
   window.__norender=true; if(IN.hooks.play) IN.hooks.play();
-  const v=setup(); FV.want=true; if(v.currentTime>0){ try{ v.currentTime=0; }catch(e){} }
+  const v=setup(); streamGo(v); FV.want=true; if(v.currentTime>0){ try{ v.currentTime=0; }catch(e){} }
   if(!XS.ctx&&!XS.failed) xsInit(); xsGesture(); xsWake();   /* the backstage tracks: unlock the sound in this press */
   const phone=isPhone(), ios=phone&&v.webkitEnterFullscreen&&!(document.fullscreenEnabled&&I.requestFullscreen);   /* iPhone: with the slider ready the film plays in the page so the slider stays in reach */
   if(ios) XS.failed=true;
@@ -474,13 +488,13 @@ const AR={vid:null}; window.AR_vid=()=>AR.vid;
 { const e=document.createElement('div'); e.id='arrEnd'; e.hidden=true; e.innerHTML='<div id="ssBox"><div id="ssLabel">Start the Show</div><button id="startShow" type="button" aria-label="Start the show"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button></div>'; I.appendChild(e); }
 function arrLayout(){ const v=AR.vid, b=$('ssBox'); if(!b) return; const vw=(v&&v.videoWidth)||1280, vh=(v&&v.videoHeight)||720, W=I.clientWidth, H=I.clientHeight, cover=W/H>=4/3, k=cover?Math.max(W/vw,H/vh):Math.min(W/vw,H/vh), rw=vw*k, rh=vh*k, ox=(W-rw)/2, oy=(H-rh)/2; const D=92; const cx=ox+rw*0.5, cy=Math.max(H*0.36,Math.min(H*0.74,oy+rh*0.54)); b.style.width=b.style.height=D+'px'; b.style.left=(cx-D/2)+'px'; b.style.top=(cy-D/2)+'px'; }
 window.addEventListener('resize',()=>{ if(!$('arrEnd').hidden) arrLayout(); });
-function arrSetup(){ if(AR.vid) return AR.vid; const v=document.createElement('video'); v.id='arrVid'; v.src=SMALL?'f39/arrival540.mp4?v=40i':'f39/arrival.mp4?v=40h'; v.setAttribute('playsinline',''); v.playsInline=true; v.preload='auto'; v.poster='title-card.jpg'; I.insertBefore(v,I.querySelector('.ip')); v.addEventListener('ended',arrEnd);
+function arrSetup(){ if(AR.vid) return AR.vid; const v=document.createElement('video'); v.id='arrVid'; stream(v,'arr',SMALL?'f39/arrival540.mp4?v=40i':'f39/arrival.mp4?v=40h',true); v.setAttribute('playsinline',''); v.playsInline=true; v.preload='auto'; v.poster='title-card.jpg'; I.insertBefore(v,I.querySelector('.ip')); v.addEventListener('ended',arrEnd);
   if(!SMALL) rescue(v,()=>{ if(AR.fell) return; AR.fell=true; AR.switching=Date.now(); const t=v.currentTime||0; v.src='f39/arrival540.mp4?v=40i'; v.load(); v.addEventListener('loadedmetadata',()=>{ try{ v.currentTime=t; }catch(e){} const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); },{once:true}); });
-  v.addEventListener('timeupdate',()=>{ const s=FV.vid; if(s&&s.preload!=='auto'&&v.duration&&v.currentTime>v.duration*0.6){ s.preload='auto'; } });
+  v.addEventListener('timeupdate',()=>{ const s=FV.vid; if(s&&!s._go&&v.duration&&v.currentTime>v.duration*0.6){ s._go=1; s.preload='auto'; streamGo(s); } });
   v.addEventListener('webkitendfullscreen',()=>{ if(AR.switching&&Date.now()-AR.switching<4000) return; if(I.classList.contains('arr')&&!I.classList.contains('arr-end')){ try{ v.pause(); }catch(e){} arrEnd(); } }); AR.vid=v; return v; }
-function arrEnd(){ if(!I.classList.contains('arr')||I.classList.contains('arr-end')) return; I.classList.add('arr-end'); { const v=AR.vid; if(v){ try{ if(v.webkitDisplayingFullscreen) v.webkitExitFullscreen(); }catch(e){} v.setAttribute('playsinline',''); v.playsInline=true; } } $('arrEnd').hidden=false; arrLayout(); sk.hidden=true; sb.hidden=true; if(!XS.ctx&&!XS.failed) xsInit(); xsUI(); xsWake(); }
+function arrEnd(){ if(!I.classList.contains('arr')||I.classList.contains('arr-end')) return; I.classList.add('arr-end'); { const a=AR.vid; if(a&&a._hls){ try{ a._hls.stopLoad(); a._stopped=1; }catch(e){} } } { const v=AR.vid; if(v){ try{ if(v.webkitDisplayingFullscreen) v.webkitExitFullscreen(); }catch(e){} v.setAttribute('playsinline',''); v.playsInline=true; } } $('arrEnd').hidden=false; arrLayout(); sk.hidden=true; sb.hidden=true; if(!XS.ctx&&!XS.failed) xsInit(); xsUI(); xsWake(); }
 function arrPlay(){ chooseHide(); FV.want=false; I.hidden=false; clearTimeout(AR.out); I.classList.remove('gone','arr-end','arr-out'); I.classList.add('playing','arr'); $('arrEnd').hidden=true; sk.hidden=false; sb.hidden=true; IN.playing=true; window.__norender=true; if(IN.hooks.play) IN.hooks.play();
-  const v=arrSetup(); try{ v.currentTime=0; }catch(e){} v.muted=false; v.volume=1;
+  const v=arrSetup(); if(v._hls&&v._stopped){ v._stopped=0; try{ v._hls.startLoad(0); }catch(e){} } try{ v.currentTime=0; }catch(e){} v.muted=false; v.volume=1;
   const phone=isPhone(), ios=phone&&v.webkitEnterFullscreen&&!(document.fullscreenEnabled&&I.requestFullscreen);   /* phones: the phone's own full-screen player, no browser bar (his call, 23 Nov) */
   if(ios){ XS.failed=true; v.removeAttribute('playsinline'); v.playsInline=false; }
   const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{ v.muted=true; v.play().catch(()=>{}); });
@@ -500,7 +514,7 @@ I.addEventListener('click',e=>{ if(!I.classList.contains('playing')||I.classList
   else if(x<2/3){ if(v.paused){ if(XS.ctx) xsGesture(); const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } else v.pause(); } });
 $('chAgain').addEventListener('click',arrPlay);
 // a choice pressed before the room has loaded waits on a clean "Setting the room" screen, then goes ahead by itself
-C.addEventListener('click',e=>{ if(IN.isReady) return; const b=e.target.closest('#chTour,#chDesign'); if(!b) return; e.preventDefault(); e.stopImmediatePropagation(); IN.pending=b.id; chooseHide(); if(LD) LD.hidden=false; IN.boot(); },true);
+C.addEventListener('click',e=>{ if(IN.isReady) return; const b=e.target.closest('#chTour,#chDesign'); if(!b) return; e.preventDefault(); e.stopImmediatePropagation(); IN.pending=b.id; chooseHide(); if(LD){ LD.classList.add('cover'); LD.hidden=false; try{ new MutationObserver((m,o)=>{ if(LD.hidden){ LD.classList.remove('cover'); o.disconnect(); } }).observe(LD,{attributes:true,attributeFilter:['hidden']}); }catch(e){} } IN.boot(); },true);   /* v40j: the first room load sits on a full 'Setting the room' screen */
 // links straight into the room (#look, #tour, #model, #film, test links) and ?nointro skip the film page: the room loads at once
 if(location.hash.length>1||/[?&]norefl|[?&]nointro/.test(location.search)){ IN.boot(); }
 else { setup(); }   // v40i: the show film and the sound tracks load once the visitor presses play, so the arrival film has the connection to itself
